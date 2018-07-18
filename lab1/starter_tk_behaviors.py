@@ -15,8 +15,8 @@ import sys
 import time
 import threading
 import Tkinter as tk
-from HamsterAPI.comm_ble import RobotComm	# no dongle
-#from HamsterAPI.comm_usb import RobotComm	# yes dongle
+#from HamsterAPI.comm_ble import RobotComm	# no dongle
+from HamsterAPI.comm_usb import RobotComm	# yes dongle
 
 ################################
 # Hamster control
@@ -41,7 +41,7 @@ class RobotBehaviorThread(threading.Thread):
 					robot.set_wheel(1, 30)
 					#############################################
 					# END OF YOUR WORKING AREA!!!
-					#############################################					
+					#############################################
 		# stop robot activities, such as motion, LEDs and sound
 		# clean up after exit button pressed
 		if robot:
@@ -64,13 +64,13 @@ class GUI(object):
 		b2.pack(side='left')
 		b2.bind('<Button-1>', self.stopProg)
 		return
-	
+
 	def startProg(self, event=None):
 		self.robot_control.go = True
 		return
 
 	def stopProg(self, event=None):
-		self.robot_control.done = True		
+		self.robot_control.done = True
 		self.root.quit() 	# close window
 		return
 
@@ -83,7 +83,7 @@ def main():
     gMaxRobotNum = 1; # max number of robots to control
     comm = RobotComm(gMaxRobotNum)
     comm.start()
-    print 'Bluetooth starts'  
+    print 'Bluetooth starts'
     robotList = comm.robotList
 
     behaviors = RobotBehaviorThread(robotList)
