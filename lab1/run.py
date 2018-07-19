@@ -68,7 +68,7 @@ class RobotBehaviorThread(threading.Thread):
           #   wheel_right = 100
 
           # # Follow
-          if (proximity_left > 10 or proximity_right > 10):
+          if (proximity_left > 50 or proximity_right > 50):
             wheel_left = proximity_left *10
             wheel_right = proximity_right *10
           # # Line Follow
