@@ -57,7 +57,7 @@ class RobotBehaviorThread(threading.Thread):
           # if (proximity_left > 10 or proximity_right > 10):
           #   wheel_left = -proximity_left *10
           #   wheel_right = -proximity_right *10
-          # Dance
+          # Dance -- Tested
           # if proximity_left > 10: #too close
           #   wheel_left = -100
           # else:
@@ -67,20 +67,10 @@ class RobotBehaviorThread(threading.Thread):
           # else:
           #   wheel_right = 100
 
-          # if (proximity_left < 10 and proximity_left > 20): #10-20 too far
-          #   wheel_left = proximity_left*100
-          # elif (proximity_left < 0 and proximity_left > 10): #0-10 too close
-          #   wheel_left = -proximity_left*100
-
-          # if (proximity_right < 10 and proximity_right > 20): #10-20 too far
-          #   wheel_right = proximity_right*100
-          # elif (proximity_right < 0 and proximity_right > 10): #0-10 too close
-          #   wheel_right = -proximity_right*100
-
           # # Follow
-          # if (proximity > 10 and proximity<20): #10-20 too far
-          #   wheel_left = 100
-          #   wheel_right = 100
+          if (proximity_left > 10 or proximity_right > 10):
+            wheel_left = proximity_left *10
+            wheel_right = proximity_right *10
           # # Line Follow
           # if left_detection == True and right_detection == False:
           #   wheel_left = 50 #turning left
