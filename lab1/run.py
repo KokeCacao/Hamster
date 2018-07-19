@@ -27,63 +27,77 @@ class RobotBehaviorThread(threading.Thread):
     self.go = False
     self.done = False
     self.robotList = robotList
+
+
+    self.proximity_left = 0
+    self.proximity_right = 0
+    self.floor_left = 0
+    self.floor_right = 0
+    self.light = 0
+    self.wheel_left = 0
+    self.wheel_right = 0
+    self.left_detection = 0
+    self.right_detection = 0
     return
+
+  def quad(self, robot):
+    robot.set_wheel(0, 30)
+    robot.set_wheel(1, 30)
+    time.sleep(100) #run time
+    robot.set_wheel(0, 0)
+    time.sleep(100) #turn time
+  def shy(self, robot):
+    if (proximity_left > 10 or proximity_right > 10):
+      self.wheel_left = -self.proximity_left *10
+      self.wheel_right = -self.proximity_right *10
+
+  def dance(self, robot):
+    if self.proximity_left > 10: #too close
+      self.wheel_left = -100
+    else:
+      self.wheel_left = 100
+    if self.proximity_right > 10: #too close
+      self.wheel_right = -100
+    else:
+      self.wheel_right = 100
+
+  def follow(self, robot):
+    if (self.proximity_left > 20 or self.proximity_right > 20):
+        self.wheel_left = self.proximity_left *10
+        self.wheel_right = self.proximity_right *10
+
+  def line_follow(self, robot):
+    if self.left_detection == False and self.right_detection == True:
+       self.wheel_left = 10 #turning left
+       self.wheel_right = 50
+     elif self.left_detection == True and self.right_detection == False:
+        self.wheel_left = 50
+        self.wheel_right = 10 #turning right
+      else: # IDK what to do
+        self.wheel_left = 40
+        self.wheel_right = 40
 
   def run(self):
     robot=None
     while not self.done:
       for robot in self.robotList:
         if robot and self.go:
-          proximity_left = robot.get_proximity(0)
-          proximity_right = robot.get_proximity(1)
-          floor_left = robot.get_floor(0)
-          floor_right = robot.get_floor(1)
-          light = robot.get_light()
-          wheel_left = 0
-          wheel_right = 0
-          left_detection = (floor_left > 50)
-          right_detection = (floor_right > 50)
+          self.proximity_left = robot.get_proximity(0)
+          self.proximity_right = robot.get_proximity(1)
+          self.floor_left = robot.get_floor(0)
+          self.floor_right = robot.get_floor(1)
+          self.light = robot.get_light()
+          self.wheel_left = 0
+          self.wheel_right = 0
+          self.left_detection = (self.floor_left > 50)
+          self.right_detection = (self.floor_right > 50)
           #############################################
           # START OF YOUR WORKING AREA!!!
           #############################################
-          # Quad
-          # robot.set_wheel(0, 30)
-          # robot.set_wheel(1, 30)
-          # time.sleep(100) #run time
-          # robot.set_wheel(0, 0)
-          # time.sleep(100) #turn time
+          shy(self, robot)
 
-          # Shy -- Tested
-          # if (proximity_left > 10 or proximity_right > 10):
-          #   wheel_left = -proximity_left *10
-          #   wheel_right = -proximity_right *10
-          # Dance -- Tested
-          # if proximity_left > 10: #too close
-          #   wheel_left = -100
-          # else:
-          #   wheel_left = 100
-          # if proximity_right > 10: #too close
-          #   wheel_right = -100
-          # else:
-          #   wheel_right = 100
-
-          # Follow -- Tested
-          # if (proximity_left > 20 or proximity_right > 20):
-          #   wheel_left = proximity_left *10
-          #   wheel_right = proximity_right *10
-          # # Line Follow
-          if left_detection == False and right_detection == True:
-            wheel_left = 10 #turning left
-            wheel_right = 50
-          elif left_detection == True and right_detection == False:
-            wheel_left = 50
-            wheel_right = 10 #turning right
-          else: # IDK what to do
-            wheel_left = 10
-            wheel_right = 10
-
-          robot.set_wheel(0, wheel_left)
-          robot.set_wheel(1, wheel_right)
+          robot.set_wheel(0, self.wheel_left)
+          robot.set_wheel(1, self.wheel_right)
           #############################################
           # END OF YOUR WORKING AREA!!!
           #############################################
@@ -91,7 +105,7 @@ class RobotBehaviorThread(threading.Thread):
     # clean up after exit button pressed
     if robot:
       robot.reset()
-      time.sleep(0.1)
+      time.sleep(0.01)
     return
 
 class GUI(object):
