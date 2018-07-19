@@ -94,7 +94,7 @@ class RobotBehaviorThread(threading.Thread):
           #############################################
           # START OF YOUR WORKING AREA!!!
           #############################################
-          shy(self, robot)
+          self.shy(robot)
 
           robot.set_wheel(0, self.wheel_left)
           robot.set_wheel(1, self.wheel_right)
