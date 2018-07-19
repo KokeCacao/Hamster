@@ -73,14 +73,14 @@ class RobotBehaviorThread(threading.Thread):
           #   wheel_right = proximity_right *10
           # # Line Follow
           if left_detection == True and right_detection == False:
-            wheel_left = 50 #turning left
-            wheel_right = 100
+            wheel_left = 10 #turning left
+            wheel_right = 20
           elif left_detection == False and right_detection == True:
-            wheel_left = 100
-            wheel_right = 50 #turning right
+            wheel_left = 20
+            wheel_right = 10 #turning right
           else: # IDK what to do
-            wheel_left = 100
-            wheel_right = 100
+            wheel_left = 20
+            wheel_right = 20
 
           robot.set_wheel(0, wheel_left)
           robot.set_wheel(1, wheel_right)
