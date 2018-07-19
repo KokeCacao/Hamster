@@ -67,20 +67,20 @@ class RobotBehaviorThread(threading.Thread):
           # else:
           #   wheel_right = 100
 
-          # # Follow
-          if (proximity_left > 20 or proximity_right > 20):
-            wheel_left = proximity_left *10
-            wheel_right = proximity_right *10
+          # Follow -- Tested
+          # if (proximity_left > 20 or proximity_right > 20):
+          #   wheel_left = proximity_left *10
+          #   wheel_right = proximity_right *10
           # # Line Follow
-          # if left_detection == True and right_detection == False:
-          #   wheel_left = 50 #turning left
-          #   wheel_right = 100
-          # else if left_detection == False and right_detection == True:
-          #   wheel_left = 100
-          #   wheel_right = 50 #turning right
-          # else: # IDK what to do
-          #   wheel_left = 100
-          #   wheel_right = 100
+          if left_detection == True and right_detection == False:
+            wheel_left = 50 #turning left
+            wheel_right = 100
+          else if left_detection == False and right_detection == True:
+            wheel_left = 100
+            wheel_right = 50 #turning right
+          else: # IDK what to do
+            wheel_left = 100
+            wheel_right = 100
 
           robot.set_wheel(0, wheel_left)
           robot.set_wheel(1, wheel_right)
