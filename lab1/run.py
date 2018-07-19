@@ -40,14 +40,15 @@ class RobotBehaviorThread(threading.Thread):
     self.right_detection = 0
     return
 
-  def quad(self, robot):
-    robot.set_wheel(0, 30)
-    robot.set_wheel(1, 30)
+  def square(self, robot):
+    self.wheel_left = 50
+    self.wheel_right = 50
     time.sleep(100) #run time
-    robot.set_wheel(0, 0)
+    self.wheel_left = 50
+    self.wheel_right = 0
     time.sleep(100) #turn time
   def shy(self, robot):
-    if (proximity_left > 10 or proximity_right > 10):
+    if (self.proximity_left > 10 or self.proximity_right > 10):
       self.wheel_left = -self.proximity_left *10
       self.wheel_right = -self.proximity_right *10
 
@@ -94,7 +95,8 @@ class RobotBehaviorThread(threading.Thread):
           #############################################
           # START OF YOUR WORKING AREA!!!
           #############################################
-          self.shy(robot)
+          # self.shy(robot)
+          self.square(robot)
 
           robot.set_wheel(0, self.wheel_left)
           robot.set_wheel(1, self.wheel_right)
