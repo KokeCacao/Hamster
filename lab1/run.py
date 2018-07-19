@@ -99,7 +99,7 @@ class RobotBehaviorThread(threading.Thread):
           # self.shy(robot)
           # self.square(robot)
 
-          if self.task == -1: pass
+          if self.task == -1: self.follow(robot)
           if self.task == 0: self.square(robot)
           if self.task == 1: self.shy(robot)
           if self.task == 2: self.dance(robot)
@@ -135,28 +135,29 @@ class GUI(object):
 
     b3 = tk.Button(root, text='Square')
     b3.pack(side='left')
-    b3.bind('<Button-1>', self.setTask, (0))
+    b3.bind('<Button-1>', self.setTask, (task=0))
 
     b4 = tk.Button(root, text='Shy')
     b4.pack(side='left')
-    b4.bind('<Button-1>', self.setTask, (1))
+    b4.bind('<Button-1>', self.setTask, (task=1))
 
     b5 = tk.Button(root, text='Dance')
     b5.pack(side='left')
-    b5.bind('<Button-1>', self.setTask, (2))
+    b5.bind('<Button-1>', self.setTask, (task=2))
 
     b6 = tk.Button(root, text='Follow')
     b6.pack(side='left')
-    b6.bind('<Button-1>', self.setTask, (3))
+    b6.bind('<Button-1>', self.setTask, (task=3))
 
     b7 = tk.Button(root, text='FollowLine')
     b7.pack(side='left')
-    b7.bind('<Button-1>', self.setTask, (4))
+    b7.bind('<Button-1>', self.setTask, (task=4))
     return
 
   def setTask(self, task, event=None):
     self.robot_control.go = True
     self.robot_control.task = task
+    print ("set task to" + str(task))
     return
 
 
