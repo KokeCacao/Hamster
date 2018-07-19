@@ -43,10 +43,16 @@ class RobotBehaviorThread(threading.Thread):
   def square(self, robot):
     self.wheel_left = 50
     self.wheel_right = 50
-    time.sleep(100) #run time
+    robot.set_wheel(0, self.wheel_left)
+    robot.set_wheel(1, self.wheel_right)
+    time.sleep(2)
+
     self.wheel_left = 50
     self.wheel_right = 0
-    time.sleep(100) #turn time
+    robot.set_wheel(0, self.wheel_left)
+    robot.set_wheel(1, self.wheel_right)
+
+    time.sleep(0.5 * (90/35)) #turn time, 0.5=35 degree with 50,0 as speed
   def shy(self, robot):
     if (self.proximity_left > 10 or self.proximity_right > 10):
       self.wheel_left = -self.proximity_left *10
@@ -54,13 +60,13 @@ class RobotBehaviorThread(threading.Thread):
 
   def dance(self, robot):
     if self.proximity_left > 10: #too close
-      self.wheel_left = -100
+      self.wheel_left = -50
     else:
-      self.wheel_left = 100
+      self.wheel_left = 50
     if self.proximity_right > 10: #too close
-      self.wheel_right = -100
+      self.wheel_right = -50
     else:
-      self.wheel_right = 100
+      self.wheel_right = 50
 
   def follow(self, robot):
     if (self.proximity_left > 20 or self.proximity_right > 20):
