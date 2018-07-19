@@ -39,7 +39,6 @@ class RobotBehaviorThread(threading.Thread):
 					#############################################
 					robot.set_wheel(0, 30)
 					robot.set_wheel(1, 30)
-          time.sleep(100)
 					#############################################
 					# END OF YOUR WORKING AREA!!!
 					#############################################

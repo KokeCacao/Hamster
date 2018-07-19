@@ -46,26 +46,26 @@ class RobotBehaviorThread(threading.Thread):
           #############################################
           # START OF YOUR WORKING AREA!!!
           #############################################
+          # Quad
           # robot.set_wheel(0, 30)
           # robot.set_wheel(1, 30)
-     #      time.sleep(100) #run time
-     #      robot.set_wheel(0, 0)
-     #      time.sleep(100) #turn time
-          # Shy
+          # time.sleep(100) #run time
+          # robot.set_wheel(0, 0)
+          # time.sleep(100) #turn time
+
+          # Shy -- Tested
           # if (proximity_left > 10 or proximity_right > 10):
           #   wheel_left = -proximity_left *10
           #   wheel_right = -proximity_right *10
           # Dance
           if (proximity_left < 10 and proximity_left > 20): #10-20 too far
             wheel_left = proximity_left*100
-          else:
-          	if (proximity_left < 0 and proximity_left > 10): #0-10 too close
+          elif (proximity_left < 0 and proximity_left > 10): #0-10 too close
               wheel_left = -proximity_left*100
 
           if (proximity_right < 10 and proximity_right > 20): #10-20 too far
             wheel_right = proximity_right*100
-          else:
-          	if (proximity_right < 0 and proximity_right > 10): #0-10 too close
+          elif (proximity_right < 0 and proximity_right > 10): #0-10 too close
               wheel_right = -proximity_right*100
 
           # # Follow
