@@ -59,17 +59,27 @@ class RobotBehaviorThread(threading.Thread):
       self.wheel_right = -self.proximity_right *10
 
   def dance(self, robot):
+    # if self.proximity_left > 10: #too close
+    #   self.wheel_left = -50
+    # elif self.proximity_left < 5:
+    #   self.wheel_left = 0
+    # else:
+    #   self.wheel_left = 50
+    # if self.proximity_right > 10: #too close
+    #   self.wheel_right = -50
+    # elif self.proximity_right < 5:
+    #   self.wheel_right = 0
+    # else:
+    #   self.wheel_right = 50
+
     if self.proximity_left > 10: #too close
       self.wheel_left = -50
+      self.wheel_right = -50
     elif self.proximity_left < 5:
       self.wheel_left = 0
-    else:
-      self.wheel_left = 50
-    if self.proximity_right > 10: #too close
-      self.wheel_right = -50
-    elif self.proximity_right < 5:
       self.wheel_right = 0
     else:
+      self.wheel_left = 50
       self.wheel_right = 50
 
   def follow(self, robot):
