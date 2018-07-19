@@ -28,7 +28,7 @@ class RobotBehaviorThread(threading.Thread):
     self.done = False
     self.robotList = robotList
 
-
+    self.task = -1
     self.proximity_left = 0
     self.proximity_right = 0
     self.floor_left = 0
@@ -43,16 +43,11 @@ class RobotBehaviorThread(threading.Thread):
   def square(self, robot):
     self.wheel_left = 50
     self.wheel_right = 50
-    robot.set_wheel(0, self.wheel_left)
-    robot.set_wheel(1, self.wheel_right)
-    time.sleep(2)
-
+    time.sleep(100) #run time
     self.wheel_left = 50
     self.wheel_right = 0
-    robot.set_wheel(0, self.wheel_left)
-    robot.set_wheel(1, self.wheel_right)
+    time.sleep(100) #turn time
 
-    time.sleep(0.5 * (90/35)) #turn time, 0.5=35 degree with 50,0 as speed
   def shy(self, robot):
     if (self.proximity_left > 10 or self.proximity_right > 10):
       self.wheel_left = -self.proximity_left *10
@@ -60,13 +55,13 @@ class RobotBehaviorThread(threading.Thread):
 
   def dance(self, robot):
     if self.proximity_left > 10: #too close
-      self.wheel_left = -50
+      self.wheel_left = -100
     else:
-      self.wheel_left = 50
+      self.wheel_left = 100
     if self.proximity_right > 10: #too close
-      self.wheel_right = -50
+      self.wheel_right = -100
     else:
-      self.wheel_right = 50
+      self.wheel_right = 100
 
   def follow(self, robot):
     if (self.proximity_left > 20 or self.proximity_right > 20):
@@ -102,7 +97,14 @@ class RobotBehaviorThread(threading.Thread):
           # START OF YOUR WORKING AREA!!!
           #############################################
           # self.shy(robot)
-          self.square(robot)
+          # self.square(robot)
+
+          if self.task = -1: pass
+          if self.task = 0: self.square(robot)
+          if self.task = 1: self.shy(robot)
+          if self.task = 2: self.dance(robot)
+          if self.task = 3: self.follow(robot)
+          if self.task = 4: self.line_follow(robot)
 
           robot.set_wheel(0, self.wheel_left)
           robot.set_wheel(1, self.wheel_right)
@@ -120,7 +122,7 @@ class GUI(object):
   def __init__(self, root, robot_control):
     self.root = root
     self.robot_control = robot_control
-    root.geometry('250x30')
+    root.geometry('500x30')
     root.title('Hamster Control')
 
     b1 = tk.Button(root, text='Go')
@@ -130,7 +132,33 @@ class GUI(object):
     b2 = tk.Button(root, text='Exit')
     b2.pack(side='left')
     b2.bind('<Button-1>', self.stopProg)
+
+    b3 = tk.Button(root, text='Square')
+    b3.pack(side='left')
+    b3.bind('<Button-1>', self.setTask, (0))
+
+    b4 = tk.Button(root, text='Shy')
+    b4.pack(side='left')
+    b4.bind('<Button-1>', sself.setTask, (1))
+
+    b5 = tk.Button(root, text='Dance')
+    b5.pack(side='left')
+    b5.bind('<Button-1>', self.setTask, (2))
+
+    b6 = tk.Button(root, text='Follow')
+    b6.pack(side='left')
+    b6.bind('<Button-1>', self.setTask, (3))
+
+    b7 = tk.Button(root, text='FollowLine')
+    b7.pack(side='left')
+    b7.bind('<Button-1>', self.setTask, (4))
     return
+
+  def setTask(self, task, event=None):
+    self.robot_control.go = True
+    self.robot_control.task = task
+    return
+
 
   def startProg(self, event=None):
     self.robot_control.go = True
