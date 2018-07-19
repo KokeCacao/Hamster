@@ -43,11 +43,16 @@ class RobotBehaviorThread(threading.Thread):
   def square(self, robot):
     self.wheel_left = 50
     self.wheel_right = 50
-    time.sleep(100) #run time
+    robot.set_wheel(0, self.wheel_left)
+    robot.set_wheel(1, self.wheel_right)
+    time.sleep(2)
+
     self.wheel_left = 50
     self.wheel_right = 0
-    time.sleep(100) #turn time
+    robot.set_wheel(0, self.wheel_left)
+    robot.set_wheel(1, self.wheel_right)
 
+    time.sleep(0.5 * (90/35)) #turn time, 0.5=35 degree with 50,0 as speed
   def shy(self, robot):
     if (self.proximity_left > 10 or self.proximity_right > 10):
       self.wheel_left = -self.proximity_left *10
@@ -55,18 +60,18 @@ class RobotBehaviorThread(threading.Thread):
 
   def dance(self, robot):
     if self.proximity_left > 10: #too close
-      self.wheel_left = -100
+      self.wheel_left = -50
     else:
-      self.wheel_left = 100
+      self.wheel_left = 50
     if self.proximity_right > 10: #too close
-      self.wheel_right = -100
+      self.wheel_right = -50
     else:
-      self.wheel_right = 100
+      self.wheel_right = 50
 
   def follow(self, robot):
     if (self.proximity_left > 20 or self.proximity_right > 20):
-        self.wheel_left = self.proximity_left *10
-        self.wheel_right = self.proximity_right *10
+        self.wheel_right = self.proximity_left *10
+        self.wheel_left = self.proximity_right *10
 
   def line_follow(self, robot):
     if self.left_detection == False and self.right_detection == True:
@@ -96,15 +101,23 @@ class RobotBehaviorThread(threading.Thread):
           #############################################
           # START OF YOUR WORKING AREA!!!
           #############################################
-          # self.shy(robot)
-          # self.square(robot)
-
-          if self.task == -1: self.follow(robot)
           if self.task == 0: self.square(robot)
           if self.task == 1: self.shy(robot)
           if self.task == 2: self.dance(robot)
           if self.task == 3: self.follow(robot)
           if self.task == 4: self.line_follow(robot)
+          # switch={
+          # -1: self.dance(robot),
+          # 0: self.square(robot),
+          # 1: self.shy(robot),
+          # 2: self.dance(robot),
+          # 3: self.follow(robot),
+          # 4: self.line_follow(robot)
+          # }
+          # # self.shy(robot)
+          # # self.square(robot)
+          # if self.task != -1:
+          #   switch[self.task](robot)
 
           robot.set_wheel(0, self.wheel_left)
           robot.set_wheel(1, self.wheel_right)
@@ -129,40 +142,54 @@ class GUI(object):
     b1.pack(side='left')
     b1.bind('<Button-1>', self.startProg)
 
-    b2 = tk.Button(root, text='Exit')
+    b2 = tk.Button(root, text='Square')
     b2.pack(side='left')
-    b2.bind('<Button-1>', self.stopProg)
+    b2.bind('<Button-1>', self.task0)
 
-    b3 = tk.Button(root, text='Square')
+    b3 = tk.Button(root, text='Shy')
     b3.pack(side='left')
-    b3.bind('<Button-1>', self.setTask, (task=0))
+    b3.bind('<Button-1>', self.task1)
 
-    b4 = tk.Button(root, text='Shy')
+    b4 = tk.Button(root, text='Dance')
     b4.pack(side='left')
-    b4.bind('<Button-1>', self.setTask, (task=1))
+    b4.bind('<Button-1>', self.task2)
 
-    b5 = tk.Button(root, text='Dance')
+    b5 = tk.Button(root, text='Follow')
     b5.pack(side='left')
-    b5.bind('<Button-1>', self.setTask, (task=2))
+    b5.bind('<Button-1>', self.task3)
 
-    b6 = tk.Button(root, text='Follow')
+    b6 = tk.Button(root, text='FollowLine')
     b6.pack(side='left')
-    b6.bind('<Button-1>', self.setTask, (task=3))
+    b6.bind('<Button-1>', self.task4)
 
-    b7 = tk.Button(root, text='FollowLine')
+    b7 = tk.Button(root, text='Exit')
     b7.pack(side='left')
-    b7.bind('<Button-1>', self.setTask, (task=4))
+    b7.bind('<Button-1>', self.stopProg)
     return
-
-  def setTask(self, task, event=None):
-    self.robot_control.go = True
-    self.robot_control.task = task
-    print ("set task to" + str(task))
-    return
-
 
   def startProg(self, event=None):
     self.robot_control.go = True
+    return
+
+  def task0(self, event=None):
+    self.robot_control.go = True
+    self.robot_control.task = 0
+    return
+  def task1(self, event=None):
+    self.robot_control.go = True
+    self.robot_control.task = 1
+    return
+  def task2(self, event=None):
+    self.robot_control.go = True
+    self.robot_control.task = 2
+    return
+  def task3(self, event=None):
+    self.robot_control.go = True
+    self.robot_control.task = 3
+    return
+  def task4(self, event=None):
+    self.robot_control.go = True
+    self.robot_control.task = 4
     return
 
   def stopProg(self, event=None):
