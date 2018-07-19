@@ -99,12 +99,12 @@ class RobotBehaviorThread(threading.Thread):
           # self.shy(robot)
           # self.square(robot)
 
-          if self.task = -1: pass
-          if self.task = 0: self.square(robot)
-          if self.task = 1: self.shy(robot)
-          if self.task = 2: self.dance(robot)
-          if self.task = 3: self.follow(robot)
-          if self.task = 4: self.line_follow(robot)
+          if self.task == -1: pass
+          if self.task == 0: self.square(robot)
+          if self.task == 1: self.shy(robot)
+          if self.task == 2: self.dance(robot)
+          if self.task == 3: self.follow(robot)
+          if self.task == 4: self.line_follow(robot)
 
           robot.set_wheel(0, self.wheel_left)
           robot.set_wheel(1, self.wheel_right)
@@ -139,7 +139,7 @@ class GUI(object):
 
     b4 = tk.Button(root, text='Shy')
     b4.pack(side='left')
-    b4.bind('<Button-1>', sself.setTask, (1))
+    b4.bind('<Button-1>', self.setTask, (1))
 
     b5 = tk.Button(root, text='Dance')
     b5.pack(side='left')
