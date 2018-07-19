@@ -75,7 +75,7 @@ class RobotBehaviorThread(threading.Thread):
           if left_detection == True and right_detection == False:
             wheel_left = 50 #turning left
             wheel_right = 100
-          else if left_detection == False and right_detection == True:
+          elif left_detection == False and right_detection == True:
             wheel_left = 100
             wheel_right = 50 #turning right
           else: # IDK what to do
