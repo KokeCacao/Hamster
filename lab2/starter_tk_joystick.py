@@ -257,16 +257,16 @@ class UI(object):
     def keydown(self, event):
         key = event.keycode
         # small, big
-        if key == 97 or 64:
+        if key == 97 or key == 64:
             self.key_a = True
             print "key a"
-        if key == 115 or 83:
+        if key == 115 or key == 83:
             self.key_s = True
             print "key s"
-        if key == 119 or 87:
+        if key == 119 or key == 87:
             self.key_w = True
             print "key w"
-        if key == 100 or 68:
+        if key == 100 or key == 68:
             self.key_d = True
             print "key d"
 
@@ -278,16 +278,16 @@ class UI(object):
     def keyup(self, event):
         key = event.keycode
         # small, big
-        if key == 97 or 64:
+        if key == 97 or key == 64:
             self.key_a = False
             print "keyup a"
-        if key == 115 or 83:
+        if key == 115 or key == 83:
             self.key_s = False
             print "keyup s"
-        if key == 119 or 87:
+        if key == 119 or key == 87:
             self.key_w = False
             print "keyup w"
-        if key == 100 or 68:
+        if key == 100 or key == 68:
             self.key_d = False
             print "keyup d"
 
