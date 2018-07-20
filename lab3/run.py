@@ -139,8 +139,8 @@ class BehaviorThreads(object):
         print "debug: getting data from robot_motion_handler"
 
         event = motion_q.get()
-        type1 = event.type()
-        data = event.data()
+        type1 = event.type
+        data = event.data
 
         while (not self.quit) and (not self.finished):
             print("detected package")
