@@ -258,12 +258,16 @@ class UI(object):
         print "pressed", key
         if key == "a" or "A":
             self.key_a = True
+            print "key a"
         if key == "s" or "S":
             self.key_s = True
+            print "key s"
         if key == "w" or "W":
             self.key_w = True
+            print "key w"
         if key == "d" or "D":
             self.key_d = True
+            print "key d"
 
         self.key_refresh()
     #####################################################
@@ -271,16 +275,19 @@ class UI(object):
     #####################################################
     def keyup(self, event):
         key = repr(event.char)
-        print "up", key
 
         if key == "a" or "A":
             self.key_a = False
+            print "keyup a"
         if key == "s" or "S":
             self.key_s = False
+            print "keyup s"
         if key == "w" or "W":
             self.key_w = False
+            print "keyup w"
         if key == "d" or "D":
             self.key_d = False
+            print "keyup d"
         self.key_refresh()
 
     def key_refresh(self):
@@ -289,18 +296,20 @@ class UI(object):
         move_y = 0
 
         if self.key_w:
-            move_x = move_x+1
+            move_x = move_y+1
         if self.key_a:
-            move_y = move_y-1
+            move_y = move_x-1
         if self.key_d:
-            move_y = move_y+1
+            move_y = move_x+1
         if self.key_s:
-            move_x = move_x-1
+            move_x = move_y-1
 
         if move_x==0 and move_y==0:
             self.robot_handle.stop_move()
             pass
+
         degree = math.atan2(move_x,move_y)/math.pi*180
+        print "degree="+str(degree)
         if degree == 0:
             self.robot_handle.move_right()
         elif degree == 45:
