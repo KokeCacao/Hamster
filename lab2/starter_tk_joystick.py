@@ -68,7 +68,11 @@ class Robots(object):
         pass
 
     def reset_robot(self, event=None): # use Hamster API reset()
-        robot.reset()
+        if self.robotList:
+            for robot in self.robotList:
+                return robot.reset() # only get first robot
+        else:
+            print "waiting for robot"
 
 class UI(object):
     def __init__(self, root, robot_handle):
