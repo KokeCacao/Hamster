@@ -39,28 +39,28 @@ class Robots(object):
     def get_prox_l(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                return robot.get_get_proximity(0) # only get first robot
+                return robot.get_proximity(0) # only get first robot
         else:
             print "waiting for robot"
 
     def get_prox_r(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                return robot.get_get_proximity(1) # only get first robot
+                return robot.get_proximity(1) # only get first robot
         else:
             print "waiting for robot"
 
     def get_floor_l(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                return robot.get_get_floor(0) # only get first robot
+                return robot.get_floor(0) # only get first robot
         else:
             print "waiting for robot"
 
     def get_floor_r(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                return robot.get_get_floor(1) # only get first robot
+                return robot.get_floor(1) # only get first robot
         else:
             print "waiting for robot"
 
