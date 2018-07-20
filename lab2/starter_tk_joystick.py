@@ -222,15 +222,14 @@ class UI(object):
         prox_r_x = floorr_x2
         prox_r_y = floorr_y2 - floor_side
 
-        floor_l = 0
-        floor_r = 0
-        prox_l = 0
-        prox_r = 0
-
         floor_l = self.robot_handle.get_floor_l()
+        if floor_l == None: floor_l=0
         floor_r = self.robot_handle.get_floor_r()
+        if floor_r == None: floor_r=0
         prox_l = self.robot_handle.get_prox_l()
+        if prox_l == None: prox_l=0
         prox_r = self.robot_handle.get_prox_r()
+        if prox_r == None: prox_r=0
 
         self.floor_l_id.config(text="FloorLeft: " + str(floor_l))
         self.floor_r_id.config(text="FloorRight: " + str(floor_r))
