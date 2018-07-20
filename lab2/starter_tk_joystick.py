@@ -78,6 +78,7 @@ class UI(object):
         return
 
     def initUI(self):
+        import Tkinter as tk
         ###################################################################
         # Create a Hamster joystick window which contains
         # 1. a canvas widget where "sensor readings" are displayed
