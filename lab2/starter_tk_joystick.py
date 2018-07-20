@@ -139,24 +139,25 @@ class UI(object):
         prox_l = self.robot_handle.get_prox_l()
         prox_r = self.robot_handle.get_prox_r()
 
-        self.floor_l_id.config(text=str(floor_l))
-        self.floor_r_id.config(text=str(floor_r))
-        self.prox_l_id.config(text=str(prox_l))
-        self.prox_r_id.config(text=str(prox_r))
+        if floor_l and floor_r and prox_l and prox_r:
+            self.floor_l_id.config(text=str(floor_l))
+            self.floor_r_id.config(text=str(floor_r))
+            self.prox_l_id.config(text=str(prox_l))
+            self.prox_r_id.config(text=str(prox_r))
 
-        if floor_l > 50:
-            self.canvas.itemconfig(self.canvas_floorl_id, fill="white")
-        else:
-            self.canvas.itemconfig(self.canvas_floorl_id, fill="black")
-        if floor_r > 50:
-            self.canvas.itemconfig(self.canvas_floorr_id, fill="white")
-        else:
-            self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
+            if floor_l > 50:
+                self.canvas.itemconfig(self.canvas_floorl_id, fill="white")
+            else:
+                self.canvas.itemconfig(self.canvas_floorl_id, fill="black")
+            if floor_r > 50:
+                self.canvas.itemconfig(self.canvas_floorr_id, fill="white")
+            else:
+                self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
 
-        self.canvas.itemconfig(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
-        self.canvas.itemconfig(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
+            self.canvas.itemconfig(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
+            self.canvas.itemconfig(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
 
-        self.root.after(10, self.display_sensor())
+            self.root.after(10, self.display_sensor())
 
     ####################################################
     # Implement callback function when key press is detected
