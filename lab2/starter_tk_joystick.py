@@ -164,8 +164,8 @@ class UI(object):
             else:
                 self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
 
-            self.canvas.itemconfig(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
-            self.canvas.itemconfig(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
+            self.canvas.coords(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
+            self.canvas.coords(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
 
         self.root.after(100, self.display_sensor)
 
@@ -175,19 +175,19 @@ class UI(object):
     def keydown(self, event):
         print "pressed", repr(event.char)
         if repr(event.char) is "W" or "w":
-            self.robot.move_forward()
+            self.robot_handle.move_forward()
         elif repr(event.char) is "A" or "a":
-            self.robot.move_left()
+            self.robot_handle.move_left()
         elif repr(event.char) is "S" or "s":
-            self.robot.move_backward()
+            self.robot_handle.move_backward()
         elif repr(event.char) is "D" or "d":
-            self.robot.move_right()
+            self.robot_handle.move_right()
 
     #####################################################
     # Implement callback function when key release is detected
     #####################################################
     def keyup(self, event):
-        self.robot.stop_move()
+        self.robot_handle.stop_move()
 
     def stopProg(self, event=None):
         self.root.quit()    # close window
