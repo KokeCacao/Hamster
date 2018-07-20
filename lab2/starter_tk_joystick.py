@@ -108,6 +108,32 @@ class UI(object):
         # 4. a button for exit, i.e., a call to stopProg(), given in this class
         # 5. listen to key press and key release when focus is on this window
         ###################################################################
+        canvas_width = 1280/2
+        canvas_height = 720/2
+        robot_side = 100
+        robot_center_x = canvas_width/2
+        robot_center_y = canvas_height/2
+        robot_x1 = robot_center_x - robot_side
+        robot_y1 = robot_center_y - robot_side
+        robot_x2 = robot_center_x + robot_side
+        robot_y2 = robot_center_y + robot_side
+
+        floor_side = 10
+        floorl_x1 = robot_x1
+        floorl_y1 = robot_y1
+        floorl_x2 = robot_x1 + floor_side
+        floorl_y2 = robot_y1 + floor_side
+
+        floorr_x1 = robot_x1 + robot_side - floor_side
+        floorr_y1 = robot_y1
+        floorr_x2 = floorr_x1 + floor_side
+        floorr_y2 = floorr_y1 + floor_side
+
+        prox_l_x = floorl_x1
+        prox_l_y = floorl_y1
+        prox_r_x = floorr_x2
+        prox_r_y = floorr_y2 - floor_side
+
 
         self.exit = tk.Button(self.root, text='Exit', command=self.stopProg())
         self.exit.pack(side='left')
@@ -129,11 +155,11 @@ class UI(object):
         self.prox_r_id.pack()
 
         self.canvas = tk.Canvas(self.root, width=1280, height=720, bg="white")
-        self.canvas_robot_id = self.canvas.create_rectangle(615, 335, 665, 385, fill="gold")
-        self.canvas_floorl_id = self.canvas.create_rectangle(615+5, 335+5, 665+10, 385+10, fill="black")
-        self.canvas_floorr_id = self.canvas.create_rectangle(615+5+40, 335+5, 665+10+40, 385+10, fill="black")
-        self.canvas_proxl_id = self.canvas.create_line(615+5, 335+5, 615+5, 335+5+0, fill="black", width=4)
-        self.canvas_proxr_id = self.canvas.create_line(665+40, 385, 665+40, 385+0, fill="black", width=4)
+        self.canvas_robot_id = self.canvas.create_rectangle(robot_x1, robot_y1, robot_x2, robot_y2, fill="gold")
+        self.canvas_floorl_id = self.canvas.create_rectangle(floorl_x1, floorl_y1, floorl_x2, floorl_y2, fill="black")
+        self.canvas_floorr_id = self.canvas.create_rectangle(floorr_x1, floorr_y1, floorr_x2, floorr_y2, fill="black")
+        self.canvas_proxl_id = self.canvas.create_line(prox_l_x, prox_l_y, prox_l_x, prox_l_y, fill="black", width=4)
+        self.canvas_proxr_id = self.canvas.create_line(prox_r_x, prox_r_y, prox_r_x, prox_r_y, fill="black", width=4)
         self.canvas.pack()
 
         self.root.bind('<KeyPress>', self.keydown)
@@ -155,10 +181,10 @@ class UI(object):
         prox_r = self.robot_handle.get_prox_r()
 
         if floor_l or floor_r or prox_l or prox_r:
-            self.floor_l_id.config(text=str(floor_l))
-            self.floor_r_id.config(text=str(floor_r))
-            self.prox_l_id.config(text=str(prox_l))
-            self.prox_r_id.config(text=str(prox_r))
+            self.floor_l_id.config(text="FloorLeft: " + str(floor_l))
+            self.floor_r_id.config(text="FloorRight: " + str(floor_r))
+            self.prox_l_id.config(text="ProxLeft: " + str(prox_l))
+            self.prox_r_id.config(text="ProxRight: " + str(prox_r))
 
             if floor_l > 50:
                 self.canvas.itemconfig(self.canvas_floorl_id, fill="white")
@@ -169,8 +195,8 @@ class UI(object):
             else:
                 self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
 
-            self.canvas.coords(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
-            self.canvas.coords(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
+            self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - prox_l)
+            self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - prox_r)
 
         self.root.after(100, self.display_sensor)
 
