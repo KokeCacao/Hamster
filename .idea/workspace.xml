@@ -40,8 +40,8 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+            <state relative-caret-position="367">
+              <caret line="227" column="25" selection-start-line="227" selection-start-column="25" selection-end-line="227" selection-end-column="25" />
               <folding>
                 <element signature="e#2573#2722#0" />
                 <element signature="e#2795#3131#0" />
@@ -90,6 +90,7 @@
       <find>robot_motion_handler</find>
       <find>robot_event_firer</find>
       <find>t_robot_listener</find>
+      <find>robot_motion</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -256,8 +257,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+        <state relative-caret-position="367">
+          <caret line="227" column="25" selection-start-line="227" selection-start-column="25" selection-end-line="227" selection-end-column="25" />
           <folding>
             <element signature="e#2573#2722#0" />
             <element signature="e#2795#3131#0" />

@@ -55,7 +55,7 @@ class BehaviorThreads(object):
         ###################################
         # start a motion handler thread
         ###################################
-        temp_t_motion_listener = threading.Thread(name='t_motion_listener', target=self.robot_motion_handler, args=self.motion_q)
+        temp_t_motion_listener = threading.Thread(name='t_motion_listener', target=self.robot_motion_handler, args=(self.motion_q, ))
         temp_t_motion_listener.daemon = True
         temp_t_motion_listener.start()
         self.t_motion_listener = temp_t_motion_listener
@@ -153,7 +153,7 @@ class BehaviorThreads(object):
                     if self.go and robot:
                         self.get_out(robot)
                         with self.motion_q.mutex: self.motion_q.queue.clear()
-        return
+            time.sleep(0.01)
 
 class GUI(object):
     def __init__(self, root, threads_handle):
@@ -222,11 +222,12 @@ class GUI(object):
         self.canvas_proxr_id = self.canvas.create_line(prox_r_x, prox_r_y, prox_r_x, prox_r_y, fill="black", width=4)
         self.canvas.pack()
 
-        self.start = tk.Button(self.root, text='Start', commands=self.startRobot())
+        print "debug:startRobot()"
+        self.start = tk.Button(self.root, text='Start', command= lambda: self.startRobot())
         self.start.pack(side='left')
-        self.exit = tk.Button(self.root, text='Exit', commands=self.stopProg())
+        print "debug:stopRobot()"
+        self.exit = tk.Button(self.root, text='Exit', command= lambda: self.stopProg())
         self.exit.pack(side='left')
-        return
 
     def startRobot(self, event=None):
         self.t_handle.go = True
@@ -242,7 +243,6 @@ class GUI(object):
         self.t_handle.t_robot_listener.join()
         # self.t_alert_handler.join()
         self.root.quit()	# close GUI window
-        return
 
     ###################################################
     # Handles prox sensor display and warning(sound).
