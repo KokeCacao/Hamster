@@ -115,6 +115,12 @@ class UI(object):
 
         self.exit = None
 
+        self.key_w = False
+        self.key_a = False
+        self.key_s = False
+        self.key_d = False
+
+
         self.initUI()
         self.display_sensor()
         return
@@ -131,12 +137,12 @@ class UI(object):
         canvas_width = 1280/2
         canvas_height = 720/2
         robot_side = 100
-        robot_center_x = canvas_width/2
-        robot_center_y = canvas_height/2
-        robot_x1 = robot_center_x - robot_side
-        robot_y1 = robot_center_y - robot_side
-        robot_x2 = robot_center_x + robot_side
-        robot_y2 = robot_center_y + robot_side
+        robot_center_x = canvas_width
+        robot_center_y = canvas_height
+        robot_x1 = robot_center_x - robot_side/2
+        robot_y1 = robot_center_y - robot_side/2
+        robot_x2 = robot_center_x + robot_side/2
+        robot_y2 = robot_center_y + robot_side/2
 
         floor_side = 10
         floorl_x1 = robot_x1
@@ -251,20 +257,59 @@ class UI(object):
     ####################################################
     def keydown(self, event):
         print "pressed", repr(event.char)
-        if repr(event.char) is "W" or "w":
-            self.robot_handle.move_forward()
-        elif repr(event.char) is "A" or "a":
-            self.robot_handle.move_left()
-        elif repr(event.char) is "S" or "s":
-            self.robot_handle.move_backward()
-        elif repr(event.char) is "D" or "d":
-            self.robot_handle.move_right()
+        if str(event.char) is "A" or "a":
+            self.key_a = True
+        if str(event.char) is "S" or "s":
+            self.key_s = True
+        if str(event.char) is "W" or "w":
+            self.key_w = True
+        if str(event.char) is "D" or "d":
+            self.key_d = True
 
+        key_refresh(self)
     #####################################################
     # Implement callback function when key release is detected
     #####################################################
     def keyup(self, event):
-        self.robot_handle.stop_move()
+        print "up", repr(event.char)
+
+        if str(event.char) is "A" or "a":
+            self.key_a = False
+        if str(event.char) is "S" or "s":
+            self.key_s = False
+        if str(event.char) is "W" or "w":
+            self.key_w = False
+        if str(event.char) is "D" or "d":
+            self.key_d = False
+        key_refresh(self)
+
+    def key_refresh(self):
+        move_x = 0
+        move_y = 0
+
+        if self.key_w:
+            move_x = move_x+1
+        if self.key_a:
+            move_y = move_y-1
+        if self.key_d:
+            move_y = move_y+1
+        if self.key_s:
+            move_x = move_x-1
+
+        if move_x=0 and move_y=0:
+            self.robot_handle.stop_move()
+            pass
+        degree = math.atan2(move_x,move_y)/math.pi*180
+        if degree == 0:
+            self.robot_handle.move_right()
+        elif degree == 45:
+            self.robot_handle.move_right()
+        elif degree == 90:
+            self.robot_handle.move_forward()
+        elif degree == 135:
+            self.robot_handle.move_left()
+        else:
+            self.robot_handle.move_backward()
 
     def stopProg(self, event=None):
         self.root.quit()    # close window
