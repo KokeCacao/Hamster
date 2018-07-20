@@ -105,7 +105,7 @@ class UI(object):
         # 5. listen to key press and key release when focus is on this window
         ###################################################################
 
-        self.exit = tk.Button(root, text='Exit', command=self.stopProg())
+        self.exit = tk.Button(self.root, text='Exit', command=self.stopProg())
         self.exit.pack(side='left')
 
 
