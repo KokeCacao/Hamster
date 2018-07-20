@@ -110,8 +110,8 @@ class UI(object):
         self.canvas_proxr_id = self.canvas.create_line(665+40, 385, 665+40, 385+0, fill="black", width=4)
         self.canvas.pack()
 
-        root.bind('<KeyPress>', self.keydown)
-        root.bind('<KeyRelease>', self.keyup)
+        self.root.bind('<KeyPress>', self.keydown)
+        self.root.bind('<KeyRelease>', self.keyup)
 
     ######################################################
     # This function refreshes floor and prox sensor display every 100 milliseconds.
