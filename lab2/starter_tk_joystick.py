@@ -48,31 +48,31 @@ class Robots(object):
             temp_left = 0
             temp_right = 1
 
-            if 0 <= degree <= 180:  # front
-                if 180 >= degree > 90:  # left
-                    temp_left = (-degree + 180) * (100/90)
-                    temp_right = 100
-                elif degree == 90:  # straight
-                    temp_left = 100
-                    temp_right = 100
-                elif 90 > degree >= 0: # right
-                    temp_left = 100
-                    temp_right = degree * (100/90)
-            if 180 < degree < 360:
-                if 180 < degree < 270:
-                    temp_left = -(degree - 180) * (100/90)
-                    temp_right = -100
-                elif degree == 270:
-                    temp_left = -100
-                    temp_right = -100
-                elif 270 < degree < 360:
-                    temp_left = -100
-                    temp_right = -(-degree + 180) * (100/90)
+        if 0 <= degree <= 180:  # front
+            if 180 >= degree > 90:  # left
+                temp_left = (-degree + 180) * (100/90)
+                temp_right = 100
+            elif degree == 90:  # straight
+                temp_left = 100
+                temp_right = 100
+            elif 90 > degree >= 0: # right
+                temp_left = 100
+                temp_right = degree * (100/90)
+        if 180 < degree < 360:
+            if 180 < degree < 270:
+                temp_left = -(degree - 180) * (100/90)
+                temp_right = -100
+            elif degree == 270:
+                temp_left = -100
+                temp_right = -100
+            elif 270 < degree < 360:
+                temp_left = -100
+                temp_right = -(-degree + 180) * (100/90)
 
-            if self.robotList:
-                for robot in self.robotList:
-                    robot.set_wheel(0,temp_left)
-                    robot.set_wheel(1,temp_right)
+        if self.robotList:
+            for robot in self.robotList:
+                robot.set_wheel(0,temp_left)
+                robot.set_wheel(1,temp_right)
 
     def move_forward(self, event=None):
         if self.robotList:
