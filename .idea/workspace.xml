@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab3/starter_tk_escape.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/starter_tk_escape.py" afterDir="false" />
-    </list>
+    <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +55,8 @@
       <file leaf-file-name="starter_tk_escape.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-267">
-              <caret line="121" column="26" lean-forward="true" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
+            <state relative-caret-position="417">
+              <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -263,8 +261,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="121" column="26" lean-forward="true" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
+        <state relative-caret-position="417">
+          <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
         </state>
       </provider>
     </entry>
