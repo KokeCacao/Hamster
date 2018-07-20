@@ -312,7 +312,7 @@ class UI(object):
             self.robot_handle.stop_move()
             pass
 
-        degree = math.atan2(move_x,move_y)/math.pi*180
+        degree = math.atan2(move_y,move_x)/math.pi*180 #90, 90, -90, 180
         print "degree="+str(degree)+" and ("+str(move_x)+", "+str(move_y)+")"
         if degree == 0:
             self.robot_handle.move_right()
