@@ -46,6 +46,7 @@ class BehaviorThreads(object):
         self.t_robot_listener = None     # thread handles
         self.t_motion_listener = None
         # start a watcher thread
+        print("start detecting thread")
         temp_t_robot_listener = threading.Thread(name='t_robot_listener', target=self.robot_event_firer, args=(self.alert_q, self.motion_q))
         temp_t_robot_listener.daemon = True
         temp_t_robot_listener.start()
@@ -88,7 +89,9 @@ class BehaviorThreads(object):
     def robot_event_firer(self, alert_q, motion_q):  # thread
         count = 0
         # logging.debug('starting...')
+        print("start fire events")
         while (not self.quit) and (not self.finished):
+            print("fire")
             for robot in self.robot_list:
                 if self.go and robot:
                     prox_l = robot.get_proximity(0)
@@ -138,6 +141,7 @@ class BehaviorThreads(object):
         data = event.data()
 
         while (not self.quit) and (not self.finished):
+            print("detected package")
             if type == "obstacle":
                 for robot in self.robot_list:
                     if self.go and robot:
