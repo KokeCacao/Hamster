@@ -255,13 +255,13 @@ class UI(object):
     ####################################################
     def keydown(self, event):
         print "pressed", repr(event.char)
-        if str(event.char) is "A" or "a":
+        if str(event.char) == "a":
             self.key_a = True
-        if str(event.char) is "S" or "s":
+        if str(event.char) == "s":
             self.key_s = True
-        if str(event.char) is "W" or "w":
+        if str(event.char) == "w":
             self.key_w = True
-        if str(event.char) is "D" or "d":
+        if str(event.char) == "d":
             self.key_d = True
 
         self.key_refresh()
@@ -271,13 +271,13 @@ class UI(object):
     def keyup(self, event):
         print "up", repr(event.char)
 
-        if str(event.char) is "A" or "a":
+        if str(event.char) == "a":
             self.key_a = False
-        if str(event.char) is "S" or "s":
+        if str(event.char) == "s":
             self.key_s = False
-        if str(event.char) is "W" or "w":
+        if str(event.char) == "w":
             self.key_w = False
-        if str(event.char) is "D" or "d":
+        if str(event.char) == "d":
             self.key_d = False
         self.key_refresh()
 
