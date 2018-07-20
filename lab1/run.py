@@ -89,14 +89,14 @@ class RobotBehaviorThread(threading.Thread):
 
   def line_follow(self, robot):
     if self.left_detection == False and self.right_detection == True:
-      self.wheel_left = 10 #turning left
+      self.wheel_left = 0 #turning left
       self.wheel_right = 50
     elif self.left_detection == True and self.right_detection == False:
       self.wheel_left = 50
-      self.wheel_right = 10 #turning right
+      self.wheel_right = 0 #turning right
     else: # IDK what to do
-      self.wheel_left = 40
-      self.wheel_right = 40
+      self.wheel_left = 20
+      self.wheel_right = 20
 
   def run(self):
     robot=None
@@ -142,7 +142,7 @@ class RobotBehaviorThread(threading.Thread):
     # clean up after exit button pressed
     if robot:
       robot.reset()
-      time.sleep(0.01)
+      time.sleep(0.001)
     return
 
 class GUI(object):
