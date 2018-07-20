@@ -139,18 +139,18 @@ class BehaviorThreads(object):
         print "debug: getting data from robot_motion_handler"
 
         event = motion_q.get()
-        type = event.type()
+        type1 = event.type()
         data = event.data()
 
         while (not self.quit) and (not self.finished):
             print("detected package")
-            if type == "obstacle":
+            if type1 == "obstacle":
                 for robot in self.robot_list:
                     if self.go and robot:
                         self.avoid_obstacle(robot, data[0], data[1])
-            elif type == "free":
+            elif type1 == "free":
                 pass
-            elif type == "boarder":
+            elif type1 == "boarder":
                 for robot in self.robot_list:
                     if self.go and robot:
                         self.get_out(robot)
@@ -285,13 +285,13 @@ class GUI(object):
         prox_r_y = floorr_y2 - floor_side
 
         event = alert_q.get()
-        type = event.type
+        type1 = event.type
         data = event.data
-        if type == "alert":
+        if type1 == "alert":
             # display red beams
             self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-data[0]))
             self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-data[1]))
-        elif type == "free":
+        elif type1 == "free":
             # erase the beams
             self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, 0)
             self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)
