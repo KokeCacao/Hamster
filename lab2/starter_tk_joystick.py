@@ -296,7 +296,7 @@ class UI(object):
         if self.key_s:
             move_x = move_x-1
 
-        if move_x=0 and move_y=0:
+        if move_x==0 and move_y==0:
             self.robot_handle.stop_move()
             pass
         degree = math.atan2(move_x,move_y)/math.pi*180
