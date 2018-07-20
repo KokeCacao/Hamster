@@ -44,34 +44,34 @@ class Robots(object):
         # back
             # 180-270: left stop - move, the other move
             # 360-270: right stop - move, the other move
-        if move_x or move_y:
+        if move_x or move_y or degree:
             temp_left = 0
             temp_right = 1
 
-        if 0 <= degree <= 180:  # front
-            if 180 >= degree > 90:  # left
-                temp_left = (-degree + 180) * (100/90)
-                temp_right = 100
-            elif degree == 90:  # straight
-                temp_left = 100
-                temp_right = 100
-            elif 90 > degree >= 0: # right
-                temp_left = 100
-                temp_right = degree * (100/90)
-        if 180 < degree < 360:
-            if 180 < degree < 270:
-                temp_left = -(degree - 180) * (100/90)
-                temp_right = -100
-            elif degree == 270:
-                temp_left = -100
-                temp_right = -100
-            elif 270 < degree < 360:
-                temp_left = -100
-                temp_right = -(-degree + 180) * (100/90)
+            if 0 <= degree <= 180:  # front
+                if 180 >= degree > 90:  # left
+                    temp_left = (-degree + 180) * (100/90)
+                    temp_right = 100
+                elif degree == 90:  # straight
+                    temp_left = 100
+                    temp_right = 100
+                elif 90 > degree >= 0: # right
+                    temp_left = 100
+                    temp_right = degree * (100/90)
+            if 180 < degree < 360:
+                if 180 < degree < 270:
+                    temp_left = -(degree - 180) * (100/90)
+                    temp_right = -100
+                elif degree == 270:
+                    temp_left = -100
+                    temp_right = -100
+                elif 270 < degree < 360:
+                    temp_left = -100
+                    temp_right = -(-degree + 180) * (100/90)
 
-        if self.robotList:
-            for robot in self.robotList:
-                robot.set_wheel(0,temp_left)
+            if self.robotList:
+                for robot in self.robotList:
+                    robot.set_wheel(0,temp_left)
                 robot.set_wheel(1,temp_right)
 
     def move_forward(self, event=None):
@@ -392,7 +392,7 @@ class UI(object):
 
         self.move_degree = math.atan2(self.move_y, self.move_x)/math.pi*180  # transfer coordinate into degree
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
-        self.robot_handle.move_degree(self.move_degree)
+        self.robot_handle.move_degree(degree=self.move_degree, move_x=self.move_x, move_y=self.move_y)
 
     def stopProg(self, event=None):
         self.root.quit()    # close window
