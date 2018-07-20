@@ -103,11 +103,11 @@ class UI(object):
         self.prox_r_id.pack()
 
         self.canvas = tk.Canvas(self.root, width=1280, height=720, bg="white")
-        self.canvas_robot_id = canvas.create_rectange(615, 335, 665, 385, fill="gold")
-        self.canvas_floorl_id = canvas.create_rectange(615+5, 335+5, 665+10, 385+10, fill="black")
-        self.canvas_floorr_id = canvas.create_rectange(615+5+40, 335+5, 665+10+40, 385+10, fill="black")
-        self.canvas_proxl_id = canvas.create_line(615+5, 335+5, 615+5, 335+5+0, fill="black", width=4)
-        self.canvas_proxr_id = canvas.create_line(665+40, 385, 665+40, 385+0, fill="black", width=4)
+        self.canvas_robot_id = self.canvas.create_rectange(615, 335, 665, 385, fill="gold")
+        self.canvas_floorl_id = self.canvas.create_rectange(615+5, 335+5, 665+10, 385+10, fill="black")
+        self.canvas_floorr_id = self.canvas.create_rectange(615+5+40, 335+5, 665+10+40, 385+10, fill="black")
+        self.canvas_proxl_id = self.canvas.create_line(615+5, 335+5, 615+5, 335+5+0, fill="black", width=4)
+        self.canvas_proxr_id = self.canvas.create_line(665+40, 385, 665+40, 385+0, fill="black", width=4)
         canvas.pack()
 
         root.bind('<KeyPress>', self.keydown)
