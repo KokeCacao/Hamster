@@ -261,13 +261,13 @@ class UI(object):
         if key == 97 or key == 64:
             self.key_a = True
             print "key a"
-        if key == 115 or key == 83:
+        if key == 115 or key == 83 or 65651:
             self.key_s = True
             print "key s"
-        if key == 119 or key == 87:
+        if key == 119 or key == 87 or 852087:
             self.key_w = True
             print "key w"
-        if key == 100 or key == 68:
+        if key == 100 or key == 68 or 131172:
             self.key_d = True
             print "key d"
 
@@ -283,13 +283,13 @@ class UI(object):
         if key == 97 or key == 64:
             self.key_a = False
             print "keyup a"
-        if key == 115 or key == 83:
+        if key == 115 or key == 83 or 65651:
             self.key_s = False
             print "keyup s"
-        if key == 119 or key == 87:
+        if key == 119 or key == 87 or 852087:
             self.key_w = False
             print "keyup w"
-        if key == 100 or key == 68:
+        if key == 100 or key == 68 or 131172:
             self.key_d = False
             print "keyup d"
 
