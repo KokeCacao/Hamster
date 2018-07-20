@@ -252,40 +252,42 @@ class UI(object):
 
     ####################################################
     # Implement callback function when key press is detected
+    # http://www.tcl.tk/man/tcl8.4/TkCmd/keysyms.htm
     ####################################################
     def keydown(self, event):
-        key = repr(event.char)
-        print "pressed", key
-        if key == "a" or "A":
+        key = event.keycode
+        # small, big
+        if key == 97 or 64:
             self.key_a = True
             print "key a"
-        if key == "s" or "S":
+        if key == 115 or 83:
             self.key_s = True
             print "key s"
-        if key == "w" or "W":
+        if key == 119 or 87:
             self.key_w = True
             print "key w"
-        if key == "d" or "D":
+        if key == 100 or 68:
             self.key_d = True
             print "key d"
 
         self.key_refresh()
     #####################################################
     # Implement callback function when key release is detected
+    # http://www.tcl.tk/man/tcl8.4/TkCmd/keysyms.htm
     #####################################################
     def keyup(self, event):
-        key = repr(event.char)
-
-        if key == "a" or "A":
+        key = event.keycode
+        # small, big
+        if key == 97 or 64:
             self.key_a = False
             print "keyup a"
-        if key == "s" or "S":
+        if key == 115 or 83:
             self.key_s = False
             print "keyup s"
-        if key == "w" or "W":
+        if key == 119 or 87:
             self.key_w = False
             print "keyup w"
-        if key == "d" or "D":
+        if key == 100 or 68:
             self.key_d = False
             print "keyup d"
         self.key_refresh()
