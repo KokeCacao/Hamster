@@ -24,7 +24,7 @@ class Robots(object):
         if degree == 0:
             self.move_right()
         elif degree == 45:
-            self..move_right()
+            self.move_right()
         elif degree == 90:
             self.move_forward()
         elif degree == 135:
