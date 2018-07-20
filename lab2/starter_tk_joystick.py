@@ -89,6 +89,8 @@ class UI(object):
         self.canvas_proxl_id = None
         self.canvas_proxr_id = None
 
+        self.exit = None
+
         self.initUI()
         self.display_sensor()
         return
@@ -102,6 +104,7 @@ class UI(object):
         # 4. a button for exit, i.e., a call to stopProg(), given in this class
         # 5. listen to key press and key release when focus is on this window
         ###################################################################
+
 
         self.root.title("Hamster")
         self.root.geometry("200x50+0+0")
@@ -157,7 +160,7 @@ class UI(object):
             self.canvas.itemconfig(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
             self.canvas.itemconfig(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
 
-            self.root.after(10, self.display_sensor())
+        self.root.after(10, self.display_sensor())
 
     ####################################################
     # Implement callback function when key press is detected
