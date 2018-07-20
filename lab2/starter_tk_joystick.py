@@ -78,7 +78,6 @@ class UI(object):
         return
 
     def initUI(self):
-        import Tkinter as tk
         ###################################################################
         # Create a Hamster joystick window which contains
         # 1. a canvas widget where "sensor readings" are displayed
@@ -91,16 +90,16 @@ class UI(object):
         self.root.title("Hamster")
         self.root.geometry("200x50+0+0")
 
-        self.floor_l_id = tk.Lable(self.root, text="FloorLeft: N/A")
+        self.floor_l_id = tk.Label(self.root, text="FloorLeft: N/A")
         self.floor_l_id.pack()
 
-        self.floor_r_id = tk.Lable(self.root, text="FloorRight: N/A")
+        self.floor_r_id = tk.Label(self.root, text="FloorRight: N/A")
         self.floor_r_id.pack()
 
-        self.prox_l_id = tk.Lable(self.root, text="ProxLeft: N/A")
+        self.prox_l_id = tk.Label(self.root, text="ProxLeft: N/A")
         self.prox_l_id.pack()
 
-        self.prox_r_id = tk.Lable(self.root, text="ProxRight: N/A")
+        self.prox_r_id = tk.Label(self.root, text="ProxRight: N/A")
         self.prox_r_id.pack()
 
         self.canvas = tk.Canvas(self.root, width=1280, height=720, bg="white")
