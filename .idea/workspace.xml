@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lab3/Note.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="392" column="24" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="24" />
+            <state relative-caret-position="345">
+              <caret line="393" column="32" lean-forward="true" selection-start-line="393" selection-start-column="32" selection-end-line="393" selection-end-column="32" />
               <folding>
                 <element signature="e#322#332#0" expanded="true" />
                 <element signature="e#9010#9535#0" />
@@ -28,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Note.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Note.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab3/Note.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="475">
@@ -65,8 +64,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/lab1/starter_tk_behaviors.py" />
-        <option value="$PROJECT_DIR$/lab2/starter_tk_joystick.py" />
         <option value="$PROJECT_DIR$/lab3/Note.py" />
+        <option value="$PROJECT_DIR$/lab2/starter_tk_joystick.py" />
       </list>
     </option>
   </component>
@@ -184,24 +183,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="392" column="24" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="24" />
-          <folding>
-            <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#9010#9535#0" />
-            <element signature="e#9804#10339#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab3/Note.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
           <folding>
             <element signature="e#52#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="393" column="32" lean-forward="true" selection-start-line="393" selection-start-column="32" selection-end-line="393" selection-end-column="32" />
+          <folding>
+            <element signature="e#322#332#0" expanded="true" />
+            <element signature="e#9010#9535#0" />
+            <element signature="e#9804#10339#0" />
           </folding>
         </state>
       </provider>

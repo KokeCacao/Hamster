@@ -391,6 +391,8 @@ class UI(object):
             return
 
         self.move_degree = math.atan2(self.move_y, self.move_x)/math.pi*180  # transfer coordinate into degree
+        if self.move_degree < 0:
+            self.move_degree = self.move_degree + 360
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
         self.robot_handle.move_degree(degree=self.move_degree, move_x=self.move_x, move_y=self.move_y)
 
