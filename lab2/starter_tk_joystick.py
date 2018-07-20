@@ -256,6 +256,7 @@ class UI(object):
     ####################################################
     def keydown(self, event):
         key = event.keycode
+        print "keycode down =",str(key)
         # small, big
         if key == 97 or key == 64:
             self.key_a = True
@@ -277,6 +278,7 @@ class UI(object):
     #####################################################
     def keyup(self, event):
         key = event.keycode
+        print "keycode up =",str(key)
         # small, big
         if key == 97 or key == 64:
             self.key_a = False
@@ -311,7 +313,7 @@ class UI(object):
             pass
 
         degree = math.atan2(move_x,move_y)/math.pi*180
-        print "degree="+str(degree)
+        print "degree="+str(degree)+" and ("+str(move_x)+", "+str(move_y)
         if degree == 0:
             self.robot_handle.move_right()
         elif degree == 45:
