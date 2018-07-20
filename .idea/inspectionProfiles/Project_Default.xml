@@ -7,6 +7,7 @@
           <option value="E302" />
           <option value="E303" />
           <option value="E301" />
+          <option value="E501" />
         </list>
       </option>
     </inspection_tool>
@@ -14,6 +15,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="lab2.starter_tk_joystick.HamsterAPI" />
+          <option value="lab3.starter_tk_escape.*" />
         </list>
       </option>
     </inspection_tool>
