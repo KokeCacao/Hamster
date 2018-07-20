@@ -118,10 +118,10 @@ class UI(object):
     # Register callback using Tkinter's after method().
     ######################################################
     def display_sensor(self):
-        floor_l = self.robot.get_floor_l()
-        floor_r = self.robot.get_floor_r()
-        prox_l = self.robot.get_prox_l()
-        prox_r = self.robot.get_prox_r()
+        floor_l = self.robot_handle.get_floor_l()
+        floor_r = self.robot_handle.get_floor_r()
+        prox_l = self.robot_handle.get_prox_l()
+        prox_r = self.robot_handle.get_prox_r()
 
         self.floor_l_id.config(text=str(floor_l))
         self.floor_r_id.config(text=str(floor_r))
