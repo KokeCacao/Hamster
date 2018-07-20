@@ -137,8 +137,8 @@ class UI(object):
         canvas_width = 1280/2
         canvas_height = 720/2
         robot_side = 100
-        robot_center_x = canvas_width
-        robot_center_y = canvas_height
+        robot_center_x = canvas_width/2
+        robot_center_y = canvas_height/2
         robot_x1 = robot_center_x - robot_side/2
         robot_y1 = robot_center_y - robot_side/2
         robot_x2 = robot_center_x + robot_side/2
@@ -247,8 +247,8 @@ class UI(object):
             else:
                 self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
 
-            self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - prox_l)
-            self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - prox_r)
+            self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-prox_l))
+            self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-prox_r))
 
         self.root.after(100, self.display_sensor)
 
@@ -266,7 +266,7 @@ class UI(object):
         if str(event.char) is "D" or "d":
             self.key_d = True
 
-        key_refresh(self)
+        self.key_refresh()
     #####################################################
     # Implement callback function when key release is detected
     #####################################################
@@ -281,7 +281,7 @@ class UI(object):
             self.key_w = False
         if str(event.char) is "D" or "d":
             self.key_d = False
-        key_refresh(self)
+        self.key_refresh()
 
     def key_refresh(self):
         move_x = 0
