@@ -290,8 +290,8 @@ class UI(object):
         if key == 100 or 68:
             self.key_d = False
             print "keyup d"
-        self.key_refresh()
 
+        self.key_refresh()
     def key_refresh(self):
         import math
         move_x = 0
