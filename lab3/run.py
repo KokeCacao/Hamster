@@ -156,7 +156,7 @@ class GUI(object):
         self.root = root
         self.t_handle = threads_handle
         self.event_q = threads_handle.alert_q
-        self.t_alert_handler = None
+        # self.t_alert_handler = None
 
         # visualization id
         self.canvas = None
@@ -236,7 +236,7 @@ class GUI(object):
         
         self.t_handle.t_motion_listener.join()
         self.t_handle.t_robot_listener.join()
-        self.t_alert_handler.join()
+        # self.t_alert_handler.join()
         self.root.quit()	# close GUI window
         return
 

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="" />
+    <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab3/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/run.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2058">
-              <caret line="250" column="27" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="27" />
+            <state relative-caret-position="367">
+              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
               <folding>
                 <element signature="e#2573#2722#0" />
                 <element signature="e#2795#3131#0" />
@@ -52,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starter_tk_escape.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="starter_tk_escape.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
+            <state relative-caret-position="531">
+              <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -84,9 +86,9 @@
       <find>commands.</find>
       <find>avoid_obstacle</find>
       <find>t_mo</find>
-      <find>commands</find>
       <find>t_robot_</find>
       <find>t_alert_handler</find>
+      <find>commands</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,8 +100,8 @@
         <option value="$PROJECT_DIR$/lab1/starter_tk_behaviors.py" />
         <option value="$PROJECT_DIR$/lab3/Note.py" />
         <option value="$PROJECT_DIR$/lab2/starter_tk_joystick.py" />
-        <option value="$PROJECT_DIR$/lab3/run.py" />
         <option value="$PROJECT_DIR$/lab3/starter_tk_escape.py" />
+        <option value="$PROJECT_DIR$/lab3/run.py" />
       </list>
     </option>
   </component>
@@ -234,6 +236,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-868">
@@ -246,8 +255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2058">
-          <caret line="250" column="27" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="27" />
+        <state relative-caret-position="367">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
           <folding>
             <element signature="e#2573#2722#0" />
             <element signature="e#2795#3131#0" />
@@ -256,13 +265,6 @@
             <element signature="e#5690#5728#0" />
             <element signature="e#9375#9639#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
         </state>
       </provider>
     </entry>
