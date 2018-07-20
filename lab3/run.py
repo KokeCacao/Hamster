@@ -136,6 +136,8 @@ class BehaviorThreads(object):
     def robot_motion_handler(self, motion_q):  # thread
         # obstacle[x, y], free[], boarder[x, y]
 
+        print "debug: getting data from robot_motion_handler"
+
         event = motion_q.get()
         type = event.type()
         data = event.data()
@@ -253,6 +255,7 @@ class GUI(object):
     # a callback of itself after 50 milliseconds.
     ###################################################
     def robot_alert_handler(self, alert_q):
+        print "debug: getting data from robot_alert_handler"
         # canvas calculation
         canvas_width = 1280/2
         canvas_height = 720/2
@@ -293,6 +296,7 @@ class GUI(object):
             self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, 0)
             self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)
 
+        print "after 50"
         self.root.after(50, self.robot_alert_handler)
         
 

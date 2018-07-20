@@ -40,13 +40,16 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="227" column="25" selection-start-line="227" selection-start-column="25" selection-end-line="227" selection-end-column="25" />
+            <state relative-caret-position="421">
+              <caret line="255" column="54" lean-forward="true" selection-start-line="255" selection-start-column="54" selection-end-line="255" selection-end-column="54" />
               <folding>
                 <element signature="e#2573#2722#0" />
                 <element signature="e#2795#3131#0" />
+                <element signature="e#2683#4864#0" />
+                <element signature="e#6690#7126#0" />
+                <element signature="e#7707#9683#0" />
                 <element signature="e#5690#5728#0" />
-                <element signature="e#9375#9639#0" />
+                <element signature="e#5774#6076#0" />
               </folding>
             </state>
           </provider>
@@ -87,10 +90,11 @@
       <find>t_robot_</find>
       <find>t_alert_handler</find>
       <find>commands</find>
-      <find>robot_motion_handler</find>
       <find>robot_event_firer</find>
       <find>t_robot_listener</find>
       <find>robot_motion</find>
+      <find>fire</find>
+      <find>robot_motion_handler</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,7 +111,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -207,7 +211,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>295</line>
+          <line>299</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -257,13 +261,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="227" column="25" selection-start-line="227" selection-start-column="25" selection-end-line="227" selection-end-column="25" />
+        <state relative-caret-position="421">
+          <caret line="255" column="54" lean-forward="true" selection-start-line="255" selection-start-column="54" selection-end-line="255" selection-end-column="54" />
           <folding>
             <element signature="e#2573#2722#0" />
             <element signature="e#2795#3131#0" />
+            <element signature="e#2683#4864#0" />
+            <element signature="e#6690#7126#0" />
+            <element signature="e#7707#9683#0" />
             <element signature="e#5690#5728#0" />
-            <element signature="e#9375#9639#0" />
+            <element signature="e#5774#6076#0" />
           </folding>
         </state>
       </provider>
