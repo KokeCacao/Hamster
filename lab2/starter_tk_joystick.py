@@ -170,6 +170,32 @@ class UI(object):
     # Register callback using Tkinter's after method().
     ######################################################
     def display_sensor(self):
+        canvas_width = 1280/2
+        canvas_height = 720/2
+        robot_side = 100
+        robot_center_x = canvas_width/2
+        robot_center_y = canvas_height/2
+        robot_x1 = robot_center_x - robot_side
+        robot_y1 = robot_center_y - robot_side
+        robot_x2 = robot_center_x + robot_side
+        robot_y2 = robot_center_y + robot_side
+
+        floor_side = 10
+        floorl_x1 = robot_x1
+        floorl_y1 = robot_y1
+        floorl_x2 = robot_x1 + floor_side
+        floorl_y2 = robot_y1 + floor_side
+
+        floorr_x1 = robot_x1 + robot_side - floor_side
+        floorr_y1 = robot_y1
+        floorr_x2 = floorr_x1 + floor_side
+        floorr_y2 = floorr_y1 + floor_side
+
+        prox_l_x = floorl_x1
+        prox_l_y = floorl_y1
+        prox_r_x = floorr_x2
+        prox_r_y = floorr_y2 - floor_side
+
         floor_l = 0
         floor_r = 0
         prox_l = 0
