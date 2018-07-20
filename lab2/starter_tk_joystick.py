@@ -254,14 +254,15 @@ class UI(object):
     # Implement callback function when key press is detected
     ####################################################
     def keydown(self, event):
-        print "pressed", repr(event.char)
-        if str(event.char) == "a":
+        key = repr(event.char)
+        print "pressed", key
+        if key == "a" or "A":
             self.key_a = True
-        if str(event.char) == "s":
+        if key == "s" or "S":
             self.key_s = True
-        if str(event.char) == "w":
+        if key == "w" or "W":
             self.key_w = True
-        if str(event.char) == "d":
+        if key == "d" or "D":
             self.key_d = True
 
         self.key_refresh()
@@ -269,15 +270,16 @@ class UI(object):
     # Implement callback function when key release is detected
     #####################################################
     def keyup(self, event):
-        print "up", repr(event.char)
+        key = repr(event.char)
+        print "up", key
 
-        if str(event.char) == "a":
+        if key == "a" or "A":
             self.key_a = False
-        if str(event.char) == "s":
+        if key == "s" or "S":
             self.key_s = False
-        if str(event.char) == "w":
+        if key == "w" or "W":
             self.key_w = False
-        if str(event.char) == "d":
+        if key == "d" or "D":
             self.key_d = False
         self.key_refresh()
 
@@ -306,6 +308,8 @@ class UI(object):
         elif degree == 90:
             self.robot_handle.move_forward()
         elif degree == 135:
+            self.robot_handle.move_left()
+        elif degree == 180:
             self.robot_handle.move_left()
         else:
             self.robot_handle.move_backward()
