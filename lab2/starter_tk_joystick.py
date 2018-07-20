@@ -21,22 +21,22 @@ class Robots(object):
         return
 
     def move_degree(self, degree=None, move_x=None, move_y=None, event=None):
-        # if degree == 0:
-        #     self.move_right()
-        # elif degree == 45:
-        #     self..move_right()
-        # elif degree == 90:
-        #     self.move_forward()
-        # elif degree == 135:
-        #     self.move_left()
-        # elif degree == 180:
-        #     self.move_left()
-        # elif degree == 225:
-        #     self.move_back_left()
-        # elif degree == 270:
-        #     self.move_backward()
-        # elif degree == 315:
-        #     self.move_back_right()
+        if degree == 0:
+            self.move_right()
+        elif degree == 45:
+            self..move_right()
+        elif degree == 90:
+            self.move_forward()
+        elif degree == 135:
+            self.move_left()
+        elif degree == 180:
+            self.move_left()
+        elif degree == 225:
+            self.move_back_left()
+        elif degree == 270:
+            self.move_backward()
+        elif degree == 315:
+            self.move_back_right()
 
         # front
             # 180-90: left stop -> move, the other move
@@ -44,35 +44,35 @@ class Robots(object):
         # back
             # 180-270: left stop - move, the other move
             # 360-270: right stop - move, the other move
-        if move_x or move_y or degree:
-            temp_left = 0
-            temp_right = 1
-
-            if 0 <= degree <= 180:  # front
-                if 180 >= degree > 90:  # left
-                    temp_left = (-degree + 180) * (100/90)
-                    temp_right = 100
-                elif degree == 90:  # straight
-                    temp_left = 100
-                    temp_right = 100
-                elif 90 > degree >= 0: # right
-                    temp_left = 100
-                    temp_right = degree * (100/90)
-            if 180 < degree < 360:
-                if 180 < degree < 270:
-                    temp_left = -(degree - 180) * (100/90)
-                    temp_right = -100
-                elif degree == 270:
-                    temp_left = -100
-                    temp_right = -100
-                elif 270 < degree < 360:
-                    temp_left = -100
-                    temp_right = -(-degree + 180) * (100/90)
-
-            if self.robotList:
-                for robot in self.robotList:
-                    robot.set_wheel(0,temp_left)
-                robot.set_wheel(1,temp_right)
+        # if move_x or move_y or degree:
+        #     temp_left = 0
+        #     temp_right = 1
+        #
+        #     if 0 <= degree <= 180:  # front
+        #         if 180 >= degree > 90:  # left
+        #             temp_left = (-degree + 180) * (100/90)
+        #             temp_right = 100
+        #         elif degree == 90:  # straight
+        #             temp_left = 100
+        #             temp_right = 100
+        #         elif 90 > degree >= 0: # right
+        #             temp_left = 100
+        #             temp_right = degree * (100/90)
+        #     if 180 < degree < 360:
+        #         if 180 < degree < 270:
+        #             temp_left = -(degree - 180) * (100/90)
+        #             temp_right = -100
+        #         elif degree == 270:
+        #             temp_left = -100
+        #             temp_right = -100
+        #         elif 270 < degree < 360:
+        #             temp_left = -100
+        #             temp_right = -(-degree + 180) * (100/90)
+        #
+        #     if self.robotList:
+        #         for robot in self.robotList:
+        #             robot.set_wheel(0,temp_left)
+        #         robot.set_wheel(1,temp_right)
 
     def move_forward(self, event=None):
         if self.robotList:
