@@ -232,23 +232,22 @@ class UI(object):
         prox_l = self.robot_handle.get_prox_l()
         prox_r = self.robot_handle.get_prox_r()
 
-        if floor_l or floor_r or prox_l or prox_r:
-            self.floor_l_id.config(text="FloorLeft: " + str(floor_l))
-            self.floor_r_id.config(text="FloorRight: " + str(floor_r))
-            self.prox_l_id.config(text="ProxLeft: " + str(prox_l))
-            self.prox_r_id.config(text="ProxRight: " + str(prox_r))
+        self.floor_l_id.config(text="FloorLeft: " + str(floor_l))
+        self.floor_r_id.config(text="FloorRight: " + str(floor_r))
+        self.prox_l_id.config(text="ProxLeft: " + str(prox_l))
+        self.prox_r_id.config(text="ProxRight: " + str(prox_r))
 
-            if floor_l > 50:
-                self.canvas.itemconfig(self.canvas_floorl_id, fill="white")
-            else:
-                self.canvas.itemconfig(self.canvas_floorl_id, fill="black")
-            if floor_r > 50:
-                self.canvas.itemconfig(self.canvas_floorr_id, fill="white")
-            else:
-                self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
+        if floor_l > 50:
+            self.canvas.itemconfig(self.canvas_floorl_id, fill="white")
+        else:
+            self.canvas.itemconfig(self.canvas_floorl_id, fill="black")
+        if floor_r > 50:
+            self.canvas.itemconfig(self.canvas_floorr_id, fill="white")
+        else:
+            self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
 
-            self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-prox_l))
-            self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-prox_r))
+        self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-prox_l))
+        self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-prox_r))
 
         self.root.after(100, self.display_sensor)
 
@@ -284,6 +283,7 @@ class UI(object):
         self.key_refresh()
 
     def key_refresh(self):
+        import math
         move_x = 0
         move_y = 0
 
