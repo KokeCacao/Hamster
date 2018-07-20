@@ -300,7 +300,7 @@ class UI(object):
         move_y = 0
 
         if self.key_w:
-            move_x = move_y+1
+            move_y = move_y+1
         if self.key_a:
             move_x = move_x-1
         if self.key_d:
@@ -310,7 +310,7 @@ class UI(object):
 
         if move_x==0 and move_y==0:
             self.robot_handle.stop_move()
-            pass
+            return
 
         degree = math.atan2(move_y,move_x)/math.pi*180 #90, 90, -90, 180
         print "degree="+str(degree)+" and ("+str(move_x)+", "+str(move_y)+")"
