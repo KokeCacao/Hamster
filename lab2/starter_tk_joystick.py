@@ -114,7 +114,7 @@ class UI(object):
 
 
         self.root.title("Hamster")
-        self.root.geometry("200x50+0+0")
+        self.root.geometry("1280x720+0+0")
 
         self.floor_l_id = tk.Label(self.root, text="FloorLeft: N/A")
         self.floor_l_id.pack()
@@ -144,12 +144,17 @@ class UI(object):
     # Register callback using Tkinter's after method().
     ######################################################
     def display_sensor(self):
+        floor_l = 0
+        floor_r = 0
+        prox_l = 0
+        prox_r = 0
+
         floor_l = self.robot_handle.get_floor_l()
         floor_r = self.robot_handle.get_floor_r()
         prox_l = self.robot_handle.get_prox_l()
         prox_r = self.robot_handle.get_prox_r()
 
-        if floor_l and floor_r and prox_l and prox_r:
+        if floor_l or floor_r or prox_l or prox_r:
             self.floor_l_id.config(text=str(floor_l))
             self.floor_r_id.config(text=str(floor_r))
             self.prox_l_id.config(text=str(prox_l))
