@@ -24,55 +24,75 @@ class Robots(object):
             for robot in self.robotList:
                 robot.set_wheel(0,30)
                 robot.set_wheel(1,30)
-        else:
-            print "waiting for robot"
+        # else:
+        #     print "waiting for robot"
 
     def move_backward(self, event=None):
-        pass
+        if self.robotList:
+            for robot in self.robotList:
+                robot.set_wheel(0,-30)
+                robot.set_wheel(1,-30)
+        # else:
+        #     print "waiting for robot"
 
     def move_left(self, event=None):
-        pass
+        if self.robotList:
+            for robot in self.robotList:
+                robot.set_wheel(0,0)
+                robot.set_wheel(1,30)
+        # else:
+        #     print "waiting for robot"
 
     def move_right(self, event=None):
-        pass
+        if self.robotList:
+            for robot in self.robotList:
+                robot.set_wheel(0,30)
+                robot.set_wheel(1,0)
+        # else:
+        #     print "waiting for robot"
 
     def get_prox_l(self, event=None):
         if self.robotList:
             for robot in self.robotList:
                 return robot.get_proximity(0) # only get first robot
-        else:
-            print "waiting for robot"
+        # else:
+        #     print "waiting for robot"
 
     def get_prox_r(self, event=None):
         if self.robotList:
             for robot in self.robotList:
                 return robot.get_proximity(1) # only get first robot
-        else:
-            print "waiting for robot"
+        # else:
+        #     print "waiting for robot"
 
     def get_floor_l(self, event=None):
         if self.robotList:
             for robot in self.robotList:
                 return robot.get_floor(0) # only get first robot
-        else:
-            print "waiting for robot"
+        # else:
+        #     print "waiting for robot"
 
     def get_floor_r(self, event=None):
         if self.robotList:
             for robot in self.robotList:
                 return robot.get_floor(1) # only get first robot
-        else:
-            print "waiting for robot"
+        # else:
+        #     print "waiting for robot"
 
     def stop_move(self, event=None):
-        pass
+        if self.robotList:
+            for robot in self.robotList:
+                robot.set_wheel(0,0)
+                robot.set_wheel(1,0)
+        # else:
+        #     print "waiting for robot"
 
     def reset_robot(self, event=None): # use Hamster API reset()
         if self.robotList:
             for robot in self.robotList:
-                return robot.reset() # only get first robot
-        else:
-            print "waiting for robot"
+                robot.reset() # only get first robot
+        # else:
+        #     print "waiting for robot"
 
 class UI(object):
     def __init__(self, root, robot_handle):
@@ -175,10 +195,10 @@ class UI(object):
         robot_side = 100
         robot_center_x = canvas_width/2
         robot_center_y = canvas_height/2
-        robot_x1 = robot_center_x - robot_side
-        robot_y1 = robot_center_y - robot_side
-        robot_x2 = robot_center_x + robot_side
-        robot_y2 = robot_center_y + robot_side
+        robot_x1 = robot_center_x - robot_side/2
+        robot_y1 = robot_center_y - robot_side/2
+        robot_x2 = robot_center_x + robot_side/2
+        robot_y2 = robot_center_y + robot_side/2
 
         floor_side = 10
         floorl_x1 = robot_x1
