@@ -302,18 +302,18 @@ class UI(object):
         if self.key_w:
             move_x = move_y+1
         if self.key_a:
-            move_y = move_x-1
+            move_x = move_x-1
         if self.key_d:
-            move_y = move_x+1
+            move_x = move_x+1
         if self.key_s:
-            move_x = move_y-1
+            move_y = move_y-1
 
         if move_x==0 and move_y==0:
             self.robot_handle.stop_move()
             pass
 
         degree = math.atan2(move_x,move_y)/math.pi*180
-        print "degree="+str(degree)+" and ("+str(move_x)+", "+str(move_y)
+        print "degree="+str(degree)+" and ("+str(move_x)+", "+str(move_y)+")"
         if degree == 0:
             self.robot_handle.move_right()
         elif degree == 45:
