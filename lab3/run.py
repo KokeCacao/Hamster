@@ -234,8 +234,8 @@ class GUI(object):
         for robot in self.t_handle.robot_list:
             robot.reset()
         
-        self.t_handle.t_motion_handler.join()
-        self.t_handle.t_robot_watcher.join()
+        self.t_handle.t_motion_listener.join()
+        self.t_handle.t_robot_listener.join()
         self.t_alert_handler.join()
         self.root.quit()	# close GUI window
         return
