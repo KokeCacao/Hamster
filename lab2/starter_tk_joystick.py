@@ -105,6 +105,9 @@ class UI(object):
         # 5. listen to key press and key release when focus is on this window
         ###################################################################
 
+        self.exit = tk.Button(root, text='Exit', command=self.stopProg())
+        self.exit.pack(side='left')
+
 
         self.root.title("Hamster")
         self.root.geometry("200x50+0+0")
@@ -160,7 +163,7 @@ class UI(object):
             self.canvas.itemconfig(self.canvas_proxl_id, 615+5, 335+5, 615+5, 335+5+prox_l)
             self.canvas.itemconfig(self.canvas_proxr_id, 615+5, 335+5, 615+5, 335+5+prox_r)
 
-        self.root.after(10, self.display_sensor())
+        self.root.after(100, self.display_sensor())
 
     ####################################################
     # Implement callback function when key press is detected
