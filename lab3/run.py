@@ -103,7 +103,7 @@ class BehaviorThreads(object):
                     line_r = robot.get_floor(1)
                     if (prox_l > BehaviorThreads.Threshold_obstacle or prox_r > BehaviorThreads.Threshold_obstacle):
                         alert_event = Event("alert", [prox_l,prox_r])
-                        if self.alert_q.qsize() < 10: alert_q.put(alert_event)
+                        if self.alert_q.qsize() < 3: alert_q.put(alert_event)
                         #logging.debug("alert event %s, %s, %s, %s", prox_l, prox_r, line_l, line_r)
 	                    #time.sleep(0.01)
                         count += 1
@@ -111,20 +111,20 @@ class BehaviorThreads(object):
                         if (count % 5 == 0):
                             #logging.debug("obstacle detected, q2: %d %d" % (prox_l, prox_r))
                             obs_event = Event("obstacle", [prox_l, prox_r])
-                            if self.motion_q.qsize() < 10: motion_q.put(obs_event)
+                            if self.motion_q.qsize() < 3: motion_q.put(obs_event)
                     else:
                         if (count > 0):
                         	# free event is created when robot goes from obstacle to no obstacle
                             # logging.debug("free of obstacle")
                             free_event = Event("free",[])
-                            if self.motion_q.qsize() < 10: motion_q.put(free_event)  # put event in motion queue
-                            if self.alert_q.qsize() < 10: alert_q.put(free_event)  # put event in alert queue
+                            if self.motion_q.qsize() < 3: motion_q.put(free_event)  # put event in motion queue
+                            if self.alert_q.qsize() < 3: alert_q.put(free_event)  # put event in alert queue
                             count = 0
                     if (line_l < BehaviorThreads.Threshold_border or line_r < BehaviorThreads.Threshold_border):
 	                    #logging.debug("border detected: %d %d" % (line_l, line_r))
                         border_event = Event("border", [line_l, line_r])
-                        if self.alert_q.qsize() < 10: alert_q.put(border_event)
-                        if self.motion_q.qsize() < 10: motion_q.put(border_event)
+                        if self.alert_q.qsize() < 3: alert_q.put(border_event)
+                        if self.motion_q.qsize() < 3: motion_q.put(border_event)
                     
                 else:
                     print 'waiting ...'
@@ -303,16 +303,16 @@ class GUI(object):
                 self.prox_l_id.config(text="ProxLeft: " + str(data[0]))
                 self.prox_r_id.config(text="ProxRight: " + str(data[1]))
                 # display red beams
-                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-data[0]))
-                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-data[1]))
+                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 2*(50-data[0]))
+                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 2*(50-data[1]))
             elif type1 == "free":
                 self.prox_l_id.config(text="ProxLeft: " + str(0))
                 self.prox_r_id.config(text="ProxRight: " + str(0))
                 # erase the beams
-                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, 0)
-                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)
+                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y)
+                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y)
 
-        self.root.after(50, self.robot_alert_handler, self.event_q)
+        self.root.after(10, self.robot_alert_handler, self.event_q)
         
 
 def main():
