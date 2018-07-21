@@ -21,22 +21,22 @@ class Robots(object):
         return
 
     def move_degree(self, degree=None, move_x=None, move_y=None, event=None):
-        # if degree == 0:
-        #     self.move_right()
-        # elif degree == 45:
-        #     self.move_right()
-        # elif degree == 90:
-        #     self.move_forward()
-        # elif degree == 135:
-        #     self.move_left()
-        # elif degree == 180:
-        #     self.move_left()
-        # elif degree == 225:
-        #     self.move_back_left()
-        # elif degree == 270:
-        #     self.move_backward()
-        # elif degree == 315:
-        #     self.move_back_right()
+        if degree == 0:
+            self.move_right()
+        elif degree == 45:
+            self.move_right()
+        elif degree == 90:
+            self.move_forward()
+        elif degree == 135:
+            self.move_left()
+        elif degree == 180:
+            self.move_left()
+        elif degree == 225:
+            self.move_back_left()
+        elif degree == 270:
+            self.move_backward()
+        elif degree == 315:
+            self.move_back_right()
 
         # front
         #     180-90: left stop -> move, the other move
@@ -44,35 +44,39 @@ class Robots(object):
         # back
         #     180-270: left stop - move, the other move
         #     360-270: right stop - move, the other move
-        if move_x or move_y or degree:
-            temp_left = 0
-            temp_right = 1
-
-            if 0 <= degree <= 180:  # front
-                if 180 >= degree > 90:  # left
-                    temp_left = (-degree + 180) * (100/90)
-                    temp_right = 100
-                elif degree == 90:  # straight
-                    temp_left = 100
-                    temp_right = 100
-                elif 90 > degree >= 0: # right
-                    temp_left = 100
-                    temp_right = degree * (100/90)
-            if 180 < degree < 360:
-                if 180 < degree < 270:
-                    temp_left = -(degree - 180) * (100/90)
-                    temp_right = -100
-                elif degree == 270:
-                    temp_left = -100
-                    temp_right = -100
-                elif 270 < degree < 360:
-                    temp_left = -100
-                    temp_right = -(-degree + 180) * (100/90)
-
-            if self.robotList:
-                for robot in self.robotList:
-                    robot.set_wheel(0,temp_left)
-                robot.set_wheel(1,temp_right)
+        # if move_x and move_y and degree:
+        #     temp_left = 0
+        #     temp_right = 0
+        #
+        #     if 0 <= degree <= 180:  # front
+        #         if 180 >= degree > 90:  # left
+        #             temp_left = (-degree + 180) * (100/90)
+        #             temp_right = 100
+        #         elif degree == 90:  # straight
+        #             temp_left = 100
+        #             temp_right = 100
+        #         elif 90 > degree >= 0: # right
+        #             temp_left = 100
+        #             temp_right = degree * (100/90)
+        #     if 180 < degree < 360:
+        #         if 180 < degree < 270:
+        #             temp_left = -(degree - 180) * (100/90)
+        #             temp_right = -100
+        #         elif degree == 270:
+        #             temp_left = -100
+        #             temp_right = -100
+        #         elif 270 < degree < 360:
+        #             temp_left = -100
+        #             temp_right = -(-degree + 180) * (100/90)
+        #
+        #     temp_left = int(temp_left)
+        #     temp_right = int(temp_right)
+        #
+        #     if self.robotList:
+        #         for robot in self.robotList:
+        #             print "set_wheel:", str(temp_left) + str(temp_right)
+        #             robot.set_wheel(0,temp_left)
+        #             robot.set_wheel(1,temp_right)
 
     def move_forward(self, event=None):
         if self.robotList:
@@ -329,12 +333,6 @@ class UI(object):
         self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-prox_l))
         self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-prox_r))
 
-        # self.dotList = []
-        if len(self.dotList) > 100:
-            self.dotList.pop(0)
-        temp_dot = self.canvas.create_oval(robot_center_x, robot_center_y, robot_center_x+1, robot_center_y+1, width = 0, fill="grey")
-        self.dotList.append(temp_dot)
-
         # loop
         self.root.after(100, self.display_sensor)
 
@@ -384,6 +382,35 @@ class UI(object):
         self.key_refresh()
     def key_refresh(self):
         import math
+        # canvas calculation
+        canvas_width = 1280/2
+        canvas_height = 720/2
+        # robot calculation
+        robot_side = 100
+        robot_center_x = canvas_width/2
+        robot_center_y = canvas_height/2
+        robot_x1 = robot_center_x - robot_side/2
+        robot_y1 = robot_center_y - robot_side/2
+        robot_x2 = robot_center_x + robot_side/2
+        robot_y2 = robot_center_y + robot_side/2
+        # floor left calculation
+        floor_side = 10
+        floorl_x1 = robot_x1
+        floorl_y1 = robot_y1
+        floorl_x2 = robot_x1 + floor_side
+        floorl_y2 = robot_y1 + floor_side
+        # floor right calculation
+        floorr_x1 = robot_x1 + robot_side - floor_side
+        floorr_y1 = robot_y1
+        floorr_x2 = floorr_x1 + floor_side
+        floorr_y2 = floorr_y1 + floor_side
+        # prox calculation
+        prox_l_x = floorl_x1
+        prox_l_y = floorl_y1
+        prox_r_x = floorr_x2
+        prox_r_y = floorr_y2 - floor_side
+
+
         temp_move_x = 0
         temp_move_y = 0
         if self.key_w:
@@ -414,6 +441,15 @@ class UI(object):
 
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
         self.robot_handle.move_degree(degree=self.move_degree, move_x=self.move_x, move_y=self.move_y)
+
+
+        # self.dotList = []
+        if len(self.dotList) > 100:
+            print "WARNING: dotList > 100, remove some dots"
+            self.canvas.delete(self.dotList[0])
+            self.dotList.pop(0)
+        temp_dot = self.canvas.create_oval(robot_center_x, robot_center_y, robot_center_x+1, robot_center_y+1, width= 100, fill="grey")
+        self.dotList.append(temp_dot)
 
     def stopProg(self, event=None):
         self.root.quit()    # close window

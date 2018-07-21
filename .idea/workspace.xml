@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="51">
+              <caret line="78" column="51" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="78" selection-end-column="51" />
               <folding>
                 <element signature="e#322#332#0" expanded="true" />
                 <element signature="e#12254#12779#0" />
@@ -67,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>t_alert_handler</find>
       <find>type</find>
       <find>fire</find>
       <find>detected</find>
@@ -97,6 +95,7 @@
       <find>canvas</find>
       <find>move_degree</find>
       <find>music</find>
+      <find>move(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -353,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        <state relative-caret-position="51">
+          <caret line="78" column="51" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="78" selection-end-column="51" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
             <element signature="e#12254#12779#0" />
