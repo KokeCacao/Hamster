@@ -180,6 +180,7 @@ class UI(object):
 
         # 2D reconstruction
         self.dotList = []
+        self.wallList = []
 
         self.move_degree = 90 # relative vector
         self.move_x = 0  # relative vector
@@ -333,6 +334,17 @@ class UI(object):
         self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-prox_l))
         self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-prox_r))
 
+        # walllist
+
+        if len(self.wallList) > 100*2:
+            print "WARNING: wallList > 100, remove some dots"
+            self.canvas.delete(self.wallList[0])
+            self.wallList.pop(0)
+        temp_dot1 = self.canvas.create_oval(prox_l_x, prox_l_y - (50-prox_l), prox_l_x, prox_l_y - (50-prox_l)+1, width= 2, fill="red")
+        temp_dot2 = self.canvas.create_oval(prox_r_x, prox_r_y - (50-prox_r), prox_r_x, prox_r_y - (50-prox_r)+1, width= 2, fill="red")
+        self.dotList.append(temp_dot1)
+        self.dotList.append(temp_dot2)
+
         # loop
         self.root.after(100, self.display_sensor)
 
@@ -434,9 +446,8 @@ class UI(object):
         if self.move_degree < 0:
             self.move_degree = self.move_degree + 360
 
-        if self.move_degree == 90:
-            for dot in self.dotList:
-                self.canvas.move(dot, 0, -10)
+        for dot in self.dotList:
+            self.canvas.move(dot, self.move_x, self.move_y)
 
 
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
@@ -448,7 +459,7 @@ class UI(object):
             print "WARNING: dotList > 100, remove some dots"
             self.canvas.delete(self.dotList[0])
             self.dotList.pop(0)
-        temp_dot = self.canvas.create_oval(robot_center_x, robot_center_y, robot_center_x+1, robot_center_y+1, width= 100, fill="grey")
+        temp_dot = self.canvas.create_oval(robot_center_x, robot_center_y, robot_center_x+1, robot_center_y+1, width= 2, fill="grey")
         self.dotList.append(temp_dot)
 
     def stopProg(self, event=None):
