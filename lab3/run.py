@@ -72,6 +72,7 @@ class BehaviorThreads(object):
         for i in range(89):
             robot.set_musical_note(i)
             time.sleep(0.1)
+        robot.set_musical_note(0)
 
     def avoid_obstacle(self, robot, prox_left, prox_right):
         distance_left = 50 - prox_left
@@ -127,7 +128,7 @@ class BehaviorThreads(object):
                         if self.motion_q.qsize() < 3: motion_q.put(border_event)
                     
                 else:
-                    print 'waiting ...'
+                    pass
             time.sleep(0.01)	# delay to give alert thread more processing time. Otherwise, it doesn't seem to have a chance to serve 'free' event
         return
 
@@ -147,7 +148,6 @@ class BehaviorThreads(object):
 
             q = self.motion_q
             if not q.empty():
-                print "debug: getting data from robot_motion_handler"
                 event = q.get()
                 type1 = event.type
                 data = event.data
@@ -185,7 +185,6 @@ class GUI(object):
         self.canvas_proxr_id = None
 
         self.initUI()
-        print "debug: see what's coming? self.robot_alert_handler!"
         self.robot_alert_handler(self.event_q)
 
     ##########################################################
@@ -305,14 +304,16 @@ class GUI(object):
                 self.prox_l_id.config(text="ProxLeft: " + str(data[0]))
                 self.prox_r_id.config(text="ProxRight: " + str(data[1]))
                 # display red beams
-                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 2*(50-data[0]))
-                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 2*(50-data[1]))
+                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 1.5*(50-data[0]))
+                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 1.5*(50-data[1]))
             elif type1 == "free":
                 self.prox_l_id.config(text="ProxLeft: " + str(0))
                 self.prox_r_id.config(text="ProxRight: " + str(0))
                 # erase the beams
                 self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y)
                 self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y)
+                self.canvas.itemconfig(self.canvas_proxl_id, width=0)
+                self.canvas.itemconfig(self.canvas_proxr_id, width=0)
 
         self.root.after(10, self.robot_alert_handler, self.event_q)
         

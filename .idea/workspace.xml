@@ -28,8 +28,8 @@
       <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="306" column="36" lean-forward="true" selection-start-line="306" selection-start-column="36" selection-end-line="310" selection-end-column="63" />
+            <state relative-caret-position="348">
+              <caret line="314" column="12" lean-forward="true" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="71" />
               <folding>
                 <element signature="e#322#332#0" expanded="true" />
               </folding>
@@ -40,8 +40,8 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="245" column="37" lean-forward="true" selection-start-line="245" selection-start-column="37" selection-end-line="245" selection-end-column="37" />
+            <state relative-caret-position="271">
+              <caret line="307" column="101" selection-start-line="307" selection-start-column="101" selection-end-line="307" selection-end-column="101" />
               <folding>
                 <element signature="e#2795#3131#0" />
                 <element signature="e#7707#9683#0" />
@@ -54,8 +54,8 @@
       <file leaf-file-name="starter_tk_escape.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="111" column="28" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="28" />
+            <state relative-caret-position="443">
+              <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -71,7 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>button</find>
       <find>commands.</find>
       <find>avoid_obstacle</find>
       <find>t_mo</find>
@@ -93,7 +92,6 @@
       <find>.get()</find>
       <find>print</find>
       <find>motion_han</find>
-      <find>robot_motion_handler</find>
       <find>alert</find>
       <find>data from</find>
       <find>after 50</find>
@@ -101,6 +99,8 @@
       <find>.after</find>
       <find>robot_event_firer</find>
       <find>motion_q</find>
+      <find>robot_motion_handler</find>
+      <find>config</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,32 +217,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>113</line>
+          <line>114</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>119</line>
+          <line>120</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>120</line>
+          <line>121</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>125</line>
+          <line>126</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>126</line>
+          <line>127</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
@@ -275,15 +275,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="111" column="28" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="28" />
+        <state relative-caret-position="443">
+          <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="306" column="36" lean-forward="true" selection-start-line="306" selection-start-column="36" selection-end-line="310" selection-end-column="63" />
+        <state relative-caret-position="348">
+          <caret line="314" column="12" lean-forward="true" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="71" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
           </folding>
@@ -292,8 +292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="245" column="37" lean-forward="true" selection-start-line="245" selection-start-column="37" selection-end-line="245" selection-end-column="37" />
+        <state relative-caret-position="271">
+          <caret line="307" column="101" selection-start-line="307" selection-start-column="101" selection-end-line="307" selection-end-column="101" />
           <folding>
             <element signature="e#2795#3131#0" />
             <element signature="e#7707#9683#0" />
