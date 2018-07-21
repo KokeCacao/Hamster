@@ -21,58 +21,58 @@ class Robots(object):
         return
 
     def move_degree(self, degree=None, move_x=None, move_y=None, event=None):
-        if degree == 0:
-            self.move_right()
-        elif degree == 45:
-            self.move_right()
-        elif degree == 90:
-            self.move_forward()
-        elif degree == 135:
-            self.move_left()
-        elif degree == 180:
-            self.move_left()
-        elif degree == 225:
-            self.move_back_left()
-        elif degree == 270:
-            self.move_backward()
-        elif degree == 315:
-            self.move_back_right()
+        # if degree == 0:
+        #     self.move_right()
+        # elif degree == 45:
+        #     self.move_right()
+        # elif degree == 90:
+        #     self.move_forward()
+        # elif degree == 135:
+        #     self.move_left()
+        # elif degree == 180:
+        #     self.move_left()
+        # elif degree == 225:
+        #     self.move_back_left()
+        # elif degree == 270:
+        #     self.move_backward()
+        # elif degree == 315:
+        #     self.move_back_right()
 
         # front
-            # 180-90: left stop -> move, the other move
-            # 0-90: right stop -> move, the other move
+        #     180-90: left stop -> move, the other move
+        #     0-90: right stop -> move, the other move
         # back
-            # 180-270: left stop - move, the other move
-            # 360-270: right stop - move, the other move
-        # if move_x or move_y or degree:
-        #     temp_left = 0
-        #     temp_right = 1
-        #
-        #     if 0 <= degree <= 180:  # front
-        #         if 180 >= degree > 90:  # left
-        #             temp_left = (-degree + 180) * (100/90)
-        #             temp_right = 100
-        #         elif degree == 90:  # straight
-        #             temp_left = 100
-        #             temp_right = 100
-        #         elif 90 > degree >= 0: # right
-        #             temp_left = 100
-        #             temp_right = degree * (100/90)
-        #     if 180 < degree < 360:
-        #         if 180 < degree < 270:
-        #             temp_left = -(degree - 180) * (100/90)
-        #             temp_right = -100
-        #         elif degree == 270:
-        #             temp_left = -100
-        #             temp_right = -100
-        #         elif 270 < degree < 360:
-        #             temp_left = -100
-        #             temp_right = -(-degree + 180) * (100/90)
-        #
-        #     if self.robotList:
-        #         for robot in self.robotList:
-        #             robot.set_wheel(0,temp_left)
-        #         robot.set_wheel(1,temp_right)
+        #     180-270: left stop - move, the other move
+        #     360-270: right stop - move, the other move
+        if move_x or move_y or degree:
+            temp_left = 0
+            temp_right = 1
+
+            if 0 <= degree <= 180:  # front
+                if 180 >= degree > 90:  # left
+                    temp_left = (-degree + 180) * (100/90)
+                    temp_right = 100
+                elif degree == 90:  # straight
+                    temp_left = 100
+                    temp_right = 100
+                elif 90 > degree >= 0: # right
+                    temp_left = 100
+                    temp_right = degree * (100/90)
+            if 180 < degree < 360:
+                if 180 < degree < 270:
+                    temp_left = -(degree - 180) * (100/90)
+                    temp_right = -100
+                elif degree == 270:
+                    temp_left = -100
+                    temp_right = -100
+                elif 270 < degree < 360:
+                    temp_left = -100
+                    temp_right = -(-degree + 180) * (100/90)
+
+            if self.robotList:
+                for robot in self.robotList:
+                    robot.set_wheel(0,temp_left)
+                robot.set_wheel(1,temp_right)
 
     def move_forward(self, event=None):
         if self.robotList:
@@ -176,6 +176,7 @@ class UI(object):
 
         # 2D reconstruction
         self.dotList = []
+
         self.move_degree = 90 # relative vector
         self.move_x = 0  # relative vector
         self.move_y = 0  # relative vector
@@ -249,6 +250,11 @@ class UI(object):
         self.prox_l_id.pack()
         self.prox_r_id = tk.Label(self.root, text="ProxRight: N/A")
         self.prox_r_id.pack()
+
+        # ground canvas
+        # self.dotList = []
+
+        # robot canvas
         self.canvas = tk.Canvas(self.root, width=canvas_width, height=canvas_height, bg="white")
         self.canvas_robot_id = self.canvas.create_rectangle(robot_x1, robot_y1, robot_x2, robot_y2, fill="gold")
         self.canvas_floorl_id = self.canvas.create_rectangle(floorl_x1, floorl_y1, floorl_x2, floorl_y2, fill="black")
@@ -256,6 +262,7 @@ class UI(object):
         self.canvas_proxl_id = self.canvas.create_line(prox_l_x, prox_l_y, prox_l_x, prox_l_y, fill="black", width=4)
         self.canvas_proxr_id = self.canvas.create_line(prox_r_x, prox_r_y, prox_r_x, prox_r_y, fill="black", width=4)
         self.canvas.pack()
+
 
         # add key listeners
         self.root.bind('<KeyPress>', self.keydown)
@@ -321,6 +328,12 @@ class UI(object):
             self.canvas.itemconfig(self.canvas_floorr_id, fill="black")
         self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-prox_l))
         self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-prox_r))
+
+        # self.dotList = []
+        if len(self.dotList) > 100:
+            self.dotList.pop(0)
+        temp_dot = self.canvas.create_oval(robot_center_x, robot_center_y, robot_center_x+1, robot_center_y+1, width = 0, fill="grey")
+        self.dotList.append(temp_dot)
 
         # loop
         self.root.after(100, self.display_sensor)
@@ -393,6 +406,12 @@ class UI(object):
         self.move_degree = math.atan2(self.move_y, self.move_x)/math.pi*180  # transfer coordinate into degree
         if self.move_degree < 0:
             self.move_degree = self.move_degree + 360
+
+        if self.move_degree == 90:
+            for dot in self.dotList:
+                self.canvas.coords(dot, 0, -10)
+
+
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
         self.robot_handle.move_degree(degree=self.move_degree, move_x=self.move_x, move_y=self.move_y)
 

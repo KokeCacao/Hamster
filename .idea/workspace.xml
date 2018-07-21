@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab1/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/run-bad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,24 +17,21 @@
         <entry file="file://$PROJECT_DIR$/lab1/run-win.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
-              <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
+            <state relative-caret-position="279">
+              <caret line="411" column="46" selection-start-line="411" selection-start-column="46" selection-end-line="411" selection-end-column="46" />
               <folding>
                 <element signature="e#322#332#0" expanded="true" />
-                <element signature="e#668#2584#0" />
-                <element signature="e#6390#9369#0" />
-                <element signature="e#9667#11986#0" />
+                <element signature="e#500#5273#0" />
                 <element signature="e#12254#12779#0" />
                 <element signature="e#13048#13583#0" />
-                <element signature="e#13619#14617#0" />
                 <element signature="e#14779#15082#0" />
               </folding>
             </state>
@@ -47,17 +41,17 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="163" column="28" lean-forward="true" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="54" />
+            <state relative-caret-position="2793">
+              <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab1/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="83" column="31" lean-forward="true" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+            <state relative-caret-position="190">
+              <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -73,8 +67,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>t_robot_listener</find>
-      <find>robot_motion</find>
       <find>t_alert_handler</find>
       <find>type</find>
       <find>fire</find>
@@ -96,13 +88,15 @@
       <find>.after</find>
       <find>robot_event_firer</find>
       <find>motion_q</find>
-      <find>config</find>
       <find>robot_motion_handler</find>
       <find>avoid_obstacle</find>
       <find>get</find>
-      <find>move_degree</find>
       <find>RobotComm</find>
       <find>music</find>
+      <find>config</find>
+      <find>ground_canvas</find>
+      <find>move_degree</find>
+      <find>canvas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,11 +107,11 @@
       <list>
         <option value="$PROJECT_DIR$/lab1/starter_tk_behaviors.py" />
         <option value="$PROJECT_DIR$/lab3/Note.py" />
-        <option value="$PROJECT_DIR$/lab2/starter_tk_joystick.py" />
         <option value="$PROJECT_DIR$/lab3/starter_tk_escape.py" />
         <option value="$PROJECT_DIR$/lab1/run-win.py" />
         <option value="$PROJECT_DIR$/lab3/run.py" />
         <option value="$PROJECT_DIR$/lab1/run.py" />
+        <option value="$PROJECT_DIR$/lab2/starter_tk_joystick.py" />
       </list>
     </option>
   </component>
@@ -278,12 +272,9 @@
           <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#668#2584#0" />
-            <element signature="e#6390#9369#0" />
-            <element signature="e#9667#11986#0" />
+            <element signature="e#500#5273#0" />
             <element signature="e#12254#12779#0" />
             <element signature="e#13048#13583#0" />
-            <element signature="e#13619#14617#0" />
             <element signature="e#14779#15082#0" />
           </folding>
         </state>
@@ -336,38 +327,42 @@
     <entry file="file://$PROJECT_DIR$/lab1/run-win.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
-          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
-          <folding>
-            <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#668#2584#0" />
-            <element signature="e#6390#9369#0" />
-            <element signature="e#9667#11986#0" />
-            <element signature="e#12254#12779#0" />
-            <element signature="e#13048#13583#0" />
-            <element signature="e#13619#14617#0" />
-            <element signature="e#14779#15082#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="163" column="28" lean-forward="true" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="54" />
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab1/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="83" column="31" lean-forward="true" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+        <state relative-caret-position="190">
+          <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2793">
+          <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/run-bad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="411" column="46" selection-start-line="411" selection-start-column="46" selection-end-line="411" selection-end-column="46" />
+          <folding>
+            <element signature="e#322#332#0" expanded="true" />
+            <element signature="e#500#5273#0" />
+            <element signature="e#12254#12779#0" />
+            <element signature="e#13048#13583#0" />
+            <element signature="e#14779#15082#0" />
+          </folding>
         </state>
       </provider>
     </entry>
