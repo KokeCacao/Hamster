@@ -31,7 +31,7 @@ class Event(object):
 
 class BehaviorThreads(object):
     Threshold_border = 20   # if floor sensor reading falls equal or below this value, border is detected
-    Threshold_obstacle = 40   # if prox sensor reading is equal or higher than this, obstacle is detected
+    Threshold_obstacle = 5   # if prox sensor reading is equal or higher than this, obstacle is detected
     
     def __init__(self, robot_list):
         self.robot_list = robot_list
@@ -304,8 +304,8 @@ class GUI(object):
                 self.prox_l_id.config(text="ProxLeft: " + str(data[0]))
                 self.prox_r_id.config(text="ProxRight: " + str(data[1]))
                 # display red beams
-                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 1.5*(50-data[0]))
-                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 1.5*(50-data[1]))
+                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 2*(50-data[0]))
+                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 2*(50-data[1]))
             elif type1 == "free":
                 self.prox_l_id.config(text="ProxLeft: " + str(0))
                 self.prox_r_id.config(text="ProxRight: " + str(0))
