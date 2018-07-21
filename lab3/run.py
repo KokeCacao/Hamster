@@ -297,7 +297,7 @@ class GUI(object):
             self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)
 
         print "after 50"
-        self.root.after(50, self.robot_alert_handler)
+        self.root.after(50, self.robot_alert_handler, args=(self.event_q, ))
         
 
 def main():
