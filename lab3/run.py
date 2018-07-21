@@ -99,7 +99,7 @@ class BehaviorThreads(object):
                     line_r = robot.get_floor(1)
                     if (prox_l > BehaviorThreads.Threshold_obstacle or prox_r > BehaviorThreads.Threshold_obstacle):
                         alert_event = Event("alert", [prox_l,prox_r])
-                        alert_q.put(alert_event)
+                        if self.alert_q.qsize() < 10: alert_q.put(alert_event)
                         #logging.debug("alert event %s, %s, %s, %s", prox_l, prox_r, line_l, line_r)
 	                    #time.sleep(0.01)
                         count += 1
@@ -107,20 +107,20 @@ class BehaviorThreads(object):
                         if (count % 5 == 0):
                             #logging.debug("obstacle detected, q2: %d %d" % (prox_l, prox_r))
                             obs_event = Event("obstacle", [prox_l, prox_r])
-                            motion_q.put(obs_event)
+                            if self.motion_q.qsize() < 10: motion_q.put(obs_event)
                     else:
                         if (count > 0):
                         	# free event is created when robot goes from obstacle to no obstacle
                             # logging.debug("free of obstacle")
                             free_event = Event("free",[])
-                            motion_q.put(free_event)  # put event in motion queue
-                            alert_q.put(free_event)  # put event in alert queue
+                            if self.motion_q.qsize() < 10: motion_q.put(free_event)  # put event in motion queue
+                            if self.alert_q.qsize() < 10: alert_q.put(free_event)  # put event in alert queue
                             count = 0
                     if (line_l < BehaviorThreads.Threshold_border or line_r < BehaviorThreads.Threshold_border):
 	                    #logging.debug("border detected: %d %d" % (line_l, line_r))
                         border_event = Event("border", [line_l, line_r])
-                        alert_q.put(border_event)
-                        motion_q.put(border_event)
+                        if self.alert_q.qsize() < 10: alert_q.put(border_event)
+                        if self.motion_q.qsize() < 10: motion_q.put(border_event)
                     
                 else:
                     print 'waiting ...'
