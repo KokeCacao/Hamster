@@ -40,12 +40,13 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="299" column="74" selection-start-line="299" selection-start-column="74" selection-end-line="299" selection-end-column="74" />
+            <state relative-caret-position="291">
+              <caret line="145" column="29" lean-forward="true" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
               <folding>
                 <element signature="e#2573#2722#0" />
                 <element signature="e#2795#3131#0" />
                 <element signature="e#2683#4864#0" />
+                <element signature="e#7707#9683#0" />
                 <element signature="e#5690#5728#0" />
                 <element signature="e#5774#6076#0" />
               </folding>
@@ -56,8 +57,8 @@
       <file leaf-file-name="starter_tk_escape.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-609">
-              <caret line="121" column="26" lean-forward="true" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
+            <state relative-caret-position="215">
+              <caret line="111" column="28" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -85,12 +86,10 @@
       <find>avoid_obstacle</find>
       <find>t_mo</find>
       <find>t_robot_</find>
-      <find>robot_event_firer</find>
       <find>t_robot_listener</find>
       <find>robot_motion</find>
       <find>t_alert_handler</find>
       <find>get</find>
-      <find>robot_motion_handler</find>
       <find>type</find>
       <find>fire</find>
       <find>detected</find>
@@ -102,6 +101,9 @@
       <find>motion_h</find>
       <find>stop</find>
       <find>.after</find>
+      <find>robot_motion_handler</find>
+      <find>robot_event_firer</find>
+      <find>.get()</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -242,13 +244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-609">
-          <caret line="121" column="26" lean-forward="true" selection-start-line="121" selection-start-column="26" selection-end-line="121" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1355">
@@ -259,14 +254,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="111" column="28" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="299" column="74" selection-start-line="299" selection-start-column="74" selection-end-line="299" selection-end-column="74" />
+        <state relative-caret-position="291">
+          <caret line="145" column="29" lean-forward="true" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
           <folding>
             <element signature="e#2573#2722#0" />
             <element signature="e#2795#3131#0" />
             <element signature="e#2683#4864#0" />
+            <element signature="e#7707#9683#0" />
             <element signature="e#5690#5728#0" />
             <element signature="e#5774#6076#0" />
           </folding>

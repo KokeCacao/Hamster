@@ -132,16 +132,22 @@ class BehaviorThreads(object):
     # decide what Hamster should do. Hamster needs to avoid obstacle while escaping. Hamster
     # stops moving after getting out of the border and remember to flush the motion queue after getting out.
     #############################################################
-    def robot_motion_handler(self, motion_q):  # thread
+    def robot_motion_handler(self):  # thread
         # obstacle[x, y], free[], boarder[x, y]
 
         print "debug: getting data from robot_motion_handler"
-
-        event = motion_q.get()
-        type1 = event.type
-        data = event.data
+        # event = motion_q.get()
+        # type1 = event.type
+        # data = event.data
 
         while (not self.quit) and (not self.finished):
+
+            q = self.motion_q
+            if not q.empty():
+                event = q.get()
+                type1 = event.type
+                data = event.data
+
             if type1 == "obstacle":
                 for robot in self.robot_list:
                     if self.go and robot:
@@ -284,17 +290,18 @@ class GUI(object):
         prox_r_x = floorr_x2
         prox_r_y = floorr_y2 - floor_side
 
-        event = alert_q.get()
-        type1 = event.type
-        data = event.data
-        if type1 == "alert":
-            # display red beams
-            self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-data[0]))
-            self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-data[1]))
-        elif type1 == "free":
-            # erase the beams
-            self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, 0)
-            self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)
+        if not alert_q.empty():
+            event = alert_q.get()
+            type1 = event.type
+            data = event.data
+            if type1 == "alert":
+                # display red beams
+                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-data[0]))
+                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-data[1]))
+            elif type1 == "free":
+                # erase the beams
+                self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, 0)
+                self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)
 
         print "after 50"
         self.root.after(50, self.robot_alert_handler, args=(self.event_q, ))
