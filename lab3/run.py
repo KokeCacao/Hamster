@@ -85,6 +85,10 @@ class BehaviorThreads(object):
             robot.set_wheel(1, 0)
         return
 
+    def go_straight(self, robot):
+        robot.set_wheel(0, 30)
+        robot.set_wheel(1, 30)
+
     # This function monitors the sensors
     def robot_event_firer(self, alert_q, motion_q):  # thread
         count = 0
@@ -153,7 +157,9 @@ class BehaviorThreads(object):
                         if self.go and robot:
                             self.avoid_obstacle(robot, data[0], data[1])
                 elif type1 == "free":
-                    pass
+                    for robot in self.robot_list:
+                        if self.go and robot:
+                            self.go_straight(robot)
                 elif type1 == "boarder":
                     for robot in self.robot_list:
                         if self.go and robot:
@@ -294,10 +300,14 @@ class GUI(object):
             type1 = event.type
             data = event.data
             if type1 == "alert":
+                self.prox_l_id.config(text="ProxLeft: " + str(data[0]))
+                self.prox_r_id.config(text="ProxRight: " + str(data[1]))
                 # display red beams
                 self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - (50-data[0]))
                 self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - (50-data[1]))
             elif type1 == "free":
+                self.prox_l_id.config(text="ProxLeft: " + str(0))
+                self.prox_r_id.config(text="ProxRight: " + str(0))
                 # erase the beams
                 self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, 0)
                 self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, 0)

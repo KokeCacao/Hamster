@@ -28,8 +28,8 @@
       <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1355">
-              <caret line="325" column="23" selection-start-line="325" selection-start-column="17" selection-end-line="325" selection-end-column="23" />
+            <state relative-caret-position="310">
+              <caret line="306" column="36" lean-forward="true" selection-start-line="306" selection-start-column="36" selection-end-line="310" selection-end-column="63" />
               <folding>
                 <element signature="e#322#332#0" expanded="true" />
               </folding>
@@ -40,11 +40,12 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+            <state relative-caret-position="607">
+              <caret line="309" column="64" selection-start-line="309" selection-start-column="64" selection-end-line="309" selection-end-column="64" />
               <folding>
                 <element signature="e#2573#2722#0" />
                 <element signature="e#2795#3131#0" />
+                <element signature="e#2683#4864#0" />
                 <element signature="e#7707#9683#0" />
                 <element signature="e#5690#5728#0" />
                 <element signature="e#5774#6076#0" />
@@ -73,7 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>robot_event_watcher</find>
       <find>self.root.</find>
       <find>button</find>
       <find>commands.</find>
@@ -99,10 +99,11 @@
       <find>print</find>
       <find>motion_han</find>
       <find>robot_motion_handler</find>
-      <find>.after</find>
       <find>alert</find>
       <find>data from</find>
       <find>after 50</find>
+      <find>free</find>
+      <find>.after</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,32 +220,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>101</line>
+          <line>105</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>109</line>
+          <line>113</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>115</line>
+          <line>119</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>116</line>
+          <line>120</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>121</line>
+          <line>125</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lab3/run.py</url>
-          <line>122</line>
+          <line>126</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
@@ -284,8 +285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1355">
-          <caret line="325" column="23" selection-start-line="325" selection-start-column="17" selection-end-line="325" selection-end-column="23" />
+        <state relative-caret-position="310">
+          <caret line="306" column="36" lean-forward="true" selection-start-line="306" selection-start-column="36" selection-end-line="310" selection-end-column="63" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
           </folding>
@@ -294,11 +295,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+        <state relative-caret-position="607">
+          <caret line="309" column="64" selection-start-line="309" selection-start-column="64" selection-end-line="309" selection-end-column="64" />
           <folding>
             <element signature="e#2573#2722#0" />
             <element signature="e#2795#3131#0" />
+            <element signature="e#2683#4864#0" />
             <element signature="e#7707#9683#0" />
             <element signature="e#5690#5728#0" />
             <element signature="e#5774#6076#0" />
