@@ -70,7 +70,7 @@ class BehaviorThreads(object):
         robot.reset()
 
         for i in range(89):
-            robot.set_musical_note(self, i)
+            robot.set_musical_note(i)
             time.sleep(0.1)
 
     def avoid_obstacle(self, robot, prox_left, prox_right):
@@ -246,7 +246,7 @@ class GUI(object):
     def startRobot(self, event=None):
         self.t_handle.go = True
         obs_event = Event("obstacle", [0, 0])
-        if self.motion_q.qsize() < 3: self.motion_q.put(obs_event)
+        if self.t_handle.motion_q.qsize() < 3: self.t_handle.motion_q.put(obs_event)
         return
 
     def stopProg(self, event=None):

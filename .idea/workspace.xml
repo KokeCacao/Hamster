@@ -40,12 +40,11 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+            <state relative-caret-position="399">
+              <caret line="245" column="37" lean-forward="true" selection-start-line="245" selection-start-column="37" selection-end-line="245" selection-end-column="37" />
               <folding>
                 <element signature="e#2795#3131#0" />
                 <element signature="e#7707#9683#0" />
-                <element signature="e#5690#5728#0" />
                 <element signature="e#5774#6076#0" />
               </folding>
             </state>
@@ -72,7 +71,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.root.</find>
       <find>button</find>
       <find>commands.</find>
       <find>avoid_obstacle</find>
@@ -92,7 +90,6 @@
       <find>(self,</find>
       <find>motion_h</find>
       <find>stop</find>
-      <find>robot_event_firer</find>
       <find>.get()</find>
       <find>print</find>
       <find>motion_han</find>
@@ -102,6 +99,8 @@
       <find>after 50</find>
       <find>free</find>
       <find>.after</find>
+      <find>robot_event_firer</find>
+      <find>motion_q</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -293,12 +292,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+        <state relative-caret-position="399">
+          <caret line="245" column="37" lean-forward="true" selection-start-line="245" selection-start-column="37" selection-end-line="245" selection-end-column="37" />
           <folding>
             <element signature="e#2795#3131#0" />
             <element signature="e#7707#9683#0" />
-            <element signature="e#5690#5728#0" />
             <element signature="e#5774#6076#0" />
           </folding>
         </state>
