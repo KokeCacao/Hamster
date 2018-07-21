@@ -409,7 +409,7 @@ class UI(object):
 
         if self.move_degree == 90:
             for dot in self.dotList:
-                self.canvas.coords(dot, 0, -10)
+                self.canvas.move(dot, 0, -10)
 
 
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
