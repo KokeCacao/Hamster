@@ -78,6 +78,11 @@ class BehaviorThreads(object):
         distance_left = 50 - prox_left
         distance_right = 50 - prox_right
 
+        robot.set_wheel(0, -30)
+        robot.set_wheel(1, -30)
+
+        time.sleep(1)
+
         if (distance_left > distance_right ):  # turn left
             robot.set_wheel(0, 0)
             robot.set_wheel(1, 30)
