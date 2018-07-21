@@ -246,7 +246,7 @@ class GUI(object):
 
     def startRobot(self, event=None):
         self.t_handle.go = True
-        obs_event = Event("obstacle", [0, 0])
+        obs_event = Event("free", [])
         if self.t_handle.motion_q.qsize() < 3: self.t_handle.motion_q.put(obs_event)
         return
 
@@ -308,8 +308,8 @@ class GUI(object):
                 # display red beams
                 self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 2*(50-data[0]))
                 self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 2*(50-data[1]))
-                self.canvas.itemconfig(self.canvas_proxl_id, width=4)
-                self.canvas.itemconfig(self.canvas_proxr_id, width=4)
+                self.canvas.itemconfig(self.canvas_proxl_id, width=4, fill="black")
+                self.canvas.itemconfig(self.canvas_proxr_id, width=4, fill="black")
             elif type1 == "free":
                 self.prox_l_id.config(text="ProxLeft: " + str(0))
                 self.prox_r_id.config(text="ProxRight: " + str(0))
