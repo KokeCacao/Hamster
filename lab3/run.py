@@ -91,7 +91,6 @@ class BehaviorThreads(object):
         # logging.debug('starting...')
         print("start fire events")
         while (not self.quit) and (not self.finished):
-            print("fire")
             for robot in self.robot_list:
                 if self.go and robot:
                     prox_l = robot.get_proximity(0)
@@ -143,7 +142,6 @@ class BehaviorThreads(object):
         data = event.data
 
         while (not self.quit) and (not self.finished):
-            print("detected package")
             if type1 == "obstacle":
                 for robot in self.robot_list:
                     if self.go and robot:
@@ -175,6 +173,7 @@ class GUI(object):
         self.canvas_proxr_id = None
 
         self.initUI()
+        self.robot_alert_handler(self, event_q)
 
     ##########################################################
     # 1. Create a canvas widget and three canvas items: a square, and two lines 
