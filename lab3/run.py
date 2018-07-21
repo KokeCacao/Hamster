@@ -306,14 +306,16 @@ class GUI(object):
                 # display red beams
                 self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y - 2*(50-data[0]))
                 self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y - 2*(50-data[1]))
+                self.canvas.itemconfig(self.canvas_proxl_id, width=4)
+                self.canvas.itemconfig(self.canvas_proxr_id, width=4)
             elif type1 == "free":
                 self.prox_l_id.config(text="ProxLeft: " + str(0))
                 self.prox_r_id.config(text="ProxRight: " + str(0))
                 # erase the beams
                 self.canvas.coords(self.canvas_proxl_id, prox_l_x, prox_l_y, prox_l_x, prox_l_y)
                 self.canvas.coords(self.canvas_proxr_id, prox_r_x, prox_r_y, prox_r_x, prox_r_y)
-                self.canvas.itemconfig(self.canvas_proxl_id, width=0)
-                self.canvas.itemconfig(self.canvas_proxr_id, width=0)
+                self.canvas.itemconfig(self.canvas_proxl_id, width=0, fill="white")
+                self.canvas.itemconfig(self.canvas_proxr_id, width=0, fill="white")
 
         self.root.after(10, self.robot_alert_handler, self.event_q)
         
