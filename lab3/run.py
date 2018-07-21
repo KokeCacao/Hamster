@@ -156,10 +156,12 @@ class BehaviorThreads(object):
                     for robot in self.robot_list:
                         if self.go and robot:
                             self.avoid_obstacle(robot, data[0], data[1])
+                            robot.set_musical_note(40)
                 elif type1 == "free":
                     for robot in self.robot_list:
                         if self.go and robot:
                             self.go_straight(robot)
+                            robot.set_musical_note(0)
                 elif type1 == "border":
                     for robot in self.robot_list:
                         if self.go and robot:

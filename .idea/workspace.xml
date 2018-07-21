@@ -40,10 +40,9 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="316" column="82" selection-start-line="316" selection-start-column="82" selection-end-line="316" selection-end-column="82" />
+            <state relative-caret-position="329">
+              <caret line="163" column="52" selection-start-line="163" selection-start-column="52" selection-end-line="163" selection-end-column="52" />
               <folding>
-                <element signature="e#2795#3131#0" />
                 <element signature="e#7707#9683#0" />
                 <element signature="e#5774#6076#0" />
               </folding>
@@ -72,7 +71,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>commands.</find>
-      <find>avoid_obstacle</find>
       <find>t_mo</find>
       <find>t_robot_</find>
       <find>t_robot_listener</find>
@@ -101,6 +99,7 @@
       <find>motion_q</find>
       <find>robot_motion_handler</find>
       <find>config</find>
+      <find>avoid_obstacle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -292,10 +291,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="316" column="82" selection-start-line="316" selection-start-column="82" selection-end-line="316" selection-end-column="82" />
+        <state relative-caret-position="329">
+          <caret line="163" column="52" selection-start-line="163" selection-start-column="52" selection-end-line="163" selection-end-column="52" />
           <folding>
-            <element signature="e#2795#3131#0" />
             <element signature="e#7707#9683#0" />
             <element signature="e#5774#6076#0" />
           </folding>
