@@ -173,7 +173,8 @@ class GUI(object):
         self.canvas_proxr_id = None
 
         self.initUI()
-        self.robot_alert_handler(self, event_q)
+        print "debug: see what's coming? self.robot_alert_handler!"
+        self.robot_alert_handler(self.event_q)
 
     ##########################################################
     # 1. Create a canvas widget and three canvas items: a square, and two lines 
@@ -224,10 +225,10 @@ class GUI(object):
         self.canvas.pack()
 
         print "debug:startRobot()"
-        self.start = tk.Button(self.root, text='Start', command= lambda: self.startRobot())
+        self.start = tk.Button(self.root, text='Start', command=lambda: self.startRobot())
         self.start.pack(side='left')
         print "debug:stopRobot()"
-        self.exit = tk.Button(self.root, text='Exit', command= lambda: self.stopProg())
+        self.exit = tk.Button(self.root, text='Exit', command=lambda: self.stopProg())
         self.exit.pack(side='left')
 
     def startRobot(self, event=None):
