@@ -71,7 +71,7 @@ class BehaviorThreads(object):
 
         for i in range(89):
             robot.set_musical_note(self, i)
-            time.sleep(0.01)
+            time.sleep(0.1)
 
     def avoid_obstacle(self, robot, prox_left, prox_right):
         distance_left = 50 - prox_left
