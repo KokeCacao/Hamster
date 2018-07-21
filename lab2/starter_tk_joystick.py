@@ -11,6 +11,7 @@
 '''
 import sys
 import Tkinter as tk
+import math
 # noinspection PyUnresolvedReferences
 from HamsterAPI.comm_ble import RobotComm
 #for PC, need to import from commm_usb
@@ -161,6 +162,35 @@ class Robots(object):
                 robot.reset()
 
 class UI(object):
+    def rect(self, r, theta):
+        """theta in degrees
+
+        returns tuple; (float, float); (x,y)
+        """
+        x = r * math.cos(math.radians(theta))
+        y = r * math.sin(math.radians(theta))
+        return x, y
+
+    def polar(self, x, y):
+        """returns r, theta(degrees)
+        """
+        r = (x ** 2 + y ** 2) ** .5
+        if y == 0:
+            theta = 180 if x < 0 else 0
+        elif x == 0:
+            theta = 90 if y > 0 else 270
+        else:
+            theta = math.degrees(math.atan(float(y) / x))
+        return r, theta
+
+    def turnDegree(self, x, y, degree):
+        r, theta = self.polar(x, y)
+        r = r + degree
+        while r<0:
+            r = r+360
+        new_x, new_y = self.rect(r, theta)
+        return new_x, new_y
+
     def __init__(self, root, robot_handle):
         self.root = root
         self.robot_handle = robot_handle  # handle to robot commands
@@ -446,15 +476,31 @@ class UI(object):
         if self.move_degree < 0:
             self.move_degree = self.move_degree + 360
 
-        for dot in self.dotList:
-            self.canvas.move(dot, -self.move_x, self.move_y)
-        for wall in self.wallList:
-            self.canvas.move(wall, -self.move_x, self.move_y)
+        if self.move_degree is not 0 or self.move_degree is not 180:
+            for dot in self.dotList:
+                self.canvas.move(dot, -self.move_x, self.move_y)
+            for wall in self.wallList:
+                self.canvas.move(wall, -self.move_x, self.move_y)
+        else:
+            for dot in self.dotList:
+                x1, y1, x2, y2 = self.canvas.coords(dot)
+                x = (x1+x2)/2
+                y = (y1+y2)/2
 
+                degree = 5
+                new_x, new_y = self.turnDegree(x, y, degree)
+                self.canvas.coords(dot, new_x-1, new_y-1, new_x+1, new_y+1)
+            for wall in self.wallList:
+                x1, y1, x2, y2 = self.canvas.coords(wall)
+                x = (x1+x2)/2
+                y = (y1+y2)/2
+
+                degree = 5
+                new_x, new_y = self.turnDegree(x, y, degree)
+                self.canvas.coords(wall, new_x-1, new_y-1, new_x+1, new_y+1)
 
         print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
         self.robot_handle.move_degree(degree=self.move_degree, move_x=self.move_x, move_y=self.move_y)
-
 
         # self.dotList = []
         if len(self.dotList) > 100:
