@@ -31,7 +31,7 @@ class Event(object):
 
 class BehaviorThreads(object):
     Threshold_border = 20   # if floor sensor reading falls equal or below this value, border is detected
-    Threshold_obstacle = 5   # if prox sensor reading is equal or higher than this, obstacle is detected
+    Threshold_obstacle = 30   # tried 40-5-30 if prox sensor reading is equal or higher than this, obstacle is detected
     
     def __init__(self, robot_list):
         self.robot_list = robot_list
@@ -78,17 +78,30 @@ class BehaviorThreads(object):
         distance_left = 50 - prox_left
         distance_right = 50 - prox_right
 
-        robot.set_wheel(0, -30)
-        robot.set_wheel(1, -30)
 
-        time.sleep(1)
-
+        robot.set_musical_note(40)
         if (distance_left > distance_right ):  # turn left
-            robot.set_wheel(0, 0)
-            robot.set_wheel(1, 30)
+
+            # robot.set_wheel(0, -30)
+            # robot.set_wheel(1, -30)
+
+            # time.sleep(0.5)
+            robot.set_wheel(0, -10)
+            robot.set_wheel(1, 10)
+
+            time.sleep(0.2)
         else:  # turn right
-            robot.set_wheel(0, 30)
-            robot.set_wheel(1, 0)
+
+            # robot.set_wheel(0, -30)
+            # robot.set_wheel(1, -30)
+
+            # time.sleep(0.5)
+            robot.set_wheel(0, 10)
+            robot.set_wheel(1, -10)
+
+            time.sleep(0.2)
+
+        robot.set_musical_note(40)
         return
 
     def go_straight(self, robot):
@@ -109,32 +122,44 @@ class BehaviorThreads(object):
                     line_r = robot.get_floor(1)
                     if (prox_l > BehaviorThreads.Threshold_obstacle or prox_r > BehaviorThreads.Threshold_obstacle):
                         alert_event = Event("alert", [prox_l,prox_r])
-                        if self.alert_q.qsize() < 3: alert_q.put(alert_event)
+                        if self.alert_q.qsize() > 1:
+                            alert_q.get()
+                        alert_q.put(alert_event)
                         #logging.debug("alert event %s, %s, %s, %s", prox_l, prox_r, line_l, line_r)
-	                    #time.sleep(0.01)
+                        #time.sleep(0.01)
                         count += 1
-	                    #update movement every 5 ticks
+                        #update movement every 5 ticks
                         if (count % 5 == 0):
                             #logging.debug("obstacle detected, q2: %d %d" % (prox_l, prox_r))
                             obs_event = Event("obstacle", [prox_l, prox_r])
-                            if self.motion_q.qsize() < 3: motion_q.put(obs_event)
+                            if self.motion_q.qsize() > 1:
+                                self.motion_q.get()
+                            motion_q.put(obs_event)
                     else:
                         if (count > 0):
-                        	# free event is created when robot goes from obstacle to no obstacle
+                            # free event is created when robot goes from obstacle to no obstacle
                             # logging.debug("free of obstacle")
                             free_event = Event("free",[])
-                            if self.motion_q.qsize() < 3: motion_q.put(free_event)  # put event in motion queue
-                            if self.alert_q.qsize() < 3: alert_q.put(free_event)  # put event in alert queue
+                            if self.motion_q.qsize() > 1:
+                                self.motion_q.get()
+                            motion_q.put(free_event)  # put event in motion queue
+                            if self.alert_q.qsize() > 1:
+                                self.alert_q.get()
+                            alert_q.put(free_event)  # put event in alert queue
                             count = 0
                     if (line_l < BehaviorThreads.Threshold_border or line_r < BehaviorThreads.Threshold_border):
-	                    #logging.debug("border detected: %d %d" % (line_l, line_r))
+                        #logging.debug("border detected: %d %d" % (line_l, line_r))
                         border_event = Event("border", [line_l, line_r])
-                        if self.alert_q.qsize() < 3: alert_q.put(border_event)
-                        if self.motion_q.qsize() < 3: motion_q.put(border_event)
+                        if self.alert_q.qsize() > 1:
+                            self.alert_q.get()
+                        alert_q.put(border_event)
+                        if self.motion_q.qsize() > 1:
+                            self.motion_q.get()
+                        motion_q.put(border_event)
                     
                 else:
                     pass
-            time.sleep(0.01)	# delay to give alert thread more processing time. Otherwise, it doesn't seem to have a chance to serve 'free' event
+            time.sleep(0.01)    # delay to give alert thread more processing time. Otherwise, it doesn't seem to have a chance to serve 'free' event
         return
 
     ##############################################################
@@ -161,7 +186,6 @@ class BehaviorThreads(object):
                     for robot in self.robot_list:
                         if self.go and robot:
                             self.avoid_obstacle(robot, data[0], data[1])
-                            robot.set_musical_note(40)
                 elif type1 == "free":
                     for robot in self.robot_list:
                         if self.go and robot:
@@ -264,7 +288,7 @@ class GUI(object):
         self.t_handle.t_motion_listener.join()
         self.t_handle.t_robot_listener.join()
         # self.t_alert_handler.join()
-        self.root.quit()	# close GUI window
+        self.root.quit()    # close GUI window
 
     ###################################################
     # Handles prox sensor display and warning(sound).
