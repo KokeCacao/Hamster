@@ -160,7 +160,7 @@ class BehaviorThreads(object):
                     for robot in self.robot_list:
                         if self.go and robot:
                             self.go_straight(robot)
-                elif type1 == "boarder":
+                elif type1 == "border":
                     for robot in self.robot_list:
                         if self.go and robot:
                             self.get_out(robot)
@@ -245,6 +245,8 @@ class GUI(object):
 
     def startRobot(self, event=None):
         self.t_handle.go = True
+        obs_event = Event("obstacle", [0, 0])
+        if self.motion_q.qsize() < 3: self.motion_q.put(obs_event)
         return
 
     def stopProg(self, event=None):
