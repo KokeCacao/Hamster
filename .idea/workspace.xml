@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab3/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab Descriptions.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Lab Descriptions.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
-              <caret line="314" column="12" lean-forward="true" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="71" />
+              <caret line="314" column="12" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="71" />
               <folding>
                 <element signature="e#322#332#0" expanded="true" />
               </folding>
@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="436">
-              <caret line="173" column="24" lean-forward="true" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+              <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
               <folding>
                 <element signature="e#7707#9683#0" />
                 <element signature="e#5774#6076#0" />
@@ -76,7 +76,6 @@
       <find>t_robot_listener</find>
       <find>robot_motion</find>
       <find>t_alert_handler</find>
-      <find>get</find>
       <find>type</find>
       <find>fire</find>
       <find>detected</find>
@@ -100,6 +99,7 @@
       <find>robot_motion_handler</find>
       <find>config</find>
       <find>avoid_obstacle</find>
+      <find>get</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,6 +149,11 @@
               <item name="Hamster" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hamster" type="462c0819:PsiDirectoryNode" />
               <item name="lab3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamster" type="462c0819:PsiDirectoryNode" />
+              <item name="lab4" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -282,17 +287,27 @@
     <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
-          <caret line="314" column="12" lean-forward="true" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="71" />
+          <caret line="314" column="12" selection-start-line="314" selection-start-column="12" selection-end-line="314" selection-end-column="71" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab4/starter_tk_3state_avoid.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
-          <caret line="173" column="24" lean-forward="true" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
           <folding>
             <element signature="e#7707#9683#0" />
             <element signature="e#5774#6076#0" />
