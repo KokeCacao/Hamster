@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lab4/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab1/run-win.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab1/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/starter_tk_escape.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/starter_tk_escape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab4/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab4/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +46,8 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab4/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
-              <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+            <state relative-caret-position="475">
+              <caret line="433" column="44" lean-forward="true" selection-start-line="433" selection-start-column="44" selection-end-line="433" selection-end-column="44" />
               <folding>
                 <element signature="e#387#397#0" expanded="true" />
                 <element signature="e#671#1281#0" />
@@ -184,7 +177,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/.kaggle/competitions/home-credit-default-risk" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -218,7 +211,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
@@ -547,8 +540,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab4/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+        <state relative-caret-position="475">
+          <caret line="433" column="44" lean-forward="true" selection-start-line="433" selection-start-column="44" selection-end-line="433" selection-end-column="44" />
           <folding>
             <element signature="e#387#397#0" expanded="true" />
             <element signature="e#671#1281#0" />

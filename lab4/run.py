@@ -102,6 +102,7 @@ class RobotBehavior(object):
 
         # count number
         self.number_of_finished = 0
+        self.max_trash = 3
 
         # init queue
         self.q = deque()
@@ -403,8 +404,12 @@ class RobotBehavior(object):
                     time.sleep(0.2)
                     self.q.clear()
                 self.avoid_both()
-                event = Event("finish_final", None, None, None, None)
-                self.q.append(event)
+
+                if self.number_of_finished < self.max_trash:
+                    event = Event("finish_final", None, None, None, None)
+                    self.q.append(event)
+                else:
+                    self.done = True
     def waiting(self):
         print "waiting"
     def throw_error(self):
