@@ -20,7 +20,7 @@ import threading
 import Tkinter as tk
 import Queue
 # noinspection PyUnresolvedReferencesy,PyUnresolvedReferences
-from HamsterAPI.comm_ble import RobotComm
+from HamsterAPI.comm_usb import RobotComm
 
 logging.basicConfig(level=logging.DEBUG,format='(%(threadName)-10s) %(message)s',)
 

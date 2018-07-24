@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/lab4/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1/run-win.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2/starter_tk_joystick.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab3/starter_tk_escape.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/starter_tk_escape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,24 +20,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run-win.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab1/run-win.py">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab2/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+            <state relative-caret-position="378">
+              <caret line="131" column="23" lean-forward="true" selection-start-line="131" selection-start-column="23" selection-end-line="131" selection-end-column="41" />
+              <folding>
+                <element signature="e#322#332#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starter_tk_joystick.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+      <file leaf-file-name="demo_2018_parking_ticket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="501" column="85" selection-start-line="501" selection-start-column="85" selection-end-line="501" selection-end-column="85" />
+              <caret line="217" column="51" lean-forward="true" selection-start-line="217" selection-start-column="51" selection-end-line="219" selection-end-column="13" />
               <folding>
-                <element signature="e#322#332#0" expanded="true" />
-                <element signature="e#500#5446#0" />
-                <element signature="e#14779#15082#0" />
+                <element signature="e#520#2098#0" />
+                <element signature="e#3843#3913#0" />
+                <element signature="e#3965#4036#0" />
+                <element signature="e#4088#4159#0" />
+                <element signature="e#6024#6163#0" />
+                <element signature="e#6215#6360#0" />
+                <element signature="e#6414#6559#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab4/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-25">
+              <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+              <folding>
+                <element signature="e#387#397#0" expanded="true" />
+                <element signature="e#671#1281#0" />
+                <element signature="e#14398#14430#0" />
               </folding>
             </state>
           </provider>
@@ -40,17 +67,8 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab3/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
+            <state relative-caret-position="555">
               <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab1/run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -66,22 +84,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>event</find>
-      <find>event_q</find>
-      <find>robot_alert_handler</find>
-      <find>(self,</find>
-      <find>motion_h</find>
-      <find>stop</find>
-      <find>.get()</find>
-      <find>print</find>
-      <find>motion_han</find>
-      <find>alert</find>
-      <find>data from</find>
-      <find>after 50</find>
-      <find>free</find>
-      <find>.after</find>
-      <find>robot_event_firer</find>
-      <find>motion_q</find>
       <find>robot_motion_handler</find>
       <find>avoid_obstacle</find>
       <find>get</find>
@@ -93,10 +95,29 @@
       <find>music</find>
       <find>dotList</find>
       <find>dotLi</find>
-      <find>move(</find>
       <find>coo</find>
       <find>corrd</find>
+      <find>keydown</find>
+      <find>move(</find>
+      <find>get_start_state</find>
+      <find>set_start_state</find>
+      <find>request_refund</find>
+      <find>update_states_map</find>
+      <find>msgvar</find>
+      <find>drawn_states</find>
+      <find>red</find>
+      <find>robot.get</find>
+      <find>StateMachine</find>
+      <find>append</find>
+      <find>val</find>
+      <find>RobotBehavior</find>
+      <find>thread</find>
+      <find>push</find>
+      <find>obj_no</find>
     </findStrings>
+    <replaceStrings>
+      <replace>sm</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,19 +127,22 @@
       <list>
         <option value="$PROJECT_DIR$/lab1/starter_tk_behaviors.py" />
         <option value="$PROJECT_DIR$/lab3/Note.py" />
-        <option value="$PROJECT_DIR$/lab3/starter_tk_escape.py" />
         <option value="$PROJECT_DIR$/lab1/run-win.py" />
         <option value="$PROJECT_DIR$/lab3/run.py" />
-        <option value="$PROJECT_DIR$/lab1/run.py" />
         <option value="$PROJECT_DIR$/lab2/starter_tk_joystick.py" />
+        <option value="$PROJECT_DIR$/lab3/starter_tk_escape.py" />
+        <option value="$PROJECT_DIR$/lab2/run.py" />
+        <option value="$PROJECT_DIR$/lab1/run.py" />
+        <option value="$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py" />
+        <option value="$PROJECT_DIR$/lab4/run.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
-    <option name="height" value="969" />
+    <option name="height" value="970" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -163,6 +187,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Koke_Cacao\Python\WorkSpace\Hamster\lab4" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -189,12 +218,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.111878455" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.111878455" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -203,12 +232,12 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.29834256" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.29834256" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -251,10 +280,60 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="10" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lab1/run-win.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="47" column="21" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="21" />
+          <folding>
+            <element signature="e#520#2098#0" />
+            <element signature="e#3843#3913#0" />
+            <element signature="e#3965#4036#0" />
+            <element signature="e#4088#4159#0" />
+            <element signature="e#6024#6163#0" />
+            <element signature="e#6215#6360#0" />
+            <element signature="e#6414#6559#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3572">
+          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab1/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
+          <folding>
+            <element signature="e#455#465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7809">
+          <caret line="411" column="46" selection-start-line="411" selection-start-column="46" selection-end-line="411" selection-end-column="46" />
+          <folding>
+            <element signature="e#322#332#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab3/Note.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
@@ -265,14 +344,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#500#5446#0" />
-            <element signature="e#14779#15082#0" />
           </folding>
         </state>
       </provider>
@@ -288,9 +365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <element signature="e#456#466#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -349,14 +423,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="463" column="40" selection-start-line="463" selection-start-column="35" selection-end-line="463" selection-end-column="40" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#500#5446#0" />
-            <element signature="e#14779#15082#0" />
           </folding>
         </state>
       </provider>
@@ -368,14 +440,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="77" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#500#5446#0" />
-            <element signature="e#14779#15082#0" />
           </folding>
         </state>
       </provider>
@@ -404,37 +474,9 @@
     <entry file="file://$PROJECT_DIR$/lab4/starter_tk_3state_avoid.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab1/run-win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
+        <state relative-caret-position="342">
           <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
         </state>
       </provider>
@@ -446,14 +488,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/starter_tk_joystick.py">
+    <entry file="file://$PROJECT_DIR$/lab3/starter_tk_escape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab1/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="e#455#465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/race.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="103" column="38" lean-forward="true" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="501" column="85" selection-start-line="501" selection-start-column="85" selection-end-line="501" selection-end-column="85" />
+          <caret line="131" column="23" lean-forward="true" selection-start-line="131" selection-start-column="23" selection-end-line="131" selection-end-column="41" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#500#5446#0" />
-            <element signature="e#14779#15082#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="217" column="51" lean-forward="true" selection-start-line="217" selection-start-column="51" selection-end-line="219" selection-end-column="13" />
+          <folding>
+            <element signature="e#520#2098#0" />
+            <element signature="e#3843#3913#0" />
+            <element signature="e#3965#4036#0" />
+            <element signature="e#4088#4159#0" />
+            <element signature="e#6024#6163#0" />
+            <element signature="e#6215#6360#0" />
+            <element signature="e#6414#6559#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab4/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+          <folding>
+            <element signature="e#387#397#0" expanded="true" />
+            <element signature="e#671#1281#0" />
+            <element signature="e#14398#14430#0" />
           </folding>
         </state>
       </provider>

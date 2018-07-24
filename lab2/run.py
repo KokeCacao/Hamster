@@ -13,7 +13,8 @@ import sys
 import Tkinter as tk
 import math
 # noinspection PyUnresolvedReferences
-from HamsterAPI.comm_ble import RobotComm
+# from HamsterAPI.comm_ble import RobotComm
+from HamsterAPI.comm_usb import RobotComm
 #for PC, need to import from commm_usb
 
 class Robots(object):
@@ -370,8 +371,8 @@ class UI(object):
             print "WARNING: wallList > 100, remove some dots"
             self.canvas.delete(self.wallList[0])
             self.wallList.pop(0)
-        temp_wall1 = self.canvas.create_oval(prox_l_x, prox_l_y - (50-prox_l), prox_l_x, prox_l_y - (50-prox_l)+1, width= 2, fill="red")
-        temp_wall2 = self.canvas.create_oval(prox_r_x, prox_r_y - (50-prox_r), prox_r_x, prox_r_y - (50-prox_r)+1, width= 2, fill="red")
+        temp_wall1 = self.canvas.create_oval(prox_l_x, prox_l_y - (50-prox_l), prox_l_x, prox_l_y - (50-prox_l)+1, width= 2, fill="red", outline="red")
+        temp_wall2 = self.canvas.create_oval(prox_r_x, prox_r_y - (50-prox_r), prox_r_x, prox_r_y - (50-prox_r)+1, width= 2, fill="red", outline="red")
         self.wallList.append(temp_wall1)
         self.wallList.append(temp_wall2)
 
@@ -386,7 +387,7 @@ class UI(object):
         key = event.keycode
         print "keycode down =",str(key)
         # small, big
-        if key == 97 or key == 64:
+        if key == 97 or key == 64 or key == 65:
             self.key_a = True
             print "key a"
         if key == 115 or key == 83 or key == 65651:
@@ -408,7 +409,7 @@ class UI(object):
         key = event.keycode
         print "keycode up =",str(key)
         # small, big
-        if key == 97 or key == 64:
+        if key == 97 or key == 64 or key == 65:
             self.key_a = False
             print "keyup a"
         if key == 115 or key == 83 or key == 65651:
@@ -476,7 +477,8 @@ class UI(object):
         if self.move_degree < 0:
             self.move_degree = self.move_degree + 360
 
-        if self.move_degree is not 0 or self.move_degree is not 180:
+        # turning the dots
+        if self.move_degree is 90 or self.move_degree is 270:
             for dot in self.dotList:
                 self.canvas.move(dot, -self.move_x, self.move_y)
             for wall in self.wallList:
