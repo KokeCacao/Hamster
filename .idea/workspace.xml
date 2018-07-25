@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tk_hamster_simulation_starter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tk_hamster_simulation_starter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1457">
-              <caret line="426" lean-forward="true" selection-start-line="426" selection-end-line="426" />
+            <state relative-caret-position="260">
+              <caret line="410" column="103" selection-start-line="410" selection-start-column="103" selection-end-line="410" selection-end-column="103" />
               <folding>
                 <element signature="e#904#924#0" expanded="true" />
                 <element signature="e#1054#1575#0" />
@@ -33,6 +32,31 @@
                 <element signature="e#10869#11950#0" />
                 <element signature="e#12416#13267#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="starter_bfs.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab6/starter_bfs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="starter_grid_graph.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-29" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="starter_grid_graph_display.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph_display.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -90,7 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawn_states</find>
       <find>red</find>
       <find>StateMachine</find>
       <find>append</find>
@@ -120,6 +143,7 @@
       <find>remo</find>
       <find>delete</find>
       <find>'robot</find>
+      <find>BFS</find>
     </findStrings>
     <replaceStrings>
       <replace>sm</replace>
@@ -146,7 +170,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -188,6 +212,11 @@
               <item name="Hamster" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hamster" type="462c0819:PsiDirectoryNode" />
               <item name="lab5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamster" type="462c0819:PsiDirectoryNode" />
+              <item name="lab6" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -231,12 +260,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.50130206" side_tool="true" visible="true" weight="0.111878455" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50130206" side_tool="true" visible="true" weight="0.111878455" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986979" weight="0.29834256" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
@@ -603,8 +632,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1457">
-          <caret line="426" lean-forward="true" selection-start-line="426" selection-end-line="426" />
+        <state relative-caret-position="260">
+          <caret line="410" column="103" selection-start-line="410" selection-start-column="103" selection-end-line="410" selection-end-column="103" />
           <folding>
             <element signature="e#904#924#0" expanded="true" />
             <element signature="e#1054#1575#0" />
@@ -619,6 +648,25 @@
             <element signature="e#10869#11950#0" />
             <element signature="e#12416#13267#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph_display.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6/starter_bfs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="9" />
         </state>
       </provider>
     </entry>

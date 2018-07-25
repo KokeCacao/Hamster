@@ -402,13 +402,13 @@ class virtual_world:
                 points = (x1, y1, x2, y2, x3, y3, x4, y4)
                 self.canvas.coords(self.collision, points)
 
-                collision_list = [self.canvas.find_overlapping(rect1[0], rect1[1], rect1[2], rect1[3]),
+                collision_list = {self.canvas.find_overlapping(rect1[0], rect1[1], rect1[2], rect1[3]),
                                   self.canvas.find_overlapping(rect2[0], rect2[1], rect2[2], rect2[3]),
                                   self.canvas.find_overlapping(rect3[0], rect3[1], rect3[2], rect3[3]),
                                   self.canvas.find_overlapping(rect4[0], rect4[1], rect4[2], rect4[3]),
                                   self.canvas.find_overlapping(rect5[0], rect5[1], rect5[2], rect5[3]),
                                   self.canvas.find_overlapping(rect6[0], rect6[1], rect6[2], rect6[3]),
-                                  self.canvas.find_overlapping(rect7[0], rect7[1], rect7[2], rect7[3])]
+                                  self.canvas.find_overlapping(rect7[0], rect7[1], rect7[2], rect7[3])}
 
                 for collision_box in collision_list:
                     for collisions in collision_box:
