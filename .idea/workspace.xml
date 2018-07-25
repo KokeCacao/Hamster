@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/starter_bfs.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/starter_bfs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/starter_grid_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/starter_grid_graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/starter_grid_graph_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/starter_grid_graph_display.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,31 +34,6 @@
                 <element signature="e#10869#11950#0" />
                 <element signature="e#12416#13267#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="starter_bfs.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lab6/starter_bfs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="starter_grid_graph.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="starter_grid_graph_display.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph_display.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -103,6 +80,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="starter_bfs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab6/starter_bfs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="starter_grid_graph.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="starter_grid_graph_display.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph_display.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -114,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>red</find>
       <find>StateMachine</find>
       <find>append</find>
       <find>val</find>
@@ -142,8 +145,9 @@
       <find>dele</find>
       <find>remo</find>
       <find>delete</find>
-      <find>'robot</find>
       <find>BFS</find>
+      <find>'robot</find>
+      <find>GridGraph</find>
     </findStrings>
     <replaceStrings>
       <replace>sm</replace>
@@ -167,6 +171,9 @@
         <option value="$PROJECT_DIR$/lab1/run.py" />
         <option value="$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py" />
         <option value="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" />
+        <option value="$PROJECT_DIR$/lab6/starter_grid_graph_display.py" />
+        <option value="$PROJECT_DIR$/lab6/starter_bfs.py" />
+        <option value="$PROJECT_DIR$/lab6/starter_grid_graph.py" />
       </list>
     </option>
   </component>
@@ -592,12 +599,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab1/run.py">
+    <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        <state relative-caret-position="260">
+          <caret line="410" column="103" selection-start-line="410" selection-start-column="103" selection-end-line="410" selection-end-column="103" />
           <folding>
-            <element signature="e#455#465#0" expanded="true" />
+            <element signature="e#904#924#0" expanded="true" />
+            <element signature="e#1054#1575#0" />
+            <element signature="e#1538#1917#0" />
+            <element signature="e#1968#2003#0" />
+            <element signature="e#2161#2210#0" />
+            <element signature="e#2270#2323#0" />
+            <element signature="e#3137#3173#0" />
+            <element signature="e#3207#3827#0" />
+            <element signature="e#5399#8318#0" />
+            <element signature="e#9683#10827#0" />
+            <element signature="e#10869#11950#0" />
+            <element signature="e#12416#13267#0" />
           </folding>
         </state>
       </provider>
@@ -630,43 +648,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
+    <entry file="file://$PROJECT_DIR$/lab1/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="410" column="103" selection-start-line="410" selection-start-column="103" selection-end-line="410" selection-end-column="103" />
+        <state relative-caret-position="380">
+          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
           <folding>
-            <element signature="e#904#924#0" expanded="true" />
-            <element signature="e#1054#1575#0" />
-            <element signature="e#1538#1917#0" />
-            <element signature="e#1968#2003#0" />
-            <element signature="e#2161#2210#0" />
-            <element signature="e#2270#2323#0" />
-            <element signature="e#3137#3173#0" />
-            <element signature="e#3207#3827#0" />
-            <element signature="e#5399#8318#0" />
-            <element signature="e#9683#10827#0" />
-            <element signature="e#10869#11950#0" />
-            <element signature="e#12416#13267#0" />
+            <element signature="e#455#465#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph_display.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        <state relative-caret-position="450">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6/starter_bfs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab6/starter_grid_graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab6/starter_bfs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="9" />
+        <state relative-caret-position="342">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>

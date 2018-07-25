@@ -11,6 +11,7 @@
 '''
 import sys
 
+
 class BFS(object):
     def __init__(self, graph):
         self.graph = graph
@@ -27,7 +28,7 @@ class BFS(object):
     ######################################################
     def bfs_paths(self, start, goal):
         pass
-                
+
     #########################################################
     # This function returns the shortest paths for given list of paths
     #########################################################
@@ -41,18 +42,19 @@ class BFS(object):
     def bfs(self, start):
         pass
 
+
 def main():
-    graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'E', 'D']),
-         'C': set(['A', 'F', 'G']),
-         'D': set(['B', 'H']),
-         'E': set(['B','I', 'J']),
-         'F': set(['C','K']),
-         'G': set(['C']),
-         'H': set(['D']),
-         'I': set(['E']),
-         'J': set(['E']),
-         'K': set(['F'])}
+    graph = {'A': {'B', 'C'},
+             'B': {'A', 'E', 'D'},
+             'C': {'A', 'F', 'G'},
+             'D': {'B', 'H'},
+             'E': {'B', 'I', 'J'},
+             'F': {'C', 'K'},
+             'G': {'C'},
+             'H': {'D'},
+             'I': {'E'},
+             'J': {'E'},
+             'K': {'F'}}
 
     bfs = BFS(graph)
 
@@ -63,6 +65,7 @@ def main():
     print "\n##########traverse order:", order
 
     return
+
 
 if __name__ == "__main__":
     sys.exit(main())
