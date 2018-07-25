@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab1/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py" afterDir="false" />
     </list>
@@ -17,26 +15,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tk_hamster_simulation_starter.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tk_hamster_simulation_starter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1060">
-              <caret line="377" column="18" lean-forward="true" selection-start-line="377" selection-start-column="18" selection-end-line="377" selection-end-column="18" />
+            <state relative-caret-position="317">
+              <caret line="420" lean-forward="true" selection-start-line="420" selection-end-line="420" />
               <folding>
                 <element signature="e#904#924#0" expanded="true" />
-                <element signature="e#1018#1501#0" />
+                <element signature="e#1054#1575#0" />
                 <element signature="e#1538#1917#0" />
                 <element signature="e#1968#2003#0" />
                 <element signature="e#2161#2210#0" />
                 <element signature="e#2270#2323#0" />
-                <element signature="e#2600#3313#0" />
                 <element signature="e#3137#3173#0" />
                 <element signature="e#3207#3827#0" />
-                <element signature="e#3863#5341#0" />
                 <element signature="e#5399#8318#0" />
-                <element signature="e#8365#9642#0" />
                 <element signature="e#9683#10827#0" />
                 <element signature="e#10869#11950#0" />
+                <element signature="e#12416#13267#0" />
               </folding>
             </state>
           </provider>
@@ -45,15 +41,14 @@
       <file leaf-file-name="tk_simulator_joystick_starter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="291" column="44" lean-forward="true" selection-start-line="291" selection-start-column="44" selection-end-line="298" selection-end-column="34" />
+            <state relative-caret-position="188">
+              <caret line="148" column="27" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="27" />
               <folding>
                 <element signature="e#288#308#0" expanded="true" />
                 <element signature="e#3703#3831#0" />
                 <element signature="e#3877#4630#0" />
                 <element signature="e#4675#4712#0" />
                 <element signature="e#4761#4984#0" />
-                <element signature="e#5033#5585#0" />
                 <element signature="e#5634#5856#0" />
                 <element signature="e#5904#6146#0" />
                 <element signature="e#6195#6442#0" />
@@ -73,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab1/run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
@@ -96,11 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_start_state</find>
-      <find>set_start_state</find>
-      <find>request_refund</find>
-      <find>update_states_map</find>
-      <find>msgvar</find>
       <find>drawn_states</find>
       <find>red</find>
       <find>StateMachine</find>
@@ -115,7 +105,7 @@
       <find>thread</find>
       <find>virtual_robot</find>
       <find>virtual_robot(</find>
-      <find />
+      <find>del_t</find>
       <find>d_fac</find>
       <find>draw_vir</find>
       <find>rect1</find>
@@ -126,6 +116,11 @@
       <find>pol</find>
       <find>add_obstacle</find>
       <find>create_polygon</find>
+      <find>'robot</find>
+      <find>poly_id</find>
+      <find>dele</find>
+      <find>remo</find>
+      <find>delete</find>
     </findStrings>
     <replaceStrings>
       <replace>sm</replace>
@@ -146,13 +141,13 @@
         <option value="$PROJECT_DIR$/lab2/run.py" />
         <option value="$PROJECT_DIR$/lab4/demo_2018_parking_ticket.py" />
         <option value="$PROJECT_DIR$/lab4/run.py" />
+        <option value="$PROJECT_DIR$/lab1/run.py" />
         <option value="$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py" />
         <option value="$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py" />
-        <option value="$PROJECT_DIR$/lab1/run.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -299,7 +294,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -569,40 +564,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
+    <entry file="file://$PROJECT_DIR$/lab1/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1060">
-          <caret line="377" column="18" lean-forward="true" selection-start-line="377" selection-start-column="18" selection-end-line="377" selection-end-column="18" />
+        <state relative-caret-position="380">
+          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
           <folding>
-            <element signature="e#904#924#0" expanded="true" />
-            <element signature="e#1018#1501#0" />
-            <element signature="e#1538#1917#0" />
-            <element signature="e#1968#2003#0" />
-            <element signature="e#2161#2210#0" />
-            <element signature="e#2270#2323#0" />
-            <element signature="e#2600#3313#0" />
-            <element signature="e#3137#3173#0" />
-            <element signature="e#3207#3827#0" />
-            <element signature="e#3863#5341#0" />
-            <element signature="e#5399#8318#0" />
-            <element signature="e#8365#9642#0" />
-            <element signature="e#9683#10827#0" />
-            <element signature="e#10869#11950#0" />
+            <element signature="e#455#465#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="291" column="44" lean-forward="true" selection-start-line="291" selection-start-column="44" selection-end-line="298" selection-end-column="34" />
+        <state relative-caret-position="188">
+          <caret line="148" column="27" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="27" />
           <folding>
             <element signature="e#288#308#0" expanded="true" />
             <element signature="e#3703#3831#0" />
             <element signature="e#3877#4630#0" />
             <element signature="e#4675#4712#0" />
             <element signature="e#4761#4984#0" />
-            <element signature="e#5033#5585#0" />
             <element signature="e#5634#5856#0" />
             <element signature="e#5904#6146#0" />
             <element signature="e#6195#6442#0" />
@@ -621,12 +602,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab1/run.py">
+    <entry file="file://$PROJECT_DIR$/lab5/tk_hamster_simulation_starter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        <state relative-caret-position="317">
+          <caret line="420" lean-forward="true" selection-start-line="420" selection-end-line="420" />
           <folding>
-            <element signature="e#455#465#0" expanded="true" />
+            <element signature="e#904#924#0" expanded="true" />
+            <element signature="e#1054#1575#0" />
+            <element signature="e#1538#1917#0" />
+            <element signature="e#1968#2003#0" />
+            <element signature="e#2161#2210#0" />
+            <element signature="e#2270#2323#0" />
+            <element signature="e#3137#3173#0" />
+            <element signature="e#3207#3827#0" />
+            <element signature="e#5399#8318#0" />
+            <element signature="e#9683#10827#0" />
+            <element signature="e#10869#11950#0" />
+            <element signature="e#12416#13267#0" />
           </folding>
         </state>
       </provider>

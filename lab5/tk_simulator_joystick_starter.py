@@ -44,7 +44,7 @@ class GUIpart(object):
 
         # visual elements of the virtual robot 
         poly_points = [0, 0, 0, 0, 0, 0, 0, 0]
-        vRobot.poly_id = self.rCanvas.create_polygon(poly_points, fill='blue')  # robot
+        vRobot.poly_id = self.rCanvas.create_polygon(poly_points, fill='blue', tags='robot')  # robot
         vRobot.prox_l_id = self.rCanvas.create_line(0, 0, 0, 0, fill="red")  # prox sensors
         vRobot.prox_r_id = self.rCanvas.create_line(0, 0, 0, 0, fill="red")
         vRobot.floor_l_id = self.rCanvas.create_oval(0, 0, 0, 0, outline="white", fill="white")  # floor sensors
@@ -148,7 +148,7 @@ class GUIpart(object):
     def clearCanvas(self, event=None):
         self.rCanvas.delete("all")
         poly_points = [0, 0, 0, 0, 0, 0, 0, 0]
-        self.vWorld.vrobot.poly_id = self.rCanvas.create_polygon(poly_points, fill='blue')
+        self.vWorld.vrobot.poly_id = self.rCanvas.create_polygon(poly_points, fill='blue', tags='robot')
         self.vWorld.vrobot.prox_l_id = self.rCanvas.create_line(0, 0, 0, 0, fill="red")
         self.vWorld.vrobot.prox_r_id = self.rCanvas.create_line(0, 0, 0, 0, fill="red")
         self.vWorld.vrobot.floor_l_id = self.rCanvas.create_oval(0, 0, 0, 0, outline="white", fill="white")

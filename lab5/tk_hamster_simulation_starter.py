@@ -39,6 +39,7 @@ class virtual_robot:
         self.sl = 0  # speed of left wheel
         self.sr = 0  # speed of right wheel
         self.t = 0  # last update time
+        self.poly_id = None
     def reset_robot(self):
         self.x = 0  # x coordinate
         self.y = 0  # y coordinate
@@ -100,6 +101,8 @@ class virtual_world:
         self.floor_dots = False
         self.localize = False
         self.glocalize = False
+
+        self.collision = None
     def add_obstacle(self, rect):
         self.map.append(rect)
         return
@@ -351,57 +354,6 @@ class virtual_world:
     # This function returns True when simulated robot would collide with 
     # one of the obstacles at given pose(a,x,y)
     ######################################################################
-    # implemented from https://stackoverflow.com/questions/3838329/how-can-i-check-if-two-segments-intersect
-    # def ccw(self, A, B, C):
-    #     return (C[1] - A[1]) * (B[0] - A[0]) > (B[1] - A[1]) * (C[0] - A[0])
-    def intersect(self, line_A, line_B):
-
-        # # print "line_A", str(line_A)
-        # # print "line_B", str(line_B)
-        # line A
-        A = line_A[0][1], line_A[0][1]
-        B = line_A[1][0], line_A[1][1]
-
-        # line B
-        C = line_B[0][0], line_B[0][1]
-        D = line_B[1][0], line_B[1][1]
-        # # print "A:"+str(A)
-        # # print "B:"+str(B)
-        # # print "C:"+str(C)
-        # # print "D:"+str(D)
-        # Y has to be negative because of strange computer system
-        X1 = A[0]
-        Y1 = -A[1]
-        X2 = B[0]
-        Y2 = -B[1]
-        X3 = C[0]
-        Y3 = -C[1]
-        X4 = D[0]
-        Y4 = -D[1]
-
-        # Segment1 = {(X1, Y1), (X2, Y2)}
-        # Segment2 = {(X3, Y3), (X4, Y4)}
-        if (max(X1, X2) < min(X3, X4)):
-            return False # no mutual abcisses
-
-        A1 = (Y1 - Y2) / (X1 - X2 + 0.0001) # no 0
-        A2 = (Y3 - Y4) / (X3 - X4 + 0.0001) # no 0
-        b1 = Y1 - A1 * X1 #= Y2 - A1 * X2
-        b2 = Y3 - A2 * X3 #= Y4 - A2 * X4
-        if (A1 == A2):
-            return False # Parallel segment
-
-        Xa = (b2 - b1) / (A1 - A2 + 0.0001) # no 0
-        Ya = A1 * Xa + b1
-        Ya = A2 * Xa + b2
-        # A1 * Xa + b1 = A2 * Xa + b2
-        if ((Xa < max(min(X1, X2), min(X3, X4))) or (Xa > min(max(X1, X2), max(X3, X4)))):
-            return False # out of bound
-        else:
-            return True
-
-        # # point AB, CD
-        # return self.ccw(A, C, D) != self.ccw(B, C, D) and self.ccw(A, B, C) != self.ccw(A, B, D)
     def in_collision(self, a, x, y):
         # copied from def create_world(self)
         # x1, y1, x2, y2
@@ -420,48 +372,54 @@ class virtual_world:
         rect5 = (0 + half_width, --50 + half_height, 40 + half_width, -50 + half_height)
         rect6 = (-260 + half_width, --20 + half_height, -220 + half_width, -20 + half_height)
         rect7 = (40 + half_width, -60 + half_height, 140 + half_width, -100 + half_height)
-        # if self.canvas: self.canvas.create_rectangle(rect1, outline="red", fill="red")
-        # if self.canvas: self.canvas.create_rectangle(rect2, outline="red", fill="red")
-        # if self.canvas: self.canvas.create_rectangle(rect3, outline="red", fill="red")
-        # if self.canvas: self.canvas.create_rectangle(rect4, outline="red", fill="red")
-        # if self.canvas: self.canvas.create_rectangle(rect5, outline="red", fill="red")
-        # if self.canvas: self.canvas.create_rectangle(rect6, outline="red", fill="red")
-        # if self.canvas: self.canvas.create_rectangle(rect7, outline="red", fill="red")
-
-        temp_rects = [rect1, rect2, rect3, rect4, rect5, rect6, rect7]
-
-        object_lines_with_each_rectangle = []  # init all rectangles in the map
-        for rect in temp_rects:
-            object_lines_with_each_rectangle.append(RectangleModel(rect).get_all_lines())
-
-        # print "object_lines all together:" + str(object_lines_with_each_rectangle)
-        robot_lines = self.get_robot_shape_lines()
-
-        object_lines_all_together = []
-        for object_lines in object_lines_with_each_rectangle:
-            for object_line in object_lines:
-                object_lines_all_together.append(object_line)
-        # print "object_lines" + str(object_lines_all_together)
 
 
-        # testing code
-        for object_line in object_lines_all_together:
-            if len(self.test_lines) < 50 and self.canvas is not None:
-                print "I AM:" + str(object_line[0][0]) + str(object_line[0][1]) + str(object_line[1][0]) + str(object_line[1][1])
-                line = self.canvas.create_line(object_line[0][0], object_line[0][1], object_line[1][0], object_line[1][1])
-                self.test_lines.append(line)
-        for robot_line in robot_lines:
-            if len(self.test_lines) < 50 and self.canvas is not None:
-                line = self.canvas.create_line(robot_line[0][0], robot_line[0][1], robot_line[1][0], robot_line[1][1])
-                self.test_lines.append(line)
+        if self.collision is None:
+            if self.canvas:
+                self.collision = self.canvas.create_polygon([0, 0, 0, 0, 0, 0, 0, 0], tags='collision', fill='blue')
+                self.canvas.tag_lower(self.collision)
+        canvas_width = self.canvas_width
+        canvas_height = self.canvas_height
+        pi4 = 3.1415 / 4  # quarter pi
+        vrobot = self.vrobot
+        a1 = a + pi4
+        a2 = a + 3 * pi4
+        a3 = a + 5 * pi4
+        a4 = a + 7 * pi4
 
+        x1 = canvas_width + vrobot.l * math.sin(a1) + x
+        x2 = canvas_width + vrobot.l * math.sin(a2) + x
+        x3 = canvas_width + vrobot.l * math.sin(a3) + x
+        x4 = canvas_width + vrobot.l * math.sin(a4) + x
 
-        for robot_line in robot_lines:
-            for object_line in object_lines_all_together:
-                if self.intersect(robot_line, object_line):
-                    print "collision!"
-                    return True
-                    break
+        y1 = canvas_height - vrobot.l * math.cos(a1) - y
+        y2 = canvas_height - vrobot.l * math.cos(a2) - y
+        y3 = canvas_height - vrobot.l * math.cos(a3) - y
+        y4 = canvas_height - vrobot.l * math.cos(a4) - y
+
+        try:
+            if self.canvas:
+                points = (x1, y1, x2, y2, x3, y3, x4, y4)
+                self.canvas.coords(self.collision, points)
+
+                collision_list = [self.canvas.find_overlapping(rect1[0], rect1[1], rect1[2], rect1[3]),
+                                  self.canvas.find_overlapping(rect2[0], rect2[1], rect2[2], rect2[3]),
+                                  self.canvas.find_overlapping(rect3[0], rect3[1], rect3[2], rect3[3]),
+                                  self.canvas.find_overlapping(rect4[0], rect4[1], rect4[2], rect4[3]),
+                                  self.canvas.find_overlapping(rect5[0], rect5[1], rect5[2], rect5[3]),
+                                  self.canvas.find_overlapping(rect6[0], rect6[1], rect6[2], rect6[3]),
+                                  self.canvas.find_overlapping(rect7[0], rect7[1], rect7[2], rect7[3])]
+
+                for collision_box in collision_list:
+                    for collisions in collision_box:
+                        if 'collision' in self.canvas.itemcget(collisions, "tags") or 'robot' in self.canvas.itemcget(collisions, "tags"):
+                            print "Yes Collision"
+                            return True
+        except Exception as e:
+            print "Yes Collision: attribute error"
+            return True
+
+        print "No Collision"
         return False
 
 # class RobotCollision:
