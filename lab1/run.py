@@ -16,6 +16,7 @@ import time
 import threading
 import Tkinter as tk
 # from HamsterAPI.comm_ble import RobotComm  # no dongle
+# noinspection PyUnresolvedReferences
 from HamsterAPI.comm_usb import RobotComm # yes dongle
 
 ################################
@@ -72,18 +73,21 @@ class RobotBehaviorThread(threading.Thread):
     # else:
     #   self.wheel_right = 50
 
-    if self.proximity_left > 10: # too close
+    if self.proximity_left > 20: # too close
       self.wheel_left = -50
       self.wheel_right = -50
-      robot.set_musical_note(40)
-      time.sleep(1)
+      robot.set_musical_note(88)
+      time.sleep(0.5)
       robot.set_musical_note(0)
-    elif self.proximity_left < 5:  # too far
+    elif self.proximity_left < 10:  # too far
       self.wheel_left = 0
       self.wheel_right = 0
-      robot.set_musical_note(1)
-      time.sleep(1)
+      robot.set_musical_note(80)
+      time.sleep(0.5)
       robot.set_musical_note(0)
+    elif self.proximity_left == 0:
+      self.wheel_left = 50
+      self.wheel_right = 50
     else:
       robot.set_musical_note(0)
       self.wheel_left = 50

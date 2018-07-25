@@ -25,6 +25,8 @@
           <option value="lab2.starter_tk_joystick.HamsterAPI" />
           <option value="lab3.starter_tk_escape.*" />
           <option value="lab4.run.HamsterAPI" />
+          <option value="lab5.tk_simulator_joystick_starter.*" />
+          <option value="lab1.run.*" />
         </list>
       </option>
     </inspection_tool>
