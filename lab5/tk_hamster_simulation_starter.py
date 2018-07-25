@@ -416,7 +416,7 @@ class virtual_world:
                             print "Yes Collision"
                             return True
         except Exception as e:
-            print "Yes Collision: attribute error"
+            print "Yes Collision: Attribute Error"
             return True
 
         print "No Collision"
