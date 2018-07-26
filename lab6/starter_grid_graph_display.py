@@ -38,3 +38,4 @@ class GridGraphDisplay(object):
     # draws an line segment, between two given nodes, in given color
     def draw_edge(self, node1, node2, e_color):
         pass
+

@@ -12,72 +12,6 @@
 '''
 import Tkinter as tk
 
-
-class Node(object):
-    def __init__(self, x, y, blocks, grid_map, path=None):
-        if path is None:
-            path = []
-        self.x = x
-        self.y = y
-        self.node = (self.x, self.y)
-        self.blocks = blocks  # set of all the blocks in the map (black list)
-        self.grid_map = grid_map  # set of all possible nodes you can get to, including blocks (white list)
-
-        self.path = path  # a list of nodes path it come from (without this node)
-        self.next_nodes = set()  # a set of connected nodes from this node
-
-        # removing black list
-        temp_next_nodes = {(self.x + 1, self.y + 0), (self.x - 1, self.y + 0), (self.x + 0, self.y + 1),
-                           (self.x + 0, self.y - 1)}
-        self.next_nodes = temp_next_nodes - self.blocks
-
-        # removing white list
-        temp_nodes_out_of_map = set()
-        for next_node in self.next_nodes:
-            if next_node not in self.grid_map:
-                temp_nodes_out_of_map.add(next_node)
-        self.next_nodes = self.next_nodes - temp_nodes_out_of_map
-
-    def get_node(self):
-        return self.node
-
-    def get_next_nodes(self):
-        return self.next_nodes
-
-    def get_next_explore(self):
-        return self.get_next_nodes() - set(self.get_path()) - set(self.get_node())
-
-    def get_map(self):
-        return self.grid_map
-
-    def get_blocks(self):
-        return self.blocks
-
-    def get_path(self):
-        return self.path
-
-    def run(self):
-        print str(self.get_node()) + " -> " + str(self.get_next_explore()) + " path = " + str(self.get_path())
-        if len(self.get_next_explore()) is not 0:
-            for next_node in self.get_next_explore():
-                # print "trying to append", str(self.get_path()), "with", str(self.get_node())
-                next_path = self.get_path() + [self.get_node()]  # BUG: inplace bug, be careful because .append() does not create a new list
-                node = Node(x=next_node[0], y=next_node[1], blocks=self.get_blocks(), grid_map=self.get_map(), path=next_path)
-                path = node.run()
-                # return path  # catch local return
-        else:
-            path = self.path + [self.node]
-            print "path finished with", str(path)
-            # return path  # local return
-
-class Path(object):
-    def __init__(self, path):
-        self.path = path
-    def get_path(self):
-        return self.path
-    def get_length(self):
-        return len(self.path)
-
 class GridGraph(object):
     def __init__(self):
         self.nodes = set()  # {node_name: set(neighboring nodes), ...}
@@ -153,29 +87,20 @@ class GridGraph(object):
 #  A testing program of your implementaion of GridGraph class.
 ###########################################################
 def main():
-    # graph = GridGraph()
-    # # grid dimension
-    # graph.set_grid_rows(4)
-    # graph.set_grid_cols(3)
-    #
-    # # origin of grid is (0, 0) lower left corner
-    # # graph.obs_list = ([1,1],)    # in case of one obs. COMMA
-    # graph.obs_list = ([1,1], [3,0], [2,2])
-    #
-    # graph.set_start('0-0')
-    # graph.set_goal('2-1')
-    #
-    # graph.make_grid()
-    # graph.connect_nodes()
-    rows = 4
-    cols = 3
-    grid_map = set()
-    for row in range(rows):
-        for col in range(cols):
-            grid_map.add((row, col))
+    graph = GridGraph()
+    # grid dimension
+    graph.set_grid_rows(4)
+    graph.set_grid_cols(3)
 
-    node = Node(x=0, y=0, blocks={(1, 1), (3, 0), (2, 2)}, grid_map=grid_map, path=[(-1, -1)])
-    node.run()
+    # origin of grid is (0, 0) lower left corner
+    # graph.obs_list = ([1,1],)    # in case of one obs. COMMA
+    graph.obs_list = ([1,1], [3,0], [2,2])
+
+    graph.set_start('0-0')
+    graph.set_goal('2-1')
+
+    graph.make_grid()
+    graph.connect_nodes()
 
     return
 

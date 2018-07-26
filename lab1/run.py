@@ -72,26 +72,38 @@ class RobotBehaviorThread(threading.Thread):
     #   self.wheel_right = 0
     # else:
     #   self.wheel_right = 50
-
-    if self.proximity_left > 20: # too close
-      self.wheel_left = -50
-      self.wheel_right = -50
-      robot.set_musical_note(88)
-      time.sleep(0.5)
-      robot.set_musical_note(0)
-    elif self.proximity_left < 10:  # too far
+    distance = 50 - self.proximity_left
+    if distance > 45:
+      self.wheel_left = 50
+      self.wheel_right = 50
+    elif distance > 25 and distance < 45: # too far
+      self.wheel_left = 50
+      self.wheel_right = 50
+      # robot.set_musical_note(80)
+      time.sleep(0.2)
       self.wheel_left = 0
       self.wheel_right = 0
-      robot.set_musical_note(80)
-      time.sleep(0.5)
+      time.sleep(0)
       robot.set_musical_note(0)
-    elif self.proximity_left == 0:
-      self.wheel_left = 50
-      self.wheel_right = 50
-    else:
+    elif distance > 1 and distance < 25: # too close
+      self.wheel_left = -50
+      self.wheel_right = -50
+      # robot.set_musical_note(88)
+      time.sleep(0.2)
+      self.wheel_left = 0
+      self.wheel_right = 0
+      time.sleep(0)
       robot.set_musical_note(0)
-      self.wheel_left = 50
-      self.wheel_right = 50
+
+    # if self.proximity_left > 20 and self.proximity_left < 48: # too close
+    # elif self.proximity_left < 10:  # too far
+    # elif self.proximity_left < 48:
+    #   self.wheel_left = 50
+    #   self.wheel_right = 50
+    # else:
+    #   robot.set_musical_note(0)
+    #   self.wheel_left = 50
+    #   self.wheel_right = 50
 
   def follow(self, robot):
     if (self.proximity_left > 20 or self.proximity_right > 20):
