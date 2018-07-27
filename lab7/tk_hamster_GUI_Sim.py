@@ -37,7 +37,6 @@ class virtual_robot:
         self.sl = 0 # speed of left wheel
         self.sr = 0 # speed of right wheel
         self.t = 0 # last update time
-
     def reset_robot(self):
         self.x = 0 # x coordinate
         self.y = 0 # y coordinate
@@ -49,20 +48,16 @@ class virtual_robot:
         self.sl = 0 # speed of left wheel
         self.sr = 0 # speed of right wheel
         self.t = 0 # last update time
-
     def set_robot_speed(self, w_l, w_r):
         self.sl = w_l
         self.sr = w_r
-
     def set_robot_pose(self, a, x, y):
         self.a = a
         self.x = x
         self.y = y
-
     def set_robot_prox_dist(self, dist_l, dist_r):
         self.dist_l = dist_l
         self.dist_r = dist_r
-
     def set_robot_floor (self, floor_l, floor_r):
         self.floor_l = floor_l
         self.floor_r = floor_r
@@ -90,10 +85,8 @@ class virtual_world:
         self.floor_dots = False
         self.localize = False
         self.glocalize = False
-        
     def add_obstacle(self,rect):
         self.map.append(rect)
-
     def draw_map(self):
         canvas_width = self.canvas_width
         canvas_height = self.canvas_height
@@ -109,7 +102,6 @@ class virtual_world:
             x2= canvas_width + cobs[2]
             y2 = canvas_height - cobs[3]
             #self.canvas.create_rectangle([x1,y1,x2,y2], fill=None)
-
     def draw_robot(self):
         canvas_width = self.canvas_width
         canvas_height = self.canvas_height
@@ -146,7 +138,6 @@ class virtual_world:
             y2 = canvas_height - 3 * math.cos(a2) - vrobot.y
             y3 = canvas_height - 3 * math.cos(a3) - vrobot.y
             self.canvas.create_polygon([x1,y1,x2,y2,x3,y3], outline="blue")
-
     def radial_intersect (self, a_r, x_e, y_e):
         for obs in self.map:
             x1 = obs[0]
@@ -203,7 +194,6 @@ class virtual_world:
                     if (y_i > y1 and y_i < y2):
                         return [x_i, y_i, 4] # riht edge
         return False
-
     def get_vrobot_prox(self, side):
         vrobot = self.vrobot
 
@@ -239,7 +229,6 @@ class virtual_world:
             else:
                 vrobot.dist_r = False
                 return False
-
     def draw_prox(self, side):
         canvas_width = self.canvas_width
         canvas_height = self.canvas_height
@@ -264,7 +253,6 @@ class virtual_world:
         else:
             point_list = (0,0,0,0)
             self.canvas.coords(prox_l_id, point_list)
-
     def draw_floor(self, side):
         canvas_width = self.canvas_width
         canvas_height = self.canvas_height

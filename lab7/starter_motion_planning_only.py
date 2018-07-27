@@ -131,7 +131,12 @@ class MotionPlanner(object):
 
     def compute_c_obstacles(self, vworld, d):
         # save c-space obstacle location info in vWorld.cobs[]
-        pass
+        for rect in vworld.map:
+            x1 = rect[0] - d
+            y1 = rect[1] - d
+            x2 = rect[2] + d
+            y2 = rect[3] + d
+            vworld.cobs.append([x1, y1, x2, y2])
 
     def compute_free_cells(self, cell_list, c_obs_list):
         pass

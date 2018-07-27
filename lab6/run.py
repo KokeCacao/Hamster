@@ -85,7 +85,134 @@ class Node(object):
             self.get_grid().all_paths.append(path)
             # print "PATH FINISHED:", str(path)
             # return path  # ending return in each path
+
+class RobotBehaviorThread(threading.Thread):
+    def __init__(self, robotList, path):
+        self.state = 0  # 0 = go_front, 1 =
+        self.current_node = (0, 0)
+        self.orientation = 90
+        # self.go = False
+        # self.done = False
+        super(RobotBehaviorThread, self).__init__()
+        self.robot_list = robotList
+        self.robot = robotList[0]
+        self.task_complete = 0
+        self.path = path
+
+        for i, node in enumerate(self.path):
+            if i != 0:
+                from_node_x = self.path[i-1][0]
+                from_node_y = self.path[i-1][1]
+                to_node_x = node[0]
+                to_node_y = node[1]
+                d_x = to_node_x - from_node_x
+                d_y = to_node_y - from_node_y
+                print "I want to move this dirrection: (" + str(d_x) + ", " + str(d_y) + ")"
+                # robot should only move 1 block at a time
+                # I love turning left more than turning right
+                if d_x == 1:
+                    if self.orientation != 0:
+                        if self.orientation >= 180:
+                            while self.orientation != 0:
+                                self.turn_left()
+                        if self.orientation < 180:
+                            while self.orientation != 0:
+                                self.turn_right()
+                    self.go_front()
+                elif d_x == -1:
+                    if self.orientation != 180:
+                        if self.orientation >= 0:
+                            while self.orientation != 180:
+                                self.turn_left()
+                        if self.orientation < 0:
+                            while self.orientation != 180:
+                                self.turn_right()
+                        self.go_front()
+                if d_y == 1:
+                    if self.orientation != 270:
+                        if self.orientation >= 90:
+                            while self.orientation != 270:
+                                self.turn_left()
+                        if self.orientation < 90:
+                            while self.orientation != 270:
+                                self.turn_right()
+                        self.go_front()
+                elif d_y == -1:
+                    if self.orientation != 90:
+                        if self.orientation >= 270:
+                            while self.orientation != 90:
+                                self.turn_left()
+                        if self.orientation < 270:
+                            while self.orientation != 90:
+                                self.turn_right()
+                        self.go_front()
+
+    def add_orientation(self, degree):
+        self.orientation = self.orientation + degree
+        if self.orientation < 0:
+            self.orientation = self.orientation + 360
+        elif self.orientation >= 360:
+            self.orientation = self.orientation - 360
+
+    def go_front(self):
+        while self.robot:
+            if self.state == 0:
+                left_black = self.robot.get_floor(0) < 50
+                right_black = self.robot.get_floor(1) < 50
+                self.robot.set_musical_note(0)
+
+                if left_black == right_black:
+                    if left_black:
+                        self.robot.set_musical_note(40)
+                        self.robot.set_wheel(0, 20)
+                        self.robot.set_wheel(1, 20)
+                        time.sleep(0.5)
+                        self.robot.set_wheel(0, 0)
+                        self.robot.set_wheel(1, 0)
+                        self.task_complete = self.task_complete + 1
+                        self.robot.set_musical_note(0)
+                        break
+                    self.robot.set_wheel(0, 20)
+                    self.robot.set_wheel(1, 20)
+                elif left_black == True and right_black == False:  # turn left
+                    self.robot.set_wheel(0, -20)
+                    self.robot.set_wheel(1, 20)
+                elif left_black == False and right_black == True:  # turn right
+                    self.robot.set_wheel(0, 20)
+                    self.robot.set_wheel(1, -20)
+
+            time.sleep(0.001)
+        time.sleep(2)
+
+    def turn_left(self):
+        self.robot.set_wheel(0, -50)
+        self.robot.set_wheel(1, 50)
+        time.sleep(0.29850746268656716417910447761194 *2)  # 25 circle + 45 degree = 9045 degree. sleep(1)=150.75 degree, 45 degree = 0.29850746268656716417910447761194
+        self.add_orientation(90)
+        self.robot.set_wheel(0, 0)
+        self.robot.set_wheel(1, 0)
+    def turn_right(self):
+        self.robot.set_wheel(0, 50)
+        self.robot.set_wheel(1, -50)
+        time.sleep(0.29850746268656716417910447761194 *2)  # 25 circle + 45 degree = 9045 degree. sleep(1)=150.75 degree, 45 degree = 0.29850746268656716417910447761194
+        self.add_orientation(-90)
+        self.robot.set_wheel(0, 0)
+        self.robot.set_wheel(1, 0)
+    # def go_front(self):
+    #     self.robot.set_wheel(0, 51)
+    #     self.robot.set_wheel(1, 50)
+    #     time.sleep(4.6/7)  # 4.6 = 7 grid
+    #     self.robot.set_wheel(0, 0)
+    #     self.robot.set_wheel(1, 0)
+
 def main():
+    # instantiate COMM object
+    gMaxRobotNum = 1  # max number of robots to control
+    comm = RobotComm(gMaxRobotNum)
+    comm.start()
+    print 'Bluetooth starts'
+    robotList = comm.robotList
+
     # settings
     rows = 4
     cols = 3
@@ -117,13 +244,19 @@ def main():
             best_path = path
             # print "UPDATE_BEST: len=", str(length), str(path)
         # print "SUCCESS_PATH: len=", str(length), str(path)
-
+    print "OUR CHAIMPION IS:", str(best_path)
 
     root = tk.Tk()
     gui_handle = GridGraphDisplay(frame=root, blocks=blocks, grid_map=grid_map, all_path=all_paths, success_paths=success_paths, start=start, end=end, best_path=best_path)
     # gui_handle.draw_virtual_world()  # this method runs in main thread
 
+    behaviors = RobotBehaviorThread(robotList, best_path)
+    behaviors.setDaemon(True)
+    behaviors.start()
+
     root.mainloop()
+
+
     return
 
 
