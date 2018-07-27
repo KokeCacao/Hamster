@@ -107,7 +107,7 @@ class RobotBehaviorThread(threading.Thread):
                 to_node_y = node[1]
                 d_x = to_node_x - from_node_x
                 d_y = to_node_y - from_node_y
-                print "I want to move this dirrection: (" + str(d_x) + ", " + str(d_y) + ")"
+                print "I want to move this direction: (" + str(d_x) + ", " + str(d_y) + ")"
                 # robot should only move 1 block at a time
                 # I love turning left more than turning right
                 if d_x == 1:

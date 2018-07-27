@@ -70,7 +70,7 @@ class Map(object):
         # ATTENTION: Blocks should be in my coordinate system
         self.blocks = blocks  # a list of blocks [x1, y1, x2, y2]
 
-        # transform block to one dimension
+        # [find all x and y of all blocks and create points]
         # It has to be set() because there are multiple values
         self.all_x = set()
         self.all_y = set()
@@ -96,6 +96,36 @@ class Map(object):
                 box = CellBox(cell_id, x, y, x+1, y+1)
                 boxes.append(box)
                 connection_map = merge_two_dicts(connection_map, box.get_connection_map())
+
+class PhysicalNode(object):
+    def __init__(self, x, y, to_node, to_distance, started=False):
+        # the actual coordinate on the map
+        self.x = x
+        self.y = y
+        self.coordinate = (self.x, self.y)
+        # if the node was visited
+        self.to_node = to_node  # a list of
+        self.to_distance = to_distance  # distance should match to_node
+
+        # internal memory
+        self.started = started
+        self.best_way_to_get_to_me = None  # TODO: make a calculation for best_memories
+        self.best_cost = 999999999
+        self.from_node = None
+
+    def get_visited(self):
+        return self.visited
+    def get_best_path(self):
+        return self.best_path
+    def get_x(self):
+        return self.x
+    def get_y(self):
+        return self.y
+    def get_coordinate(self):
+        return self.coordinate
+
+
+
 
 def merge_two_dicts(x, y):
     z = x.copy()  # start with x's keys and values

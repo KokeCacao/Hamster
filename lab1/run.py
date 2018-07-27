@@ -42,27 +42,27 @@ class RobotBehaviorThread(threading.Thread):
     return
 
   def square(self, robot):
-    self.wheel_left = 50
-    self.wheel_right = 50
-    robot.set_wheel(0, self.wheel_left)
-    robot.set_wheel(1, self.wheel_right)
-    time.sleep(2)
-
-    self.wheel_left = 50
-    self.wheel_right = 0
-    robot.set_wheel(0, self.wheel_left)
-    robot.set_wheel(1, self.wheel_right)
-
-    self.wheel_left = -50
-    self.wheel_right = 50
-    robot.set_wheel(0, self.wheel_left)
-    robot.set_wheel(1, self.wheel_right)
-    time.sleep(0.29850746268656716417910447761194 *2) # 25 circle + 45 degree = 9045 degree. sleep(1)=150.75 degree, 45 degree = 0.29850746268656716417910447761194
-    self.wheel_left = 0
-    self.wheel_right = 0
-    robot.set_wheel(0, self.wheel_left)
-    robot.set_wheel(1, self.wheel_right)
-    time.sleep(10)
+    # self.wheel_left = 50
+    # self.wheel_right = 50
+    # robot.set_wheel(0, self.wheel_left)
+    # robot.set_wheel(1, self.wheel_right)
+    # time.sleep(2)
+    #
+    # self.wheel_left = 50
+    # self.wheel_right = 0
+    # robot.set_wheel(0, self.wheel_left)
+    # robot.set_wheel(1, self.wheel_right)
+    #
+    # self.wheel_left = -50
+    # self.wheel_right = 50
+    # robot.set_wheel(0, self.wheel_left)
+    # robot.set_wheel(1, self.wheel_right)
+    # time.sleep(0.29850746268656716417910447761194 *2) # 25 circle + 45 degree = 9045 degree. sleep(1)=150.75 degree, 45 degree = 0.29850746268656716417910447761194
+    # self.wheel_left = 0
+    # self.wheel_right = 0
+    # robot.set_wheel(0, self.wheel_left)
+    # robot.set_wheel(1, self.wheel_right)
+    # time.sleep(10)
 
     time.sleep(0.5 * (90/35)) #turn time, 0.5=35 degree with 50,0 as speed
   def shy(self, robot):
