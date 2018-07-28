@@ -15,149 +15,149 @@ import Tkinter as tk
 from graph_with_edge_cost import *
 from tk_hamster_GUI_Sim import *
 
-class MotionPlanner(object):
-    def __init__(self, vWorld, start, goal):
-        self.vWorld = vWorld
-        self.start = start
-        self.goal = goal
-        return
-
-    def worker(self):
-        print'MotionPlanner is called'
-        vWorld = self.vWorld
-        start = self.start
-        goal = self.goal
-        canvas_width = vWorld.canvas_width
-        canvas_height = vWorld.canvas_height
-        cell_list = Queue.Queue()
-        cell_list.put(vWorld.area)
-        # inflate obstacles to form C-space
-        self.compute_c_obstacles(vWorld,28)
-        obs_list = vWorld.cobs
-        vWorld.goal_list = []
-        f_cell_list = []
-        # Cut inflated obstacles out of C-space and divide workspace into cells from cutting 
-        f_cell_list = self.compute_free_cells(cell_list, obs_list)
-        # determine connectivity between free cells and locate the point to go from one cell to its neighbor
-        point_list = self.compute_free_points(f_cell_list)
-        
-        raw_input('press RETURN to show free cells')
-        for cell in f_cell_list:
-            x1 = cell[0]
-            y1 = cell[1]
-            x2 = cell[2]
-            y2 = cell[3]     
-            vWorld.canvas.create_rectangle(canvas_width+x1, canvas_height-y1, canvas_width+x2, canvas_height-y2, outline = "orange")
-        
-        raw_input('press RETURN to show start and goal')
-        #create graph - nodes and edges for the point list
-        myGraph = Graph()
-        num_points = len(point_list)
-
-        # creating nodes
-        myGraph.add_node("s", start)
-        myGraph.set_start("s")
-        myGraph.add_node("g", goal)
-        myGraph.set_goal("g")
-        xs = start[0]
-        ys = start[1]
-        vWorld.canvas.create_oval(canvas_width+xs-6, canvas_height-ys-6, canvas_width+xs+6, canvas_height-ys+6, outline = "green", fill="green")
-        xg = goal[0]
-        yg = goal[1]
-        vWorld.canvas.create_oval(canvas_width+xg-6, canvas_height-yg-6, canvas_width+xg+6, canvas_height-yg+6, outline = "purple", fill="purple")
-        
-        raw_input('press RETURN to show points connecting free cells, start, and goal')
-        point_num = 1
-        for point in point_list:
-            myGraph.add_node(str(point_num), point)
-            x1 = point[0]
-            y1 = point[1]
-            vWorld.canvas.create_oval(canvas_width+x1-4, canvas_height-y1-4, canvas_width+x1+4, canvas_height-y1+4, outline = "red")
-            if self.connected(point, start, f_cell_list):
-                g_cost = math.sqrt((xs-x1)*(xs-x1)+(ys-y1)*(ys-y1))
-                #print "creating edge: ", "s", str(point_num), g_cost
-                myGraph.add_edge("s", str(point_num), g_cost)
-                vWorld.canvas.create_line(canvas_width+x1, canvas_height-y1, canvas_width+xs, canvas_height-ys, fill="black")
-            if self.connected(point, goal, f_cell_list):
-                g_cost = math.sqrt((xg-x1)*(xg-x1)+(yg-y1)*(yg-y1))
-                #print "creating edge: ", "g", str(point_num), g_cost
-                myGraph.add_edge("g", str(point_num), g_cost)
-                vWorld.canvas.create_line(canvas_width+x1, canvas_height-y1, canvas_width+xg, canvas_height-yg, fill="black")
-            point_num += 1
-
-        raw_input("press RETURN to show connectivity")
-        if num_points > 1:
-            # creating edges
-            #print "num points: ", num_points
-            next_point = 2
-            for i in range (1, num_points+1):
-                #print "from: ", i
-                point1 = point_list[i-1]
-                x1 = point1[0]
-                y1 = point1[1]
-                for j in range (next_point, num_points+1):
-                    #print "to: ", j
-                    point2 = point_list[j-1]
-                    x2 = point2[0]
-                    y2 = point2[1]
-                    if (self.connected(point1, point2, f_cell_list)):
-                        g_cost = math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))
-                        #print "creating edge: ", str(i), str(j), g_cost
-                        myGraph.add_edge(str(i), str(j), g_cost)
-                        vWorld.canvas.create_line(canvas_width+x1, canvas_height-y1, canvas_width+x2, canvas_height-y2)
-                next_point += 1
-
-        raw_input('press RETURN to show path')
-        #print "search: ", myGraph.queue
-        myGraph.Dijkstra()
-        path = Queue.LifoQueue()
-        if myGraph.nodes["g"].back_pointer:
-            path.put(["pose", myGraph.nodes["g"].data[0], myGraph.nodes["g"].data[1], False])
-            print "Found path"
-            path_node = myGraph.nodes["g"].back_pointer
-            while path_node.back_pointer != False:
-                px = path_node.data[0]
-                py = path_node.data[1]
-                path.put(["pose", px, py, False])
-                vWorld.canvas.create_oval(canvas_width+px-6, canvas_height-py-6, canvas_width+px+6, canvas_height-py+6, outline = "red", fill="red")
-                path_node = path_node.back_pointer
-            while not path.empty():
-                vWorld.goal_list.append(path.get())
-                vWorld.goal_list_index = 0
-            print "path: ", vWorld.goal_list
-        else:
-            print "failed to find path"
-        return
-
-    def compute_c_obstacles(self, vworld, d):
-        # save c-space obstacle location info in vWorld.cobs[]
-        for rect in vworld.map:
-            x1 = rect[0] - d
-            y1 = rect[1] - d
-            x2 = rect[2] + d
-            y2 = rect[3] + d
-            vworld.cobs.append([x1, y1, x2, y2])
-
-    def compute_free_cells(self, cell_list, c_obs_list):
-        pass
-        #return f_cell_list
-
-    def two_cells_connected(self, cell1, cell2):
-        # Given two free cells, cell1 and cell2.
-        # return connecting point[x,y] if two cells are connected
-        # return False if not connected
-        pass
-
-    def compute_free_points(self, f_cell_list):
-        # Obstacle free cells are given in f_cell_list
-        # This function returns a list of points, each point is on overlapping edge of two conncted obstacle free cells.
-        pass
-
-    def connected(self, point1, point2, cell_list):
-        # given two points in c-space and list of free cells.
-        # return True if point1 and point2 are connected by a free cell
-        # otherwise return False
-        pass
+# class MotionPlanner(object):
+#     def __init__(self, vWorld, start, goal):
+#         self.vWorld = vWorld
+#         self.start = start
+#         self.goal = goal
+#         return
+#
+#     def worker(self):
+#         print'MotionPlanner is called'
+#         vWorld = self.vWorld
+#         start = self.start
+#         goal = self.goal
+#         canvas_width = vWorld.canvas_width
+#         canvas_height = vWorld.canvas_height
+#         cell_list = Queue.Queue()
+#         cell_list.put(vWorld.area)
+#         # inflate obstacles to form C-space
+#         self.compute_c_obstacles(vWorld,28)
+#         obs_list = vWorld.cobs
+#         vWorld.goal_list = []
+#         f_cell_list = []
+#         # Cut inflated obstacles out of C-space and divide workspace into cells from cutting
+#         f_cell_list = self.compute_free_cells(cell_list, obs_list)
+#         # determine connectivity between free cells and locate the point to go from one cell to its neighbor
+#         point_list = self.compute_free_points(f_cell_list)
+#
+#         raw_input('press RETURN to show free cells')
+#         for cell in f_cell_list:
+#             x1 = cell[0]
+#             y1 = cell[1]
+#             x2 = cell[2]
+#             y2 = cell[3]
+#             vWorld.canvas.create_rectangle(canvas_width+x1, canvas_height-y1, canvas_width+x2, canvas_height-y2, outline = "orange")
+#
+#         raw_input('press RETURN to show start and goal')
+#         #create graph - nodes and edges for the point list
+#         myGraph = Graph()
+#         num_points = len(point_list)
+#
+#         # creating nodes
+#         myGraph.add_node("s", start)
+#         myGraph.set_start("s")
+#         myGraph.add_node("g", goal)
+#         myGraph.set_goal("g")
+#         xs = start[0]
+#         ys = start[1]
+#         vWorld.canvas.create_oval(canvas_width+xs-6, canvas_height-ys-6, canvas_width+xs+6, canvas_height-ys+6, outline = "green", fill="green")
+#         xg = goal[0]
+#         yg = goal[1]
+#         vWorld.canvas.create_oval(canvas_width+xg-6, canvas_height-yg-6, canvas_width+xg+6, canvas_height-yg+6, outline = "purple", fill="purple")
+#
+#         raw_input('press RETURN to show points connecting free cells, start, and goal')
+#         point_num = 1
+#         for point in point_list:
+#             myGraph.add_node(str(point_num), point)
+#             x1 = point[0]
+#             y1 = point[1]
+#             vWorld.canvas.create_oval(canvas_width+x1-4, canvas_height-y1-4, canvas_width+x1+4, canvas_height-y1+4, outline = "red")
+#             if self.connected(point, start, f_cell_list):
+#                 g_cost = math.sqrt((xs-x1)*(xs-x1)+(ys-y1)*(ys-y1))
+#                 #print "creating edge: ", "s", str(point_num), g_cost
+#                 myGraph.add_edge("s", str(point_num), g_cost)
+#                 vWorld.canvas.create_line(canvas_width+x1, canvas_height-y1, canvas_width+xs, canvas_height-ys, fill="black")
+#             if self.connected(point, goal, f_cell_list):
+#                 g_cost = math.sqrt((xg-x1)*(xg-x1)+(yg-y1)*(yg-y1))
+#                 #print "creating edge: ", "g", str(point_num), g_cost
+#                 myGraph.add_edge("g", str(point_num), g_cost)
+#                 vWorld.canvas.create_line(canvas_width+x1, canvas_height-y1, canvas_width+xg, canvas_height-yg, fill="black")
+#             point_num += 1
+#
+#         raw_input("press RETURN to show connectivity")
+#         if num_points > 1:
+#             # creating edges
+#             #print "num points: ", num_points
+#             next_point = 2
+#             for i in range (1, num_points+1):
+#                 #print "from: ", i
+#                 point1 = point_list[i-1]
+#                 x1 = point1[0]
+#                 y1 = point1[1]
+#                 for j in range (next_point, num_points+1):
+#                     #print "to: ", j
+#                     point2 = point_list[j-1]
+#                     x2 = point2[0]
+#                     y2 = point2[1]
+#                     if (self.connected(point1, point2, f_cell_list)):
+#                         g_cost = math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))
+#                         #print "creating edge: ", str(i), str(j), g_cost
+#                         myGraph.add_edge(str(i), str(j), g_cost)
+#                         vWorld.canvas.create_line(canvas_width+x1, canvas_height-y1, canvas_width+x2, canvas_height-y2)
+#                 next_point += 1
+#
+#         raw_input('press RETURN to show path')
+#         #print "search: ", myGraph.queue
+#         myGraph.Dijkstra()
+#         path = Queue.LifoQueue()
+#         if myGraph.nodes["g"].back_pointer:
+#             path.put(["pose", myGraph.nodes["g"].data[0], myGraph.nodes["g"].data[1], False])
+#             print "Found path"
+#             path_node = myGraph.nodes["g"].back_pointer
+#             while path_node.back_pointer != False:
+#                 px = path_node.data[0]
+#                 py = path_node.data[1]
+#                 path.put(["pose", px, py, False])
+#                 vWorld.canvas.create_oval(canvas_width+px-6, canvas_height-py-6, canvas_width+px+6, canvas_height-py+6, outline = "red", fill="red")
+#                 path_node = path_node.back_pointer
+#             while not path.empty():
+#                 vWorld.goal_list.append(path.get())
+#                 vWorld.goal_list_index = 0
+#             print "path: ", vWorld.goal_list
+#         else:
+#             print "failed to find path"
+#         return
+#
+#     def compute_c_obstacles(self, vworld, d):
+#         # save c-space obstacle location info in vWorld.cobs[]
+#         for rect in vworld.map:
+#             x1 = rect[0] - d
+#             y1 = rect[1] - d
+#             x2 = rect[2] + d
+#             y2 = rect[3] + d
+#             vworld.cobs.append([x1, y1, x2, y2])
+#
+#     def compute_free_cells(self, cell_list, c_obs_list):
+#         pass
+#         #return f_cell_list
+#
+#     def two_cells_connected(self, cell1, cell2):
+#         # Given two free cells, cell1 and cell2.
+#         # return connecting point[x,y] if two cells are connected
+#         # return False if not connected
+#         pass
+#
+#     def compute_free_points(self, f_cell_list):
+#         # Obstacle free cells are given in f_cell_list
+#         # This function returns a list of points, each point is on overlapping edge of two conncted obstacle free cells.
+#         pass
+#
+#     def connected(self, point1, point2, cell_list):
+#         # given two points in c-space and list of free cells.
+#         # return True if point1 and point2 are connected by a free cell
+#         # otherwise return False
+#         pass
         
 class GUI(object):
     def __init__(self, gui_root, vWorld, endCommand):
@@ -195,7 +195,7 @@ class GUI(object):
         button9.pack(side='left')
         button9.bind('<Button-1>', self.endCommand)
 
-        rCanvas.bind("<Button-1>", self.getGoal)
+        rCanvas.bind("<Button-1>", self.set_goal_where_user_click)
         return
 
     def drawGrid(self, event=None):
@@ -231,31 +231,33 @@ class GUI(object):
         rCanvas.delete("all")
         return
 
-    def getGoal(self, event):
+    def set_goal_where_user_click(self, event):
         self.vWorld.canvas.create_oval(event.x-4, event.y-4, event.x+4, event.y+4, outline = "blue")
 
-        canvas_width = self.vWorld.canvas_width
-        canvas_height = self.vWorld.canvas_height
-        self.vWorld.goal_x = event.x - canvas_width
-        self.vWorld.goal_y = canvas_height - event.y 
-        print "selected goal: ",self.vWorld.goal_x, self.vWorld.goal_y
-        s_point = self.start
-        g_point = [self.vWorld.goal_x, self.vWorld.goal_y]
-        print 'start pose(%s, %s): ' % (s_point[0], s_point[1])
-        print 'goal pose(%s, %s): ' % (g_point[0], g_point[1]) 
-        mp = MotionPlanner(self.vWorld, s_point, g_point)
-        mp.worker()
+        # world area = [-300,-200,300,200]
+
+        # canvas_width = self.vWorld.canvas_width
+        # canvas_height = self.vWorld.canvas_height
+        # self.vWorld.goal_x = event.x - canvas_width
+        # self.vWorld.goal_y = canvas_height - event.y
+        # print "selected goal: ",self.vWorld.goal_x, self.vWorld.goal_y
+        # s_point = self.start
+        # g_point = [self.vWorld.goal_x, self.vWorld.goal_y]
+        # print 'start pose(%s, %s): ' % (s_point[0], s_point[1])
+        # print 'goal pose(%s, %s): ' % (g_point[0], g_point[1])
+        # mp = MotionPlanner(self.vWorld, s_point, g_point)
+        # mp.worker()
         return
 
-class VirtualWorld(object):
+class VirtualWorldManager(object):
     def __init__(self, gui_root):
         self.gui_root = gui_root
         self.gui_handle = None
         self.vWorld = None
-        self.create_world()
+        self.create_world_with_gui()
         return
 
-    def create_world(self):
+    def create_world_with_gui(self):
         self.vWorld = virtual_world()      
         #objects in the world
         self.vWorld.map = []
@@ -303,7 +305,7 @@ class VirtualWorld(object):
 
 def main():
     m = tk.Tk() #root
-    v_world = VirtualWorld(m)
+    v_world = VirtualWorldManager(m)
     m.mainloop()
     return
 
