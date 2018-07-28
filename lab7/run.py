@@ -19,29 +19,40 @@ class TempNode(object):
         '''
         Warning! You need to update current_loss
        '''
-        self.best_loss = -1
-        self.best_distance_walked = -1
+        self.lowest_distance = -1
+        self.lowest_distance_path = None
         self.predicted_distance_to_end = -1
-    def get_next_nodes(self, path, distance_walked, end_point):
-        # Loss Function: update node's memory
-        new_distance_walked = distance_walked
-        if new_distance_walked < self.best_distance_walked:
-            self.best_distance_walked = new_distance_walked
+        self.lowest_loss = -1
+        self.lowest_loss_path = None
+    def update_distance_predicted_distance_loss(self, total_distance, end_point):
+        self.lowest_distance = min(self.lowest_distance, total_distance)
         self.predicted_distance_to_end = get_distance(self.get_coordinate(), end_point)
-        self.best_loss = self.best_distance_walked + self.predicted_distance_to_end
+        self.lowest_loss = min(self.lowest_loss, self.lowest_distance + self.predicted_distance_to_end)  # loss function
+    def get_next_nodes(self, path, total_distance, end_point):
+        # Loss Function: update node's memory
+        """lowest_cost, lowest_cost_path, lowest_distance, lowest_distance_path"""
+        if self.lowest_distance > total_distance:
+            self.lowest_distance = total_distance
+            self.lowest_distance_path = path
+        self.predicted_distance_to_end = get_distance(self.get_coordinate(), end_point)
+        if self.lowest_loss > self.lowest_distance + self.predicted_distance_to_end:  # loss function
+            self.lowest_loss = self.lowest_distance + self.predicted_distance_to_end
+            self.lowest_loss_path = path
 
-        # update dictionary
+        """Update other nodes' cost"""
+        for node in self.dictionary.keys():
+            next_distance = self.dictionary[node]
+            node.update_distance_predicted_distance_loss(total_distance+next_distance, end_point)
 
-
-        x = self.dictionary
-        import operator
-        list_of_tuples_such_that_first_element_is_sorted_by_the_second_element = sorted(x.items(), key=operator.itemgetter(1))
-        next_nodes = []
-        for node_distance_tuples in list_of_tuples_such_that_first_element_is_sorted_by_the_second_element:
-            node = node_distance_tuples[0]
-            distance = node_distance_tuples[1]
-            next_nodes.append(node)
-        return next_nodes
+        return self.dictionary.keys()
+    def get_lowest_loss(self):
+        return self.lowest_loss
+    def get_lowest_distance(self):
+        return self.lowest_distance
+    def get_lowest_loss_path(self):
+        return self.lowest_loss_path
+    def get_lowest_distance_path(self):
+        return self.lowest_distance_path
     def get_x(self):
         return self.x
     def get_y(self):
@@ -188,16 +199,17 @@ class Map(object):
         # remember that start node cannot be the end node
         for node in filtered_temp_node:
             if node.get_coordinate() == self.start_point:
-                self.start_node == node
+                self.start_node = node
                 break
             elif node.get_coordinate() == self.end_point:
-                self.end_node == node
+                self.end_node = node
                 break
 
         # start the thing!
         path = []
         distance = 0
-        nodes_unexplored = [self.start_node]
+        self.start_node.update_distance_predicted_distance_loss(0, self.end_point)
+        nodes_unexplored = {self.start_node: self.start_node.get_lowest_loss()}
         while nodes_unexplored:
             '''
             Definition:
@@ -205,28 +217,35 @@ class Map(object):
             Process:
             1. Sort the nodes_unexplored list by cost
             2. Take out the node with smallest cost
-            3. Explore the node
+            3. *Explore the node
                 - Calculate the next_nodes' cost using next_node's coordinate and lowest_distance
                 - Tell the node path and store inside as a list: it may not be the lowest_distance_path, but it should be the lowest_cost_path
                 - Update the lowest_cost, lowest_cost_path, lowest_distance, lowest_distance_path (other paths are not worth to be stored)
                 - Node should return a list unexplored nodes for adding to nodes_unexplored list
-            4. If the node successfully connect to the end_node, print out the lowest_cost_path
+            4. *If the node successfully connect to the end_node, print out the lowest_cost_path
             5. If the nodes_unexplored is empty, terminate search
             6. Otherwise, go to #1 again
            '''
-            pass
-        for next_node in self.start_node.node.get_next_nodes(path, distance, self.end_point):
-            # search next_node (without going to the explored node), tell the node the path, tell the node distance, get next_node
-            # the node should update [best path && best distance && fake_distance to get to end note]
-            # search next_node (without going to the explored node), get next_node
-            # search next_node (without going to the explored node), get next_node
-            # search next_node (without going to the explored node), get next_node
-            # search next_node (without going to the explored node), get next_node
-            # search next_node (without going to the explored node), get next_node
-            # until there is no node -> no path
-            # or to the end_point -> a path
+            next_node = None
+            for key, value in sorted(nodes_unexplored.iteritems(), key=lambda (k, v): (v, k)):
+                # print "%s: %s" % (key, value)
+                next_node = key
+                break
+            nodes_unexplored = merge_two_dicts(nodes_unexplored, key.get_next_nodes())
 
             pass
+        # for next_node in self.start_node.node.get_next_nodes(path, distance, self.end_point):
+        #     # search next_node (without going to the explored node), tell the node the path, tell the node distance, get next_node
+        #     # the node should update [best path && best distance && fake_distance to get to end note]
+        #     # search next_node (without going to the explored node), get next_node
+        #     # search next_node (without going to the explored node), get next_node
+        #     # search next_node (without going to the explored node), get next_node
+        #     # search next_node (without going to the explored node), get next_node
+        #     # search next_node (without going to the explored node), get next_node
+        #     # until there is no node -> no path
+        #     # or to the end_point -> a path
+        #
+        #     pass
 # class PhysicalNode(object):
 #     def __init__(self, x, y, to_nodes, to_distances, started=False):
 #         # the actual coordinate on the map

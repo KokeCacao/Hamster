@@ -11,13 +11,15 @@
 '''
 import sys
 import Tkinter as tk
+# import tkinter as tk
 # noinspection PyUnresolvedReferences
-from HamsterAPI.comm_ble import RobotComm
+from HamsterAPI.comm_usb import RobotComm
 #for PC, need to import from commm_usb
 
 class Robots(object):
     def __init__(self, robotList):
         self.robotList = robotList
+        self.speed = 10
         return
 
     def move_degree(self, degree=None, move_x=None, move_y=None, event=None):
@@ -77,50 +79,50 @@ class Robots(object):
     def move_forward(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                robot.set_wheel(0,100)
-                robot.set_wheel(1,100)
+                robot.set_wheel(0,self.speed)
+                robot.set_wheel(1,self.speed)
 
     def move_backward(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                robot.set_wheel(0,-100)
-                robot.set_wheel(1,-100)
+                robot.set_wheel(0,-self.speed)
+                robot.set_wheel(1,-self.speed)
 
     def move_left(self, event=None):
         if self.robotList:
             for robot in self.robotList:
                 robot.set_wheel(0,0)
-                robot.set_wheel(1,100)
+                robot.set_wheel(1,self.speed)
 
     def move_back_left(self, event=None):
         if self.robotList:
             for robot in self.robotList:
                 robot.set_wheel(0,0)
-                robot.set_wheel(1,-100)
+                robot.set_wheel(1,-self.speed)
 
     def move_right(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                robot.set_wheel(0,100)
+                robot.set_wheel(0,self.speed)
                 robot.set_wheel(1,0)
 
     def move_back_right(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                robot.set_wheel(0,-100)
+                robot.set_wheel(0,-self.speed)
                 robot.set_wheel(1,0)
 
     def turn_right(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                robot.set_wheel(0,100)
-                robot.set_wheel(1,-100)
+                robot.set_wheel(0,self.speed)
+                robot.set_wheel(1,-self.speed)
 
     def turn_left(self, event=None):
         if self.robotList:
             for robot in self.robotList:
-                robot.set_wheel(0,-100)
-                robot.set_wheel(1,100)
+                robot.set_wheel(0,-self.speed)
+                robot.set_wheel(1,self.speed)
 
     def get_prox_l(self, event=None):
         if self.robotList:
@@ -322,6 +324,18 @@ class UI(object):
         self.prox_l_id.config(text="ProxLeft: " + str(prox_l))
         self.prox_r_id.config(text="ProxRight: " + str(prox_r))
 
+        # write the file
+        temp = self.robot_handle.get_temperature()
+
+        with open("floor_l_file.txt", "a+") as floor_l_file:
+            floor_l_file.write("%s\n" % str(floor_l))
+        with open("floor_r_file.txt", "a+") as floor_r_file:
+            floor_r_file.write("%s\n" % str(floor_r))
+        with open("prox_l_file.txt", "a+") as prox_l_file:
+            prox_l_file.write("%s\n" % str(prox_l))
+        with open("prox_r_file.txt", "a+") as prox_r_file:
+            prox_r_file.write("%s\n" % str(prox_r))
+
         # update floor and prox visualization
         if floor_l > 50:
             self.canvas.itemconfig(self.canvas_floorl_id, fill="white")
@@ -343,20 +357,20 @@ class UI(object):
     ####################################################
     def keydown(self, event):
         key = event.keycode
-        print "keycode down =",str(key)
+        print("keycode down = " + str(key))
         # small, big
         if key == 97 or key == 64:
             self.key_a = True
-            print "key a"
+            print("key a")
         if key == 115 or key == 83 or key == 65651:
             self.key_s = True
-            print "key s"
+            print("key s")
         if key == 119 or key == 87 or key == 852087:
             self.key_w = True
-            print "key w"
+            print("key w")
         if key == 100 or key == 68 or key == 131172:
             self.key_d = True
-            print "key d"
+            print("key d")
 
         self.key_refresh()
     #####################################################
@@ -365,20 +379,20 @@ class UI(object):
     #####################################################
     def keyup(self, event):
         key = event.keycode
-        print "keycode up =",str(key)
+        print("keycode up = " + str(key))
         # small, big
         if key == 97 or key == 64:
             self.key_a = False
-            print "keyup a"
+            print("keyup a")
         if key == 115 or key == 83 or key == 65651:
             self.key_s = False
-            print "keyup s"
+            print("keyup s")
         if key == 119 or key == 87 or key == 852087:
             self.key_w = False
-            print "keyup w"
+            print("keyup w")
         if key == 100 or key == 68 or key == 131172:
             self.key_d = False
-            print "keyup d"
+            print("keyup d")
 
         self.key_refresh()
     def key_refresh(self):
@@ -405,7 +419,7 @@ class UI(object):
         self.move_degree = math.atan2(self.move_y, self.move_x)/math.pi*180  # transfer coordinate into degree
         if self.move_degree < 0:
             self.move_degree = self.move_degree + 360
-        print "degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")"
+        print("degree="+str(self.move_degree)+" and ("+str(self.move_x)+", "+str(self.move_y)+")")
         self.robot_handle.move_degree(degree=self.move_degree, move_x=self.move_x, move_y=self.move_y)
 
     def stopProg(self, event=None):
@@ -417,7 +431,7 @@ def main(argv=None):
     gMaxRobotNum = 1 # max number of robots to control
     comm = RobotComm(gMaxRobotNum)
     comm.start()
-    print 'Bluetooth starts'
+    print('Bluetooth starts')
     robotList = comm.robotList
 
     robot_handle = Robots(robotList)

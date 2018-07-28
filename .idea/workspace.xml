@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab2/race.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/race.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab7/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab7/starter_motion_planning_only.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/starter_motion_planning_only.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,14 +14,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab7/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="214" column="40" selection-start-line="214" selection-start-column="40" selection-end-line="214" selection-end-column="40" />
+            <state relative-caret-position="-2052">
+              <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#995#2978#0" />
                 <element signature="e#5464#5493#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="race.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab2/race.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="334" column="51" lean-forward="true" selection-start-line="334" selection-start-column="51" selection-end-line="334" selection-end-column="51" />
+              <folding>
+                <element signature="e#322#332#0" expanded="true" />
+                <element signature="e#668#1385#0" />
               </folding>
             </state>
           </provider>
@@ -111,7 +125,7 @@
     <findStrings>
       <find>{}</find>
       <find>'robot</find>
-      <find />
+      <find>canvas =</find>
       <find>gui_root</find>
       <find>ov</find>
       <find>paths</find>
@@ -171,12 +185,12 @@
         <option value="$PROJECT_DIR$/lab1/run.py" />
         <option value="$PROJECT_DIR$/lab7/starter_motion_planning_only.py" />
         <option value="$PROJECT_DIR$/lab7/run.py" />
+        <option value="$PROJECT_DIR$/lab2/race.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="85" />
-    <option name="y" value="25" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
@@ -269,12 +283,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="0" width="1400" height="776" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963924" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5032552" side_tool="true" visible="true" weight="0.11234397" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5032552" side_tool="true" visible="true" weight="0.1229135" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49674478" weight="0.29819694" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
@@ -551,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/race.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="103" column="38" lean-forward="true" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab3/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2717">
@@ -600,16 +607,6 @@
           <folding>
             <element signature="e#904#924#0" expanded="true" />
             <element signature="e#1054#1575#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="374" column="8" selection-start-line="374" selection-start-column="8" selection-end-line="374" selection-end-column="151" />
-          <folding>
-            <element signature="e#322#332#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -728,13 +725,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7106">
+          <caret line="374" column="8" selection-start-line="374" selection-start-column="8" selection-end-line="374" selection-end-column="151" />
+          <folding>
+            <element signature="e#322#332#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab7/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="214" column="40" selection-start-line="214" selection-start-column="40" selection-end-line="214" selection-end-column="40" />
+        <state relative-caret-position="-2052">
+          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#995#2978#0" />
             <element signature="e#5464#5493#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/race.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="334" column="51" lean-forward="true" selection-start-line="334" selection-start-column="51" selection-end-line="334" selection-end-column="51" />
+          <folding>
+            <element signature="e#322#332#0" expanded="true" />
+            <element signature="e#668#1385#0" />
           </folding>
         </state>
       </provider>
