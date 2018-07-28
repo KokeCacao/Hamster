@@ -359,7 +359,7 @@ class UI(object):
         key = event.keycode
         print("keycode down = " + str(key))
         # small, big
-        if key == 97 or key == 64:
+        if key == 97 or key == 64 or key == 65:
             self.key_a = True
             print("key a")
         if key == 115 or key == 83 or key == 65651:
@@ -381,7 +381,7 @@ class UI(object):
         key = event.keycode
         print("keycode up = " + str(key))
         # small, big
-        if key == 97 or key == 64:
+        if key == 97 or key == 64 or key == 65:
             self.key_a = False
             print("keyup a")
         if key == 115 or key == 83 or key == 65651:
