@@ -1,19 +1,15 @@
-# Hamster
-Stanford Summer Project
-
-# API File
 '''
-/* =======================================================================
+/* ======================================
    (c) 2015, Kre8 Technology, Inc.
 
    PROPRIETARY and CONFIDENTIAL
-   ========================================================================*/
+   ======================================*/
 '''
 
 # This is not a executable Python file. Reference only.
 # This shows the API's provided by HamsterAPI/robot.py
 
-class RobotAPI(object):
+    class RobotAPI(object):
     def set_sensors(self, buf, from_hex):
     def get_effectors(self, to_hex):
     def reset(self): # everthing is set to 0 except setf.set_command(1)
