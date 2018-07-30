@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a24b90-56b3-44c5-898b-84144c7bf80b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lab2/.ipynb_checkpoints/FloorDataAnalizingForLocolization-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2/FloorDataAnalizingForLocolization.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2/floor_l_file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2/floor_r_file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2/prox_l_file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2/prox_r_file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2/race.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2/race.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab7/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,26 +28,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab2/run.py">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab6/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="382" column="42" selection-start-line="382" selection-start-column="39" selection-end-line="382" selection-end-column="42" />
+            <state relative-caret-position="400">
+              <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
               <folding>
-                <element signature="e#322#332#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="race.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lab2/race.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="383" column="46" selection-start-line="383" selection-start-column="46" selection-end-line="383" selection-end-column="46" />
-              <folding>
-                <element signature="e#322#332#0" expanded="true" />
-                <element signature="e#668#1385#0" />
+                <element signature="e#5877#6100#0" />
+                <element signature="e#7421#7757#0" />
+                <element signature="e#7792#8129#0" />
               </folding>
             </state>
           </provider>
@@ -142,11 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'robot</find>
-      <find>canvas =</find>
-      <find>gui_root</find>
-      <find>ov</find>
-      <find>paths</find>
       <find>PATH</find>
       <find>print</find>
       <find>line</find>
@@ -167,11 +144,16 @@
       <find>getGoal</find>
       <find>virtual_world</find>
       <find>compute_free_cells</find>
-      <find>vWorld</find>
       <find>distance</find>
       <find>loss</find>
-      <find>get_next_nodes</find>
       <find>key</find>
+      <find>state</find>
+      <find>current_node</find>
+      <find>task_complete</find>
+      <find>unexpected_obstacle_node</find>
+      <find>get_next_nodes</find>
+      <find>vWorld</find>
+      <find>ref</find>
     </findStrings>
     <replaceStrings>
       <replace>sm</replace>
@@ -200,16 +182,17 @@
         <option value="$PROJECT_DIR$/lab7/lab_description.txt" />
         <option value="$PROJECT_DIR$/lab7/tk_hamster_GUI_Sim.py" />
         <option value="$PROJECT_DIR$/lab6/test.py" />
-        <option value="$PROJECT_DIR$/lab6/run.py" />
         <option value="$PROJECT_DIR$/lab1/run.py" />
         <option value="$PROJECT_DIR$/lab7/starter_motion_planning_only.py" />
         <option value="$PROJECT_DIR$/lab7/run.py" />
         <option value="$PROJECT_DIR$/lab2/race.py" />
+        <option value="$PROJECT_DIR$/lab6/run.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="73" />
+    <option name="y" value="26" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
@@ -302,7 +285,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1400" height="776" extended-state="0" />
+    <frame x="59" y="21" width="1400" height="776" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963924" />
@@ -369,7 +352,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -549,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab1/starter_tk_behaviors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab3/Note.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1235">
@@ -581,13 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2717">
-          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -690,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab6/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="188" column="34" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab7/tk_hamster_GUI_Sim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-127">
@@ -719,27 +681,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab7/starter_motion_planning_only.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="236" column="23" selection-start-line="236" selection-start-column="23" selection-end-line="236" selection-end-column="23" />
-          <folding>
-            <element signature="e#392#422#0" />
-            <element signature="e#6908#7930#0" />
-            <element signature="e#7976#8751#0" />
-            <element signature="e#8796#8818#0" />
-            <element signature="e#8867#8940#0" />
-            <element signature="e#11194#11229#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/tk_simulator_joystick_starter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="89" column="32" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="32" />
           <folding>
             <element signature="e#287#307#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab2/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="382" column="42" selection-start-line="382" selection-start-column="39" selection-end-line="382" selection-end-column="42" />
+          <folding>
+            <element signature="e#322#332#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -756,23 +713,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/run.py">
+    <entry file="file://$PROJECT_DIR$/lab2/race.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="382" column="42" selection-start-line="382" selection-start-column="39" selection-end-line="382" selection-end-column="42" />
+        <state relative-caret-position="361">
+          <caret line="385" column="19" selection-start-line="385" selection-start-column="19" selection-end-line="385" selection-end-column="19" />
           <folding>
             <element signature="e#322#332#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/race.py">
+    <entry file="file://$PROJECT_DIR$/lab1/starter_tk_behaviors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="383" column="46" selection-start-line="383" selection-start-column="46" selection-end-line="383" selection-end-column="46" />
+        <state relative-caret-position="-1014">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3133">
+          <caret line="188" column="28" selection-start-line="188" selection-start-column="28" selection-end-line="188" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab7/starter_motion_planning_only.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="236" column="23" selection-start-line="236" selection-start-column="23" selection-end-line="236" selection-end-column="23" />
           <folding>
-            <element signature="e#322#332#0" expanded="true" />
-            <element signature="e#668#1385#0" />
+            <element signature="e#392#422#0" />
+            <element signature="e#6908#7930#0" />
+            <element signature="e#7976#8751#0" />
+            <element signature="e#8796#8818#0" />
+            <element signature="e#8867#8940#0" />
+            <element signature="e#11194#11229#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+          <folding>
+            <element signature="e#5877#6100#0" />
+            <element signature="e#7421#7757#0" />
+            <element signature="e#7792#8129#0" />
           </folding>
         </state>
       </provider>

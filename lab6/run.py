@@ -87,19 +87,43 @@ class Node(object):
             # return path  # ending return in each path
 
 class RobotBehaviorThread(threading.Thread):
-    def __init__(self, robotList, path):
-        self.state = 0  # 0 = go_front, 1 =
+    def __init__(self, robotList, path, orientation, gui_handle):
         self.current_node = (0, 0)
-        self.orientation = 90
+        self.current_task = -1
+        self.orientation = orientation
+        self.gui_handle = gui_handle
         # self.go = False
         # self.done = False
         super(RobotBehaviorThread, self).__init__()
         self.robot_list = robotList
         self.robot = robotList[0]
-        self.task_complete = 0
+        self.meet_unexpected_obstacle = False
+        self.unexpected_obstacle_node = None
         self.path = path
 
+    def run(self):
         for i, node in enumerate(self.path):
+            if self.meet_unexpected_obstacle:
+                # start re-plan the path
+                global global_start
+                global_start = self.current_node
+                global global_end
+                global_end = global_end
+                print("Unexpected: " + str(self.unexpected_obstacle_node))
+                global global_blocks
+                global_blocks = global_blocks.union(set([self.unexpected_obstacle_node]))
+
+                grid_map, all_paths, success_paths, best_path = find_best_path(global_rows, global_cols, global_start, global_end, global_blocks)
+                self.gui_handle.refresh(global_blocks, grid_map, all_paths, success_paths, global_start, global_end, best_path)
+                behaviors = RobotBehaviorThread(self.robot_list, best_path, self.orientation, self.gui_handle)
+                behaviors.setDaemon(True)
+                behaviors.start()
+                break  # end thread
+            self.current_node = node
+            #############################################
+            #############################################
+
+            self.current_task = i
             if i != 0:
                 from_node_x = self.path[i-1][0]
                 from_node_y = self.path[i-1][1]
@@ -146,6 +170,14 @@ class RobotBehaviorThread(threading.Thread):
                             while self.orientation != 90:
                                 self.turn_right()
                         self.go_front()
+        self.current_node = self.path[len(self.path) - 1]
+        self.robot.set_musical_note(40)
+        time.sleep(0.2)
+        self.robot.set_musical_note(41)
+        time.sleep(0.2)
+        self.robot.set_musical_note(42)
+        time.sleep(0.2)
+        self.robot.set_musical_note(0)
 
     def add_orientation(self, degree):
         self.orientation = self.orientation + degree
@@ -156,34 +188,53 @@ class RobotBehaviorThread(threading.Thread):
 
     def go_front(self):
         while self.robot:
-            if self.state == 0:
-                left_black = self.robot.get_floor(0) < 50
-                right_black = self.robot.get_floor(1) < 50
+            # check if obstacle in front
+            prox_l = None
+            prox_r = None
+            # make sure that the prox is accurate
+            if 50 > self.robot.get_proximity(0) > 40 and 50 > self.robot.get_proximity(1) > 40:  # threshold
+                prox_l = self.robot.get_proximity(0)
+                prox_r = self.robot.get_proximity(1)
+            if prox_l and prox_r:
+                # obstacle detection
+                self.meet_unexpected_obstacle = True
+                self.unexpected_obstacle_node = self.path[self.current_task + 1]
+
+                # notice
+                self.robot.set_musical_note(40)
+                time.sleep(0.2)
+                self.robot.set_musical_note(40)
+                time.sleep(0.2)
+                self.robot.set_musical_note(40)
+                time.sleep(0.2)
                 self.robot.set_musical_note(0)
+                break  # stop going front
 
-                if left_black == right_black:
-                    if left_black:
-                        self.robot.set_musical_note(40)
-                        self.robot.set_wheel(0, 20)
-                        self.robot.set_wheel(1, 20)
-                        time.sleep(0.5)
-                        self.robot.set_wheel(0, 0)
-                        self.robot.set_wheel(1, 0)
-                        self.task_complete = self.task_complete + 1
-                        self.robot.set_musical_note(0)
-                        break
+            left_black = self.robot.get_floor(0) < 50
+            right_black = self.robot.get_floor(1) < 50
+            self.robot.set_musical_note(0)
+
+            if left_black == right_black:
+                if left_black:
+                    self.robot.set_musical_note(40)
                     self.robot.set_wheel(0, 20)
                     self.robot.set_wheel(1, 20)
-                elif left_black == True and right_black == False:  # turn left
-                    self.robot.set_wheel(0, -20)
-                    self.robot.set_wheel(1, 20)
-                elif left_black == False and right_black == True:  # turn right
-                    self.robot.set_wheel(0, 20)
-                    self.robot.set_wheel(1, -20)
+                    time.sleep(0.5)
+                    self.robot.set_wheel(0, 0)
+                    self.robot.set_wheel(1, 0)
+                    self.robot.set_musical_note(0)
+                    break
+                self.robot.set_wheel(0, 20)
+                self.robot.set_wheel(1, 20)
+            elif left_black == True and right_black == False:  # turn left
+                self.robot.set_wheel(0, -20)
+                self.robot.set_wheel(1, 20)
+            elif left_black == False and right_black == True:  # turn right
+                self.robot.set_wheel(0, 20)
+                self.robot.set_wheel(1, -20)
 
-            time.sleep(0.001)
-        time.sleep(2)
-
+            time.sleep(0.001)  # time refresh
+        time.sleep(1)  # time sleep when get to node
     def turn_left(self):
         self.robot.set_wheel(0, -50)
         self.robot.set_wheel(1, 50)
@@ -198,33 +249,12 @@ class RobotBehaviorThread(threading.Thread):
         self.add_orientation(-90)
         self.robot.set_wheel(0, 0)
         self.robot.set_wheel(1, 0)
-    # def go_front(self):
-    #     self.robot.set_wheel(0, 51)
-    #     self.robot.set_wheel(1, 50)
-    #     time.sleep(4.6/7)  # 4.6 = 7 grid
-    #     self.robot.set_wheel(0, 0)
-    #     self.robot.set_wheel(1, 0)
 
-def main():
-    # instantiate COMM object
-    gMaxRobotNum = 1  # max number of robots to control
-    comm = RobotComm(gMaxRobotNum)
-    comm.start()
-    print 'Bluetooth starts'
-    robotList = comm.robotList
-
-    # settings
-    rows = 4
-    cols = 3
-    start = (0, 0)
-    end = (2, 1)
-    blocks = {(1, 1), (3, 0), (2, 2)}
-
+def find_best_path(rows, cols, start, end, blocks):
     grid_map = set()
-    for row in range(rows+1):  # BUG: remember to add 1
-        for col in range(cols+1):  # BUG: remember to add 1
+    for row in range(rows + 1):  # BUG: remember to add 1
+        for col in range(cols + 1):  # BUG: remember to add 1
             grid_map.add((row, col))
-
     grid = Grid()
     node = Node(x=start[0], y=start[1], blocks=blocks, grid_map=grid_map, grid=grid, path=[], end=end)
     node.run()
@@ -245,12 +275,34 @@ def main():
             # print "UPDATE_BEST: len=", str(length), str(path)
         # print "SUCCESS_PATH: len=", str(length), str(path)
     print "OUR CHAIMPION IS:", str(best_path)
+    return grid_map, all_paths, success_paths, best_path
+
+# ===== Configuration =====
+global_rows = 4
+global_cols = 3
+global_start = (0, 0)
+global_end = (4, 0)
+global_blocks = {(1, 1), (3, 0), (2, 2)}
+global_orientation = 90
+# ===== Configuration =====
+
+def main():
+    # instantiate COMM object
+    gMaxRobotNum = 1  # max number of robots to control
+    comm = RobotComm(gMaxRobotNum)
+    comm.start()
+    print 'Bluetooth starts'
+    robotList = comm.robotList
+
+    # settings
+
+
+    grid_map, all_paths, success_paths, best_path = find_best_path(global_rows, global_cols, global_start, global_end, global_blocks)
 
     root = tk.Tk()
-    gui_handle = GridGraphDisplay(frame=root, blocks=blocks, grid_map=grid_map, all_path=all_paths, success_paths=success_paths, start=start, end=end, best_path=best_path)
     # gui_handle.draw_virtual_world()  # this method runs in main thread
-
-    behaviors = RobotBehaviorThread(robotList, best_path)
+    gui_handle = GridGraphDisplay(frame=root, blocks=global_blocks, grid_map=grid_map, all_path=all_paths, success_paths=success_paths, start=global_start, end=global_end, best_path=best_path)
+    behaviors = RobotBehaviorThread(robotList, best_path, global_orientation, gui_handle)
     behaviors.setDaemon(True)
     behaviors.start()
 
@@ -288,19 +340,32 @@ class GridGraphDisplay(object):
         self.drawn_start = None
         self.end = None
 
-        self.display_graph()
+        self.gui_root.title("Hamster Simulator")
+        self.canvas = tk.Canvas(self.gui_root, bg="white", width=440 * 2, height=330 * 2)
+        self.canvas.pack()
+
+        self.refresh(blocks, grid_map, all_path, success_paths, start, end, best_path)
         # self.graph = graph
         # self.nodes_location = graph.node_display_locations
         # self.start_node = graph.startNode
         # self.goal_node = graph.goalNode
         return
 
+    def refresh(self, blocks, grid_map, all_path, success_paths, start, end, best_path):
+        self.canvas.delete("all")
+        # getting info
+        self.blocks = blocks
+        self.grid_map = grid_map
+        self.all_path = all_path
+        self.success_path = success_paths
+        self.start = start
+        self.end = end
+        self.best_path = best_path
+        self.display_graph()
+
     # draws nodes and edges in a graph
     def display_graph(self):
         # start canvas
-        self.gui_root.title("Hamster Simulator")
-        self.canvas = tk.Canvas(self.gui_root, bg="white", width=440 * 2, height=330 * 2)
-        self.canvas.pack()
 
         # draw lines
         for path in self.all_path:
@@ -350,7 +415,7 @@ class GridGraphDisplay(object):
     def draw_block(self, block):
         x = block[0] * self.scale + self.shift_x
         y = block[1] * self.scale + self.shift_y
-        self.drawn_blocks.append(self.create_circle(x, y, width=self.node_width, fill="black", outline="black"))
+        self.drawn_blocks.append(self.create_circle(x, y, width=self.node_width, fill="white", outline="white"))
 
     def create_circle(self, x, y, width, fill, outline):
         return self.canvas.create_oval(x-width/2, y-width/2, x+width/2, y+width/2, width=width, fill=fill, outline=outline)
