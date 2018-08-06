@@ -1,6 +1,6 @@
 
 # noinspection PyUnresolvedReferences
-from HamsterAPI.comm_usb import RobotComm
+from HamsterAPI.comm_ble import RobotComm
 import Tkinter as tk
 import sys
 import time

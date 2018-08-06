@@ -31,8 +31,8 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab6/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+            <state relative-caret-position="419">
+              <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
               <folding>
                 <element signature="e#5877#6100#0" />
                 <element signature="e#7421#7757#0" />
@@ -190,7 +190,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="73" />
     <option name="y" value="26" />
     <option name="width" value="1750" />
@@ -754,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab6/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+        <state relative-caret-position="419">
+          <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
           <folding>
             <element signature="e#5877#6100#0" />
             <element signature="e#7421#7757#0" />
