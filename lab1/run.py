@@ -15,7 +15,7 @@ import sys
 import time
 import threading
 import Tkinter as tk
-# from HamsterAPI.comm_ble import RobotComm  # no dongle
+#from HamsterAPI.comm_ble import RobotComm  # no dongle
 # noinspection PyUnresolvedReferences
 from HamsterAPI.comm_usb import RobotComm # yes dongle
 
